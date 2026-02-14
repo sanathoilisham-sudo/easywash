@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyWash - Professional Laundry & Garment Care Services | LG Enterprises</title>
+  <meta name="description" content="EasyWash by LG Enterprises provides professional laundry, dry cleaning, blanket wash, and garment care services in Imphal, Manipur.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; }
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header { background: #2c3e50; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 22px; font-weight: 700; }
+    header h1 span { color: #3498db; }
+    nav a { color: #ecf0f1; margin-left: 20px; font-size: 14px; }
+    nav a:hover { color: #3498db; text-decoration: none; }
+
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 80px 0; text-align: center; }
+    .hero h2 { font-size: 42px; margin-bottom: 15px; }
+    .hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 8px 20px; border-radius: 20px; font-size: 14px; }
+
+    /* Services */
+    .services { padding: 60px 0; background: #f8f9fa; }
+    .services h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: #2c3e50; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+    .service-card { background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.2s; }
+    .service-card:hover { transform: translateY(-3px); }
+    .service-card .icon { font-size: 40px; margin-bottom: 15px; }
+    .service-card h3 { margin-bottom: 10px; color: #2c3e50; }
+    .service-card p { font-size: 14px; color: #7f8c8d; }
+
+    /* About */
+    .about { padding: 60px 0; }
+    .about h2 { font-size: 32px; margin-bottom: 20px; color: #2c3e50; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .about-info { background: #f8f9fa; padding: 30px; border-radius: 10px; }
+    .about-info p { margin-bottom: 10px; }
+    .about-info strong { color: #2c3e50; }
+
+    /* Contact */
+    .contact { padding: 60px 0; background: #f8f9fa; }
+    .contact h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: #2c3e50; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+    .contact-card { background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .contact-card .icon { font-size: 30px; margin-bottom: 10px; }
+    .contact-card h3 { margin-bottom: 8px; color: #2c3e50; font-size: 16px; }
+    .contact-card p { color: #7f8c8d; font-size: 14px; }
+
+    /* Footer */
+    footer { background: #2c3e50; color: #ecf0f1; padding: 40px 0 20px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+    .footer-col h3 { margin-bottom: 15px; font-size: 16px; }
+    .footer-col p, .footer-col a { font-size: 14px; color: #bdc3c7; display: block; margin-bottom: 8px; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid #34495e; padding-top: 20px; text-align: center; font-size: 13px; color: #7f8c8d; }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 28px; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Easy<span>Wash</span></h1>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Laundry Made Easy!</h2>
+      <p>Professional laundry, dry cleaning, and garment care services by LG Enterprises in Imphal, Manipur.</p>
+      <div class="hero-badge">Trusted by hundreds of families in Imphal</div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">&#128085;</div>
+          <h3>Regular Laundry</h3>
+          <p>Wash, dry, and fold service for your everyday clothes. Fresh and clean, ready to wear.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">&#10024;</div>
+          <h3>Dry Cleaning</h3>
+          <p>Professional dry cleaning for delicate fabrics, suits, sarees, and formal wear.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">&#128716;</div>
+          <h3>Blanket Wash</h3>
+          <p>Deep cleaning for blankets, comforters, and heavy bedding items.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">&#9889;</div>
+          <h3>Bulk Wash</h3>
+          <p>Cost-effective bulk washing service for large volumes of laundry.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">&#128094;</div>
+          <h3>Ironing & Pressing</h3>
+          <p>Crisp ironing and professional pressing for a polished look.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">&#128666;</div>
+          <h3>Pickup & Delivery</h3>
+          <p>Convenient doorstep pickup and delivery across Imphal city.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <div class="about-grid">
+        <div>
+          <p style="font-size:16px; margin-bottom:15px;">
+            <strong>EasyWash</strong> is a professional laundry and garment care brand operated by <strong>LG Enterprises</strong>,
+            based in Khongman Zone III, Imphal East, Manipur. We provide high-quality laundry services including regular wash,
+            dry cleaning, blanket wash, bulk wash, ironing, and doorstep pickup and delivery.
+          </p>
+          <p style="font-size:16px; margin-bottom:15px;">
+            Our mission is to make laundry hassle-free for families and businesses in Imphal. With careful handling,
+            eco-friendly detergents, and timely service, we ensure your garments are returned fresh, clean, and well-cared for.
+          </p>
+          <p style="font-size:16px;">
+            We also offer additional services including driving licence assistance, vehicle insurance, and other public services
+            through LG Enterprises to serve our community better.
+          </p>
+        </div>
+        <div class="about-info">
+          <p><strong>Business Name:</strong> LG Enterprises</p>
+          <p><strong>Brand Name:</strong> EasyWash</p>
+          <p><strong>UDYAM Registration:</strong> UDYAM-MN-04-0017485</p>
+          <p><strong>Address:</strong> Khongman Zone III, Lisham Leirak, Imphal East, Manipur 795008, India</p>
+          <p><strong>Phone:</strong> +91 6009451743</p>
+          <p><strong>WhatsApp:</strong> +91 87876 62431</p>
+          <p><strong>Email:</strong> support@easywashs.com</p>
+          <p><strong>Website:</strong> easywashs.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="icon">&#128205;</div>
+          <h3>Visit Us</h3>
+          <p>Khongman Zone III, Lisham Leirak<br>Imphal East, Manipur 795008<br>India</p>
+        </div>
+        <div class="contact-card">
+          <div class="icon">&#128222;</div>
+          <h3>Call Us</h3>
+          <p>Phone: +91 6009451743<br>WhatsApp: +91 87876 62431</p>
+        </div>
+        <div class="contact-card">
+          <div class="icon">&#128231;</div>
+          <h3>Email Us</h3>
+          <p>support@easywashs.com</p>
+        </div>
+        <div class="contact-card">
+          <div class="icon">&#128336;</div>
+          <h3>Working Hours</h3>
+          <p>Monday - Saturday<br>8:00 AM - 7:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>EasyWash</h3>
+          <p>Professional laundry and garment care services by LG Enterprises, Imphal, Manipur.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="#services">Our Services</a>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p>+91 6009451743</p>
+          <p>+91 87876 62431 (WhatsApp)</p>
+          <p>support@easywashs.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024-2026 LG Enterprises (EasyWash). All rights reserved. | UDYAM-MN-04-0017485
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

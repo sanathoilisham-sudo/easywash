@@ -1,0 +1,89 @@
+PRIVACY POLICY
+
+Last updated: February 14, 2026
+
+LG Enterprises, operating under the brand name EasyWash ("we", "us", or "our"), is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you use our services, visit our website (easywashs.com), or interact with us through WhatsApp or other communication channels.
+
+1. BUSINESS INFORMATION
+
+Business Name: LG Enterprises (Trade Name: EasyWash)
+UDYAM Registration: UDYAM-MN-04-0017485
+Address: Khongman Zone III, Lisham Leirak, Imphal East, Manipur 795008, India
+Phone: +91 6009451743
+WhatsApp: +91 87876 62431
+Email: support@easywashs.com
+Website: https://easywashs.com
+
+2. INFORMATION WE COLLECT
+
+We may collect the following personal information:
+- Name and contact details (phone number, WhatsApp number, email address)
+- Address for pickup and delivery services
+- Service preferences and order history
+- Payment information and transaction records
+- Communication records through WhatsApp and other channels
+- Website usage data through cookies and analytics
+
+3. HOW WE USE YOUR INFORMATION
+
+We use your personal information for the following purposes:
+- To provide and manage our laundry, dry cleaning, and garment care services
+- To process orders, payments, and deliver services
+- To communicate with you regarding your orders, updates, and promotions via WhatsApp, SMS, or phone calls
+- To send service reminders and notifications through WhatsApp Business API
+- To improve our services and customer experience
+- To comply with legal obligations
+
+4. WHATSAPP BUSINESS COMMUNICATIONS
+
+We use the WhatsApp Business API to communicate with our customers. By providing your WhatsApp number, you consent to receive:
+- Order confirmations and status updates
+- Pickup and delivery notifications
+- Service reminders and follow-ups
+- Promotional offers (you can opt out at any time)
+
+You can opt out of WhatsApp communications at any time by sending "STOP" to our WhatsApp number or by contacting us directly.
+
+5. DATA SHARING
+
+We do not sell, trade, or rent your personal information to third parties. We may share your data with:
+- Service providers who assist in our operations (payment processors, delivery partners)
+- Legal authorities if required by law
+- Meta Platforms (for WhatsApp Business API communications)
+
+6. DATA SECURITY
+
+We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.
+
+7. DATA RETENTION
+
+We retain your personal information for as long as necessary to fulfill the purposes for which it was collected, including to satisfy any legal, accounting, or reporting requirements.
+
+8. YOUR RIGHTS
+
+You have the right to:
+- Access your personal data
+- Correct inaccurate data
+- Request deletion of your data
+- Opt out of marketing communications
+- Withdraw consent for data processing
+
+To exercise any of these rights, please contact us at support@easywashs.com or call +91 6009451743.
+
+9. COOKIES
+
+Our website uses cookies to enhance your browsing experience. You can choose to accept or decline cookies through your browser settings.
+
+10. CHANGES TO THIS POLICY
+
+We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.
+
+11. CONTACT US
+
+If you have any questions about this Privacy Policy, please contact us:
+LG Enterprises (EasyWash)
+Khongman Zone III, Lisham Leirak
+Imphal East, Manipur 795008, India
+Email: support@easywashs.com
+Phone: +91 6009451743
+WhatsApp: +91 87876 62431
