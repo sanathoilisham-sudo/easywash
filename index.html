@@ -60,6 +60,18 @@
       from { filter: blur(8px); opacity: 0.5; }
       to { filter: blur(0); opacity: 1; }
     }
+    @keyframes urgency-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+    @keyframes dot-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    @keyframes fill-shrink {
+      from { width: 100%; }
+      to { width: 15%; }
+    }
 
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -175,6 +187,63 @@
     }
     .delivery-badge .badge-text { font-size: 15px; font-weight: 700; color: #34d399; letter-spacing: 0.5px; }
     .delivery-badge .badge-sub { font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 400; }
+
+    /* LIMITED SEATS badge */
+    .seats-badge {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      border-radius: 12px; padding: 14px 16px; margin-bottom: 20px;
+      animation: urgency-pulse 2s ease-in-out infinite;
+      position: relative; overflow: hidden;
+    }
+    .seats-badge::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 60%;
+      height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 200%; }
+    }
+    .seats-top {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+    }
+    .seats-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #fbbf24; animation: dot-blink 1.2s ease-in-out infinite; flex-shrink: 0;
+    }
+    .seats-text {
+      font-size: 13px; font-weight: 700; color: white;
+      text-transform: uppercase; letter-spacing: 0.8px;
+    }
+    .seats-count {
+      font-size: 22px; font-weight: 900; color: #fef08a; letter-spacing: -0.5px;
+    }
+    .seats-bar-track {
+      width: 100%; height: 6px; background: rgba(255,255,255,0.2);
+      border-radius: 3px; overflow: hidden; margin-top: 8px;
+    }
+    .seats-bar-fill {
+      height: 100%; border-radius: 3px;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      animation: fill-shrink 60s linear forwards;
+      min-width: 15%;
+    }
+    .seats-sub { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 6px; }
+
+    /* Form urgency strip */
+    .urgency-strip {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: white; padding: 12px 20px; border-radius: 12px;
+      margin-bottom: 24px; animation: urgency-pulse 2.5s ease-in-out infinite;
+    }
+    .urgency-strip .urgency-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #fbbf24; animation: dot-blink 1s ease-in-out infinite; flex-shrink: 0;
+    }
+    .urgency-strip span {
+      font-size: 14px; font-weight: 700; letter-spacing: 0.3px;
+    }
 
     .plan-card-hero .features { list-style: none; margin-bottom: 24px; }
     .plan-card-hero .features li {
@@ -603,6 +672,17 @@
             </div>
           </div>
 
+          <!-- LIMITED SEATS -->
+          <div class="seats-badge">
+            <div class="seats-top">
+              <div class="seats-dot"></div>
+              <div class="seats-text">Limited Seats This Month</div>
+            </div>
+            <div class="seats-count">Only <span id="seatsLeft">7</span> spots remaining</div>
+            <div class="seats-bar-track"><div class="seats-bar-fill"></div></div>
+            <div class="seats-sub">Filling up fast — don't miss out!</div>
+          </div>
+
           <ul class="features">
             <li><span class="check">&#10003;</span> 40 kg free wash included</li>
             <li><span class="check">&#10003;</span> Doorstep pickup &amp; delivery</li>
@@ -621,6 +701,10 @@
     <div class="container">
       <div class="form-wrapper">
         <div id="formContent">
+          <div class="urgency-strip">
+            <div class="urgency-dot"></div>
+            <span>Only <strong id="seatsLeft2">7</strong> seats left for this month — Act now!</span>
+          </div>
           <div class="form-header">
             <h2>Subscribe to the 999 Plan</h2>
             <p>Fill in your details to get started. We'll contact you to set up your subscription.</p>
