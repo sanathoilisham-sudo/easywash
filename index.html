@@ -35,9 +35,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-dark);
@@ -45,466 +43,280 @@
       overflow-x: hidden;
       background: var(--surface);
     }
-
     a { color: var(--accent); text-decoration: none; transition: all 0.3s ease; }
     a:hover { color: var(--accent-light); }
-
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
     /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-40px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(40px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
     @keyframes pulse-glow {
       0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
       50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 60px rgba(59, 130, 246, 0.15); }
     }
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-    @keyframes countUp {
-      from { opacity: 0; transform: scale(0.5); }
-      to { opacity: 1; transform: scale(1); }
+    @keyframes unlockReveal {
+      from { filter: blur(8px); opacity: 0.5; }
+      to { filter: blur(0); opacity: 1; }
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
     /* ===== HEADER ===== */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 16px 0;
-      transition: all 0.4s ease;
-      background: transparent;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 16px 0; transition: all 0.4s ease; background: transparent;
     }
     header.scrolled {
-      background: rgba(15, 23, 42, 0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: 10px 0;
+      background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px); padding: 10px 0;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     }
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: white;
-      letter-spacing: -0.5px;
-    }
-    .logo span {
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 26px; font-weight: 800; color: white; letter-spacing: -0.5px; }
+    .logo span { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     nav { display: flex; align-items: center; gap: 8px; }
-    nav a {
-      color: rgba(255,255,255,0.8);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    nav a:hover {
-      color: white;
-      background: rgba(255,255,255,0.1);
-    }
-    .nav-cta {
-      background: var(--gradient-accent) !important;
-      color: white !important;
-      font-weight: 600 !important;
-      padding: 8px 20px !important;
-    }
-    .nav-cta:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
+    nav a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; padding: 8px 16px; border-radius: 8px; transition: all 0.3s ease; }
+    nav a:hover { color: white; background: rgba(255,255,255,0.1); }
+    .nav-cta { background: var(--gradient-accent) !important; color: white !important; font-weight: 600 !important; padding: 8px 20px !important; }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
 
-    /* Mobile menu */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-    .menu-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: white;
-      margin: 5px 0;
-      transition: all 0.3s ease;
-      border-radius: 2px;
-    }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; background: white; margin: 5px 0; transition: all 0.3s ease; border-radius: 2px; }
     .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .menu-toggle.active span:nth-child(2) { opacity: 0; }
     .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
     /* ===== HERO ===== */
     .hero {
-      background: var(--gradient-1);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+      background: var(--gradient-1); color: white;
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 800px;
-      height: 800px;
+      content: ''; position: absolute; top: -50%; right: -20%;
+      width: 800px; height: 800px;
       background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 8s ease-in-out infinite;
+      border-radius: 50%; animation: float 8s ease-in-out infinite;
     }
     .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 600px;
-      height: 600px;
+      content: ''; position: absolute; bottom: -30%; left: -10%;
+      width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 10s ease-in-out infinite reverse;
+      border-radius: 50%; animation: float 10s ease-in-out infinite reverse;
     }
     .hero .container {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
     }
     .hero-content { animation: fadeInLeft 1s ease; }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--accent-light);
-      margin-bottom: 24px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 8px 18px; border-radius: 50px; font-size: 13px;
+      font-weight: 500; color: var(--accent-light); margin-bottom: 24px;
     }
     .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
-    .hero h2 {
-      font-size: 56px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      letter-spacing: -1.5px;
-    }
-    .hero h2 .highlight {
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-subtitle {
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 36px;
-      max-width: 500px;
-      line-height: 1.7;
-    }
+    .hero h2 { font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px; }
+    .hero h2 .highlight { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 36px; max-width: 500px; line-height: 1.7; }
     .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 12px; font-size: 15px;
+      font-weight: 600; border: none; cursor: pointer;
+      transition: all 0.3s ease; text-decoration: none;
     }
-    .btn-primary {
-      background: var(--gradient-accent);
-      color: white;
-      box-shadow: 0 4px 20px var(--accent-glow);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--accent-glow);
-      color: white;
-    }
-    .btn-outline {
-      background: transparent;
-      color: white;
-      border: 1.5px solid rgba(255,255,255,0.25);
-    }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.4);
-      color: white;
-      transform: translateY(-2px);
-    }
+    .btn-primary { background: var(--gradient-accent); color: white; box-shadow: 0 4px 20px var(--accent-glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); color: white; }
+    .btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.25); }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); color: white; transform: translateY(-2px); }
 
     /* Hero visual - 999 card */
-    .hero-visual {
-      animation: fadeInRight 1s ease 0.3s both;
-      display: flex;
-      justify-content: center;
-    }
+    .hero-visual { animation: fadeInRight 1s ease 0.3s both; display: flex; justify-content: center; }
     .plan-card-hero {
       background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 24px;
-      padding: 40px 36px;
-      max-width: 380px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 24px;
+      padding: 40px 36px; max-width: 380px; width: 100%;
+      position: relative; overflow: hidden;
       animation: pulse-glow 4s ease-in-out infinite;
     }
-    .plan-card-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-accent);
-    }
+    .plan-card-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-accent); }
     .plan-card-hero .popular-tag {
-      display: inline-block;
-      background: var(--gradient-accent);
-      color: white;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 14px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
+      display: inline-block; background: var(--gradient-accent); color: white;
+      font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 50px;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
     }
-    .plan-card-hero .plan-name {
-      font-size: 20px;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 8px;
-    }
-    .plan-card-hero .plan-price {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      margin-bottom: 6px;
-    }
+    .plan-card-hero .plan-name { font-size: 20px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .plan-card-hero .plan-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
     .plan-card-hero .currency { font-size: 24px; font-weight: 600; color: var(--accent-light); }
-    .plan-card-hero .amount {
-      font-size: 56px;
-      font-weight: 800;
-      color: white;
-      line-height: 1;
-      letter-spacing: -2px;
-    }
+    .plan-card-hero .amount { font-size: 56px; font-weight: 800; color: white; line-height: 1; letter-spacing: -2px; }
     .plan-card-hero .period { font-size: 16px; color: var(--text-muted); margin-left: 4px; }
-    .plan-card-hero .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
-    .plan-card-hero .features { list-style: none; margin-bottom: 28px; }
+    .plan-card-hero .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+
+    /* ONE DAY DELIVERY badge */
+    .delivery-badge {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 12px 16px; border-radius: 12px; margin-bottom: 20px;
+    }
+    .delivery-badge .badge-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(16, 185, 129, 0.25); display: flex;
+      align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+    }
+    .delivery-badge .badge-text { font-size: 15px; font-weight: 700; color: #34d399; letter-spacing: 0.5px; }
+    .delivery-badge .badge-sub { font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 400; }
+
+    .plan-card-hero .features { list-style: none; margin-bottom: 24px; }
     .plan-card-hero .features li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 0;
-      font-size: 14px;
-      color: rgba(255,255,255,0.85);
+      display: flex; align-items: center; gap: 10px; padding: 7px 0;
+      font-size: 14px; color: rgba(255,255,255,0.85);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .plan-card-hero .features li:last-child { border-bottom: none; }
     .plan-card-hero .features .check {
-      width: 20px;
-      height: 20px;
-      background: rgba(16, 185, 129, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--green);
-      flex-shrink: 0;
+      width: 20px; height: 20px; background: rgba(16, 185, 129, 0.2);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 11px; color: var(--green); flex-shrink: 0;
     }
     .plan-card-hero .btn-subscribe {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 14px;
-      background: var(--gradient-accent);
-      color: white;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all 0.3s ease;
+      display: block; width: 100%; text-align: center; padding: 14px;
+      background: var(--gradient-accent); color: white; border-radius: 12px;
+      font-weight: 600; font-size: 15px; transition: all 0.3s ease;
     }
-    .plan-card-hero .btn-subscribe:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--accent-glow);
-      color: white;
+    .plan-card-hero .btn-subscribe:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); color: white; }
+
+    /* ===== SUBSCRIPTION FORM SECTION ===== */
+    .form-section {
+      padding: 80px 0; background: var(--surface); position: relative;
+    }
+    .form-wrapper {
+      max-width: 600px; margin: 0 auto;
+      background: white; border-radius: var(--radius);
+      padding: 48px 40px; box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(0,0,0,0.06); position: relative;
+    }
+    .form-wrapper::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px; background: var(--gradient-accent); border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .form-header { text-align: center; margin-bottom: 32px; }
+    .form-header h2 { font-size: 28px; font-weight: 800; color: var(--text-dark); margin-bottom: 8px; }
+    .form-header p { font-size: 15px; color: var(--text-dark-muted); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--text-dark); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .form-group input {
+      width: 100%; padding: 14px 16px; border: 1.5px solid #e2e8f0;
+      border-radius: var(--radius-sm); font-size: 15px; font-family: inherit;
+      color: var(--text-dark); transition: all 0.3s ease;
+      background: var(--surface-alt);
+    }
+    .form-group input:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      background: white;
+    }
+    .form-group input::placeholder { color: #94a3b8; }
+    .form-submit {
+      width: 100%; padding: 16px; background: var(--gradient-accent);
+      color: white; border: none; border-radius: 12px; font-size: 16px;
+      font-weight: 700; cursor: pointer; transition: all 0.3s ease;
+      font-family: inherit; margin-top: 8px;
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+    .form-note { text-align: center; font-size: 12px; color: var(--text-dark-muted); margin-top: 16px; }
+
+    /* Success message */
+    .form-success {
+      display: none; text-align: center; padding: 24px;
+    }
+    .form-success .success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(16, 185, 129, 0.1); display: flex;
+      align-items: center; justify-content: center; font-size: 28px;
+      margin: 0 auto 16px;
+    }
+    .form-success h3 { font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .form-success p { font-size: 14px; color: var(--text-dark-muted); line-height: 1.6; }
+
+    /* ===== LOCKED / BLURRED SECTION ===== */
+    .locked-wrapper { position: relative; }
+    .locked-wrapper.locked .locked-content {
+      filter: blur(8px); pointer-events: none; user-select: none;
+    }
+    .locked-overlay {
+      display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 10; display: flex; align-items: center; justify-content: center;
+    }
+    .locked-wrapper.locked .locked-overlay { display: flex; }
+    .locked-wrapper:not(.locked) .locked-overlay { display: none; }
+    .lock-message {
+      background: white; padding: 32px 40px; border-radius: var(--radius);
+      box-shadow: var(--shadow-lg); text-align: center; max-width: 420px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .lock-message .lock-icon { font-size: 36px; margin-bottom: 12px; }
+    .lock-message h3 { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .lock-message p { font-size: 14px; color: var(--text-dark-muted); margin-bottom: 16px; }
+    .lock-message .btn { font-size: 14px; padding: 10px 24px; }
+
+    /* Unlock animation */
+    .locked-wrapper.unlocking .locked-content {
+      animation: unlockReveal 0.8s ease forwards;
     }
 
-    /* ===== 999 SUBSCRIPTION SECTION ===== */
-    .subscription-section {
-      padding: 100px 0;
-      background: var(--surface);
-      position: relative;
-    }
+    /* ===== 999 SUBSCRIPTION DETAILS (inside locked) ===== */
+    .subscription-section { padding: 100px 0; background: var(--surface); position: relative; }
     .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(59, 130, 246, 0.08);
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(59, 130, 246, 0.08); color: var(--accent);
+      font-size: 13px; font-weight: 600; padding: 6px 16px;
+      border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
     }
-    .section-title {
-      font-size: 42px;
-      font-weight: 800;
-      color: var(--text-dark);
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-      line-height: 1.15;
-    }
-    .section-subtitle {
-      font-size: 17px;
-      color: var(--text-dark-muted);
-      max-width: 600px;
-      line-height: 1.7;
-    }
+    .section-title { font-size: 42px; font-weight: 800; color: var(--text-dark); letter-spacing: -1px; margin-bottom: 16px; line-height: 1.15; }
+    .section-subtitle { font-size: 17px; color: var(--text-dark-muted); max-width: 600px; line-height: 1.7; }
     .section-header { text-align: center; margin-bottom: 60px; }
     .section-header .section-subtitle { margin: 0 auto; }
 
-    .sub-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .sub-content {}
+    .sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .sub-price-highlight {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin: 32px 0;
-      padding: 28px;
+      display: flex; align-items: center; gap: 20px; margin: 32px 0; padding: 28px;
       background: linear-gradient(135deg, #eff6ff, #f0f9ff);
-      border-radius: var(--radius);
-      border: 1px solid rgba(59, 130, 246, 0.12);
+      border-radius: var(--radius); border: 1px solid rgba(59, 130, 246, 0.12);
     }
     .sub-price-big {
-      font-size: 52px;
-      font-weight: 800;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      letter-spacing: -2px;
+      font-size: 52px; font-weight: 800;
+      background: var(--gradient-accent); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1; letter-spacing: -2px;
     }
-    .sub-price-big small {
-      font-size: 18px;
-      font-weight: 500;
-      -webkit-text-fill-color: var(--text-dark-muted);
-      letter-spacing: 0;
-    }
+    .sub-price-big small { font-size: 18px; font-weight: 500; -webkit-text-fill-color: var(--text-dark-muted); letter-spacing: 0; }
     .sub-price-detail { font-size: 14px; color: var(--text-dark-muted); line-height: 1.7; }
     .sub-price-detail strong { color: var(--text-dark); }
 
-    .sub-features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 28px 0 36px;
-    }
+    .sub-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0 36px; }
     .sub-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 16px;
-      background: var(--surface-alt);
-      border-radius: var(--radius-sm);
-      transition: all 0.3s ease;
+      display: flex; align-items: flex-start; gap: 12px; padding: 16px;
+      background: var(--surface-alt); border-radius: var(--radius-sm); transition: all 0.3s ease;
     }
-    .sub-feature:hover {
-      background: white;
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-    }
+    .sub-feature:hover { background: white; box-shadow: var(--shadow); transform: translateY(-2px); }
     .sub-feature-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
     }
     .sub-feature-icon.blue { background: rgba(59, 130, 246, 0.1); }
     .sub-feature-icon.green { background: rgba(16, 185, 129, 0.1); }
@@ -513,70 +325,30 @@
     .sub-feature h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 2px; }
     .sub-feature p { font-size: 12px; color: var(--text-dark-muted); }
 
-    /* Visual side: How it works */
-    .sub-visual {}
-    .how-it-works {
-      position: relative;
-      padding-left: 32px;
-    }
+    /* How it works */
+    .how-it-works { position: relative; padding-left: 32px; }
     .how-it-works::before {
-      content: '';
-      position: absolute;
-      left: 15px;
-      top: 30px;
-      bottom: 30px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), rgba(139, 92, 246, 0.3));
-      border-radius: 2px;
+      content: ''; position: absolute; left: 15px; top: 30px; bottom: 30px;
+      width: 2px; background: linear-gradient(to bottom, var(--accent), rgba(139, 92, 246, 0.3)); border-radius: 2px;
     }
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      margin-bottom: 32px;
-      position: relative;
-    }
+    .step { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 32px; position: relative; }
     .step:last-child { margin-bottom: 0; }
     .step-number {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--gradient-accent);
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      position: relative;
-      left: -32px;
-      margin-right: -32px;
-      z-index: 2;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--gradient-accent); color: white; font-size: 14px;
+      font-weight: 700; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+      position: relative; left: -32px; margin-right: -32px; z-index: 2;
     }
-    .step-content {
-      background: white;
-      padding: 24px;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow);
-      flex: 1;
-    }
+    .step-content { background: white; padding: 24px; border-radius: var(--radius-sm); box-shadow: var(--shadow); flex: 1; }
     .step-content h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
     .step-content p { font-size: 14px; color: var(--text-dark-muted); }
 
     /* Pricing cards */
-    .pricing-extras {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 48px;
-    }
+    .pricing-extras { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
     .pricing-extra {
-      text-align: center;
-      padding: 20px 12px;
-      background: var(--surface-alt);
-      border-radius: var(--radius-sm);
-      transition: all 0.3s ease;
+      text-align: center; padding: 20px 12px;
+      background: var(--surface-alt); border-radius: var(--radius-sm); transition: all 0.3s ease;
     }
     .pricing-extra:hover { background: white; box-shadow: var(--shadow); transform: translateY(-3px); }
     .pricing-extra .pe-icon { font-size: 28px; margin-bottom: 8px; }
@@ -584,303 +356,138 @@
     .pricing-extra .pe-price { font-size: 18px; font-weight: 700; color: var(--text-dark); }
     .pricing-extra .pe-unit { font-size: 11px; color: var(--text-dark-muted); }
 
-    /* ===== SERVICES ===== */
-    .services {
-      padding: 100px 0;
-      background: var(--surface-alt);
+    /* Blanket standalone badge */
+    .blanket-standalone {
+      margin-top: 32px; padding: 20px 28px;
+      background: linear-gradient(135deg, #fef3c7, #fffbeb);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: var(--radius); display: flex;
+      align-items: center; gap: 16px;
     }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .service-card {
-      background: white;
-      padding: 36px 28px;
-      border-radius: var(--radius);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-accent);
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-      transform-origin: left;
-    }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-    }
-    .service-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      margin-bottom: 20px;
-      background: rgba(59, 130, 246, 0.08);
-    }
-    .service-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 10px;
-    }
-    .service-card p {
-      font-size: 14px;
-      color: var(--text-dark-muted);
-      line-height: 1.7;
+    .blanket-standalone .bs-icon { font-size: 32px; }
+    .blanket-standalone .bs-text h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 2px; }
+    .blanket-standalone .bs-text p { font-size: 13px; color: var(--text-dark-muted); }
+    .blanket-standalone .bs-price {
+      margin-left: auto; font-size: 28px; font-weight: 800; color: var(--gold); white-space: nowrap;
     }
 
     /* ===== STATS ===== */
-    .stats-bar {
-      padding: 60px 0;
-      background: var(--primary);
-      color: white;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      text-align: center;
-    }
-    .stat-item {}
+    .stats-bar { padding: 60px 0; background: var(--primary); color: white; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
     .stat-number {
-      font-size: 42px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 4px;
+      font-size: 42px; font-weight: 800; letter-spacing: -1px;
+      background: var(--gradient-accent); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px;
     }
     .stat-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
+    /* ===== SERVICES ===== */
+    .services { padding: 100px 0; background: var(--surface-alt); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: white; padding: 36px 28px; border-radius: var(--radius);
+      transition: all 0.4s ease; position: relative; overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient-accent); transform: scaleX(0);
+      transition: transform 0.4s ease; transform-origin: left;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 20px; background: rgba(59, 130, 246, 0.08);
+    }
+    .service-card h3 { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+    .service-card p { font-size: 14px; color: var(--text-dark-muted); line-height: 1.7; }
+    .service-card .service-price {
+      display: inline-block; margin-top: 12px; padding: 4px 12px;
+      background: rgba(16, 185, 129, 0.08); color: var(--green);
+      font-size: 13px; font-weight: 600; border-radius: 50px;
+    }
+
     /* ===== ABOUT ===== */
-    .about {
-      padding: 100px 0;
-      background: var(--surface);
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .about-visual {
-      position: relative;
-    }
+    .about { padding: 100px 0; background: var(--surface); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .about-card {
-      background: var(--primary);
-      color: white;
-      padding: 40px;
-      border-radius: var(--radius);
-      position: relative;
-      overflow: hidden;
+      background: var(--primary); color: white; padding: 40px;
+      border-radius: var(--radius); position: relative; overflow: hidden;
     }
     .about-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -30%;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
-      border-radius: 50%;
+      content: ''; position: absolute; top: -50%; right: -30%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%); border-radius: 50%;
     }
-    .about-card h3 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      position: relative;
-    }
-    .about-card p {
-      color: var(--text-muted);
-      font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 12px;
-      position: relative;
-    }
-    .about-info-grid {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
+    .about-card h3 { font-size: 24px; font-weight: 700; margin-bottom: 16px; position: relative; }
+    .about-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 12px; position: relative; }
+    .about-info-grid { display: grid; gap: 12px; margin-top: 20px; }
     .about-info-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
-      background: rgba(255,255,255,0.06);
-      border-radius: var(--radius-sm);
+      display: flex; align-items: center; gap: 12px; padding: 14px 18px;
+      background: rgba(255,255,255,0.06); border-radius: var(--radius-sm);
       border: 1px solid rgba(255,255,255,0.08);
     }
     .about-info-item .info-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: rgba(59, 130, 246, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(59, 130, 246, 0.2); display: flex;
+      align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
     }
     .about-info-item .info-text { font-size: 13px; color: rgba(255,255,255,0.8); }
     .about-info-item .info-text strong { color: white; display: block; font-size: 12px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* Additional services tags */
-    .other-services {
-      margin-top: 32px;
-    }
-    .other-services h4 {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-dark-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
+    .other-services { margin-top: 32px; }
+    .other-services h4 { font-size: 13px; font-weight: 600; color: var(--text-dark-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
     .service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .service-tag {
-      padding: 6px 14px;
-      background: var(--surface-alt);
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-dark-muted);
-      transition: all 0.3s ease;
+      padding: 6px 14px; background: var(--surface-alt); border-radius: 50px;
+      font-size: 13px; font-weight: 500; color: var(--text-dark-muted); transition: all 0.3s ease;
     }
     .service-tag:hover { background: rgba(59, 130, 246, 0.08); color: var(--accent); }
 
     /* ===== CONTACT ===== */
-    .contact {
-      padding: 100px 0;
-      background: var(--surface-alt);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
+    .contact { padding: 100px 0; background: var(--surface-alt); }
+    .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .contact-card {
-      background: white;
-      padding: 32px 24px;
-      border-radius: var(--radius);
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.04);
+      background: white; padding: 32px 24px; border-radius: var(--radius);
+      text-align: center; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04);
     }
-    .contact-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
+    .contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .contact-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: rgba(59, 130, 246, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin: 0 auto 16px;
+      width: 52px; height: 52px; border-radius: 14px;
+      background: rgba(59, 130, 246, 0.08); display: flex;
+      align-items: center; justify-content: center; font-size: 22px; margin: 0 auto 16px;
     }
-    .contact-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 8px;
-    }
-    .contact-card p {
-      font-size: 13px;
-      color: var(--text-dark-muted);
-      line-height: 1.7;
-    }
-    .contact-card a {
-      font-size: 13px;
-      font-weight: 500;
-    }
+    .contact-card h3 { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .contact-card p { font-size: 13px; color: var(--text-dark-muted); line-height: 1.7; }
+    .contact-card a { font-size: 13px; font-weight: 500; }
 
     /* ===== FOOTER ===== */
-    footer {
-      background: var(--primary);
-      color: var(--text-muted);
-      padding: 60px 0 24px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
+    footer { background: var(--primary); color: var(--text-muted); padding: 60px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
     .footer-brand .logo { margin-bottom: 16px; display: block; }
     .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 300px; }
-    .footer-col h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .footer-col a {
-      display: block;
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-      transition: all 0.3s ease;
-    }
+    .footer-col h3 { font-size: 14px; font-weight: 600; color: white; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--text-muted); margin-bottom: 10px; transition: all 0.3s ease; }
     .footer-col a:hover { color: white; transform: translateX(4px); }
-    .footer-col p {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
+    .footer-col p { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center; font-size: 13px;
     }
     .footer-bottom a { color: var(--text-muted); }
     .footer-bottom a:hover { color: white; }
 
     /* ===== WHATSAPP FLOAT ===== */
     .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 999;
-      width: 60px;
-      height: 60px;
-      background: #25d366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 60px; height: 60px; background: #25d366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-      transition: all 0.3s ease;
-      animation: float 3s ease-in-out infinite;
+      transition: all 0.3s ease; animation: float 3s ease-in-out infinite;
     }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5); }
     .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
 
     /* ===== RESPONSIVE ===== */
@@ -899,29 +506,23 @@
     @media (max-width: 768px) {
       nav { display: none; }
       nav.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(15, 23, 42, 0.98);
-        backdrop-filter: blur(20px);
-        padding: 16px 24px;
-        gap: 4px;
+        display: flex; flex-direction: column; position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(20px);
+        padding: 16px 24px; gap: 4px;
       }
       nav.open a { padding: 12px 16px; }
       .menu-toggle { display: block; }
-
       .hero { min-height: auto; padding: 120px 0 60px; }
       .hero h2 { font-size: 36px; }
       .hero-subtitle { font-size: 16px; }
       .section-title { font-size: 30px; }
       .subscription-section { padding: 60px 0; }
+      .form-section { padding: 50px 0; }
+      .form-wrapper { padding: 32px 24px; }
       .services { padding: 60px 0; }
       .about { padding: 60px 0; }
       .contact { padding: 60px 0; }
-
       .sub-features-grid { grid-template-columns: 1fr; }
       .pricing-extras { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: 1fr; }
@@ -929,6 +530,8 @@
       .contact-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .blanket-standalone { flex-direction: column; text-align: center; }
+      .blanket-standalone .bs-price { margin-left: 0; }
     }
 
     @media (max-width: 480px) {
@@ -948,13 +551,13 @@
     <div class="container">
       <div class="logo">Easy<span>Wash</span></div>
       <nav id="nav">
-        <a href="#subscription">999 Plan</a>
+        <a href="#subscription-form">999 Plan</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20999%20Subscription" class="nav-cta">Subscribe Now</a>
+        <a href="#subscription-form" class="nav-cta">Subscribe Now</a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -970,10 +573,10 @@
         <h2>Laundry <span class="highlight">Made Easy</span> For Your Family</h2>
         <p class="hero-subtitle">
           Professional laundry and garment care by LG Enterprises. Subscribe to our
-          <strong>999 Monthly Plan</strong> and never worry about laundry again.
+          <strong>999 Monthly Plan</strong> with <strong>One Day Delivery</strong> and never worry about laundry again.
         </p>
         <div class="hero-buttons">
-          <a href="#subscription" class="btn btn-primary">Explore 999 Plan</a>
+          <a href="#subscription-form" class="btn btn-primary">Subscribe to 999 Plan</a>
           <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20services" class="btn btn-outline">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.684-6.406-1.86l-.447-.286-2.86.96.96-2.86-.287-.447A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
             WhatsApp Us
@@ -990,6 +593,16 @@
             <span class="period">/month</span>
           </div>
           <p class="plan-desc">Everything you need for hassle-free laundry</p>
+
+          <!-- ONE DAY DELIVERY badge -->
+          <div class="delivery-badge">
+            <div class="badge-icon">&#9889;</div>
+            <div>
+              <div class="badge-text">ONE DAY DELIVERY SERVICE</div>
+              <div class="badge-sub">Get your laundry back within 24 hours</div>
+            </div>
+          </div>
+
           <ul class="features">
             <li><span class="check">&#10003;</span> 40 kg free wash included</li>
             <li><span class="check">&#10003;</span> Doorstep pickup &amp; delivery</li>
@@ -997,134 +610,194 @@
             <li><span class="check">&#10003;</span> Wash, dry &amp; fold</li>
             <li><span class="check">&#10003;</span> Eco-friendly detergents</li>
           </ul>
-          <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Monthly%20Plan" class="btn-subscribe">Subscribe via WhatsApp</a>
+          <a href="#subscription-form" class="btn-subscribe">Subscribe Now</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 999 Subscription Detail -->
-  <section class="subscription-section" id="subscription">
+  <!-- Subscription Form (Gateway) -->
+  <section class="form-section" id="subscription-form">
     <div class="container">
-      <div class="sub-grid">
-        <div class="sub-content reveal-left">
-          <div class="section-label">Our Signature Plan</div>
-          <h2 class="section-title">The 999<br>Monthly Plan</h2>
-          <p class="section-subtitle">
-            One subscription. Unlimited convenience. Get your laundry picked up from your doorstep,
-            professionally washed, and delivered back fresh and clean.
-          </p>
-
-          <div class="sub-price-highlight">
-            <div>
-              <div class="sub-price-big">&#8377;999<small>/mo</small></div>
-            </div>
-            <div class="sub-price-detail">
-              Includes <strong>40 kg of free wash</strong> every month.
-              Additional weight at just <strong>&#8377;40/kg</strong>. Blankets, ironing, and shoes available as add-ons.
-            </div>
+      <div class="form-wrapper">
+        <div id="formContent">
+          <div class="form-header">
+            <h2>Subscribe to the 999 Plan</h2>
+            <p>Fill in your details to get started. We'll contact you to set up your subscription.</p>
           </div>
-
-          <div class="sub-features-grid">
-            <div class="sub-feature">
-              <div class="sub-feature-icon blue">&#128166;</div>
-              <div>
-                <h4>40 kg Free Wash</h4>
-                <p>Generous monthly allowance</p>
-              </div>
+          <form id="subscriptionForm" onsubmit="return handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="subName">Full Name</label>
+              <input type="text" id="subName" name="name" placeholder="Enter your full name" required>
             </div>
-            <div class="sub-feature">
-              <div class="sub-feature-icon green">&#128666;</div>
-              <div>
-                <h4>Doorstep Service</h4>
-                <p>Pickup &amp; delivery at home</p>
-              </div>
+            <div class="form-group">
+              <label for="subPhone">Phone Number</label>
+              <input type="tel" id="subPhone" name="phone" placeholder="Enter your phone number" required>
             </div>
-            <div class="sub-feature">
-              <div class="sub-feature-icon purple">&#128197;</div>
-              <div>
-                <h4>Flexible Schedule</h4>
-                <p>Choose your pickup days</p>
-              </div>
+            <div class="form-group">
+              <label for="subAddress">Address</label>
+              <input type="text" id="subAddress" name="address" placeholder="Enter your address for pickup &amp; delivery" required>
             </div>
-            <div class="sub-feature">
-              <div class="sub-feature-icon orange">&#127807;</div>
-              <div>
-                <h4>Eco-Friendly</h4>
-                <p>Safe, gentle detergents</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20EasyWash%20999%20Plan" class="btn btn-primary">
-            Get Started Today
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+            <button type="submit" class="form-submit" id="formSubmitBtn">Submit &amp; View Full Plan Details</button>
+          </form>
+          <p class="form-note">Your details are safe with us. We'll reach out within 24 hours.</p>
         </div>
-
-        <div class="sub-visual reveal-right">
-          <div class="how-it-works">
-            <div class="step">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <h4>Subscribe</h4>
-                <p>Message us on WhatsApp or call to activate your 999 plan. Choose your preferred pickup days.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <h4>We Pick Up</h4>
-                <p>Our team collects your laundry from your doorstep on your chosen days. No effort needed.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <h4>Professional Wash</h4>
-                <p>Your clothes are washed, dried, and folded with care using eco-friendly detergents.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-number">4</div>
-              <div class="step-content">
-                <h4>Delivered Fresh</h4>
-                <p>Clean, fresh laundry delivered right back to your door. Ready to wear!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Add-on pricing -->
-      <div class="pricing-extras reveal">
-        <div class="pricing-extra">
-          <div class="pe-icon">&#9878;&#65039;</div>
-          <div class="pe-label">Extra Weight</div>
-          <div class="pe-price">&#8377;40</div>
-          <div class="pe-unit">per kg (above 40 kg)</div>
-        </div>
-        <div class="pricing-extra">
-          <div class="pe-icon">&#128716;</div>
-          <div class="pe-label">Blankets</div>
-          <div class="pe-price">&#8377;200</div>
-          <div class="pe-unit">per piece</div>
-        </div>
-        <div class="pricing-extra">
-          <div class="pe-icon">&#128085;</div>
-          <div class="pe-label">Ironing</div>
-          <div class="pe-price">&#8377;15</div>
-          <div class="pe-unit">per item</div>
-        </div>
-        <div class="pricing-extra">
-          <div class="pe-icon">&#128094;</div>
-          <div class="pe-label">Shoes</div>
-          <div class="pe-price">&#8377;150</div>
-          <div class="pe-unit">per pair</div>
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">&#10003;</div>
+          <h3>Thank You!</h3>
+          <p>Your subscription request has been submitted. Our team will contact you shortly to set up your 999 Plan. Full plan details are now unlocked below.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Locked 999 Details Section -->
+  <div class="locked-wrapper locked" id="lockedSection">
+    <div class="locked-overlay">
+      <div class="lock-message">
+        <div class="lock-icon">&#128274;</div>
+        <h3>Unlock Full Plan Details</h3>
+        <p>Fill the subscription form above to see complete pricing, add-ons, and how it works.</p>
+        <a href="#subscription-form" class="btn btn-primary">Fill the Form</a>
+      </div>
+    </div>
+    <div class="locked-content">
+
+      <!-- 999 Subscription Detail -->
+      <section class="subscription-section" id="subscription">
+        <div class="container">
+          <div class="sub-grid">
+            <div class="sub-content reveal-left">
+              <div class="section-label">Our Signature Plan</div>
+              <h2 class="section-title">The 999<br>Monthly Plan</h2>
+              <p class="section-subtitle">
+                One subscription. Unlimited convenience. Get your laundry picked up from your doorstep,
+                professionally washed, and delivered back fresh and clean — within one day.
+              </p>
+
+              <div class="sub-price-highlight">
+                <div>
+                  <div class="sub-price-big">&#8377;999<small>/mo</small></div>
+                </div>
+                <div class="sub-price-detail">
+                  Includes <strong>40 kg of free wash</strong> every month with <strong>One Day Delivery</strong>.
+                  Additional weight at just <strong>&#8377;40/kg</strong>. Blankets, ironing, and shoes available as add-ons.
+                </div>
+              </div>
+
+              <div class="sub-features-grid">
+                <div class="sub-feature">
+                  <div class="sub-feature-icon blue">&#128166;</div>
+                  <div>
+                    <h4>40 kg Free Wash</h4>
+                    <p>Generous monthly allowance</p>
+                  </div>
+                </div>
+                <div class="sub-feature">
+                  <div class="sub-feature-icon green">&#9889;</div>
+                  <div>
+                    <h4>One Day Delivery</h4>
+                    <p>Get laundry back in 24hrs</p>
+                  </div>
+                </div>
+                <div class="sub-feature">
+                  <div class="sub-feature-icon purple">&#128197;</div>
+                  <div>
+                    <h4>Flexible Schedule</h4>
+                    <p>Choose your pickup days</p>
+                  </div>
+                </div>
+                <div class="sub-feature">
+                  <div class="sub-feature-icon orange">&#127807;</div>
+                  <div>
+                    <h4>Eco-Friendly</h4>
+                    <p>Safe, gentle detergents</p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://wa.me/918787662431?text=Hi%2C%20I%20just%20submitted%20the%20form%20for%20the%20999%20Plan.%20Please%20help%20me%20get%20started!" class="btn btn-primary">
+                Get Started on WhatsApp
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="sub-visual reveal-right">
+              <div class="how-it-works">
+                <div class="step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Subscribe</h4>
+                    <p>Message us on WhatsApp or call to activate your 999 plan. Choose your preferred pickup days.</p>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>We Pick Up</h4>
+                    <p>Our team collects your laundry from your doorstep on your chosen days. No effort needed.</p>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Professional Wash</h4>
+                    <p>Your clothes are washed, dried, and folded with care using eco-friendly detergents.</p>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>One Day Delivery</h4>
+                    <p>Clean, fresh laundry delivered right back to your door within 24 hours. Ready to wear!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add-on pricing -->
+          <div class="pricing-extras reveal">
+            <div class="pricing-extra">
+              <div class="pe-icon">&#9878;&#65039;</div>
+              <div class="pe-label">Extra Weight</div>
+              <div class="pe-price">&#8377;40</div>
+              <div class="pe-unit">per kg (above 40 kg)</div>
+            </div>
+            <div class="pricing-extra">
+              <div class="pe-icon">&#128716;</div>
+              <div class="pe-label">Blankets (Subscriber)</div>
+              <div class="pe-price">&#8377;200</div>
+              <div class="pe-unit">per piece</div>
+            </div>
+            <div class="pricing-extra">
+              <div class="pe-icon">&#128085;</div>
+              <div class="pe-label">Ironing</div>
+              <div class="pe-price">&#8377;15</div>
+              <div class="pe-unit">per item</div>
+            </div>
+            <div class="pricing-extra">
+              <div class="pe-icon">&#128094;</div>
+              <div class="pe-label">Shoes</div>
+              <div class="pe-price">&#8377;150</div>
+              <div class="pe-unit">per pair</div>
+            </div>
+          </div>
+
+          <!-- Blanket standalone offer -->
+          <div class="blanket-standalone reveal">
+            <div class="bs-icon">&#128716;</div>
+            <div class="bs-text">
+              <h4>Blanket Wash — Standalone Service</h4>
+              <p>Not a subscriber? No problem! Get any blanket washed — any size — with free pickup &amp; delivery included.</p>
+            </div>
+            <div class="bs-price">&#8377;250</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
 
   <!-- Stats -->
   <section class="stats-bar">
@@ -1174,7 +847,8 @@
         <div class="service-card reveal">
           <div class="service-icon" style="background: rgba(16,185,129,0.08);">&#128716;</div>
           <h3>Blanket Wash</h3>
-          <p>Deep cleaning for blankets, comforters, quilts, and heavy bedding items.</p>
+          <p>Deep cleaning for blankets, comforters, quilts, and heavy bedding — any size. Includes pickup &amp; delivery.</p>
+          <span class="service-price">&#8377;250 per blanket</span>
         </div>
         <div class="service-card reveal">
           <div class="service-icon" style="background: rgba(245,158,11,0.08);">&#9889;</div>
@@ -1226,45 +900,27 @@
             <div class="about-info-grid">
               <div class="about-info-item">
                 <div class="info-icon">&#127970;</div>
-                <div class="info-text">
-                  <strong>Business</strong>
-                  LG Enterprises (EasyWash)
-                </div>
+                <div class="info-text"><strong>Business</strong>LG Enterprises (EasyWash)</div>
               </div>
               <div class="about-info-item">
                 <div class="info-icon">&#128203;</div>
-                <div class="info-text">
-                  <strong>UDYAM Registration</strong>
-                  UDYAM-MN-04-0017485
-                </div>
+                <div class="info-text"><strong>UDYAM Registration</strong>UDYAM-MN-04-0017485</div>
               </div>
               <div class="about-info-item">
                 <div class="info-icon">&#128205;</div>
-                <div class="info-text">
-                  <strong>Address</strong>
-                  Khongman Zone III, Lisham Leirak, Imphal East, Manipur 795008
-                </div>
+                <div class="info-text"><strong>Address</strong>Khongman Zone III, Lisham Leirak, Imphal East, Manipur 795008</div>
               </div>
               <div class="about-info-item">
                 <div class="info-icon">&#128222;</div>
-                <div class="info-text">
-                  <strong>Phone</strong>
-                  +91 6009451743
-                </div>
+                <div class="info-text"><strong>Phone</strong>+91 6009451743</div>
               </div>
               <div class="about-info-item">
                 <div class="info-icon">&#128172;</div>
-                <div class="info-text">
-                  <strong>WhatsApp</strong>
-                  +91 87876 62431
-                </div>
+                <div class="info-text"><strong>WhatsApp</strong>+91 87876 62431</div>
               </div>
               <div class="about-info-item">
                 <div class="info-icon">&#128231;</div>
-                <div class="info-text">
-                  <strong>Email</strong>
-                  support@easywashs.com
-                </div>
+                <div class="info-text"><strong>Email</strong>support@easywashs.com</div>
               </div>
             </div>
           </div>
@@ -1279,9 +935,7 @@
       <div class="section-header">
         <div class="section-label">Get In Touch</div>
         <h2 class="section-title">Contact Us</h2>
-        <p class="section-subtitle">
-          Have questions? Reach out to us anytime. We'd love to help you get started.
-        </p>
+        <p class="section-subtitle">Have questions? Reach out to us anytime. We'd love to help you get started.</p>
       </div>
       <div class="contact-grid">
         <div class="contact-card reveal">
@@ -1319,7 +973,7 @@
         </div>
         <div class="footer-col">
           <h3>Quick Links</h3>
-          <a href="#subscription">999 Plan</a>
+          <a href="#subscription-form">999 Plan</a>
           <a href="#services">Our Services</a>
           <a href="#about">About Us</a>
           <a href="#contact">Contact</a>
@@ -1349,20 +1003,69 @@
   </a>
 
   <script>
-    // Sticky header effect
+    // ===== GOOGLE SHEETS SUBMISSION =====
+    // IMPORTANT: Replace this URL with your Google Apps Script Web App URL after setup
+    const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('formSubmitBtn');
+      const name = document.getElementById('subName').value.trim();
+      const phone = document.getElementById('subPhone').value.trim();
+      const address = document.getElementById('subAddress').value.trim();
+
+      if (!name || !phone || !address) return false;
+
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      const formData = { name, phone, address, timestamp: new Date().toISOString() };
+
+      // Submit to Google Sheets
+      if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        }).catch(() => {});
+      }
+
+      // Show success & unlock
+      setTimeout(() => {
+        document.getElementById('formContent').querySelector('form').style.display = 'none';
+        document.getElementById('formContent').querySelector('.form-header').style.display = 'none';
+        document.getElementById('formContent').querySelector('.form-note').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        unlockDetails();
+      }, 800);
+
+      return false;
+    }
+
+    function unlockDetails() {
+      const locked = document.getElementById('lockedSection');
+      locked.classList.remove('locked');
+      locked.classList.add('unlocking');
+      // Scroll to the unlocked section
+      setTimeout(() => {
+        document.getElementById('subscription').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
+    }
+
+    // ===== HEADER =====
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Mobile menu toggle
+    // ===== MOBILE MENU =====
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.getElementById('nav');
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
       nav.classList.toggle('open');
     });
-    // Close menu on link click
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
@@ -1370,30 +1073,24 @@
       });
     });
 
-    // Scroll reveal animation
+    // ===== SCROLL REVEAL =====
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-          // Stagger animations
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, index * 100);
+          setTimeout(() => { entry.target.classList.add('visible'); }, index * 100);
           revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // Smooth scroll for anchor links
+    // ===== SMOOTH SCROLL =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
   </script>
