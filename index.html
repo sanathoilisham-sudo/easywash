@@ -4,201 +4,1322 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EasyWash - Professional Laundry & Garment Care Services | LG Enterprises</title>
-  <meta name="description" content="EasyWash by LG Enterprises provides professional laundry, dry cleaning, blanket wash, and garment care services in Imphal, Manipur.">
+  <meta name="description" content="EasyWash by LG Enterprises provides professional laundry, dry cleaning, blanket wash, and garment care services in Imphal, Manipur. Subscribe to our 999 Plan for unlimited laundry!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --accent-glow: rgba(59, 130, 246, 0.3);
+      --gradient-1: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      --gradient-accent: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dark: #1e293b;
+      --text-dark-muted: #64748b;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --gold: #f59e0b;
+      --green: #10b981;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; }
-    a { color: #2980b9; text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    /* Header */
-    header { background: #2c3e50; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    header .container { display: flex; justify-content: space-between; align-items: center; }
-    header h1 { font-size: 22px; font-weight: 700; }
-    header h1 span { color: #3498db; }
-    nav a { color: #ecf0f1; margin-left: 20px; font-size: 14px; }
-    nav a:hover { color: #3498db; text-decoration: none; }
+    html { scroll-behavior: smooth; }
 
-    /* Hero */
-    .hero { background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 80px 0; text-align: center; }
-    .hero h2 { font-size: 42px; margin-bottom: 15px; }
-    .hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
-    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 8px 20px; border-radius: 20px; font-size: 14px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background: var(--surface);
+    }
 
-    /* Services */
-    .services { padding: 60px 0; background: #f8f9fa; }
-    .services h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: #2c3e50; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-    .service-card { background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.2s; }
-    .service-card:hover { transform: translateY(-3px); }
-    .service-card .icon { font-size: 40px; margin-bottom: 15px; }
-    .service-card h3 { margin-bottom: 10px; color: #2c3e50; }
-    .service-card p { font-size: 14px; color: #7f8c8d; }
+    a { color: var(--accent); text-decoration: none; transition: all 0.3s ease; }
+    a:hover { color: var(--accent-light); }
 
-    /* About */
-    .about { padding: 60px 0; }
-    .about h2 { font-size: 32px; margin-bottom: 20px; color: #2c3e50; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-    .about-info { background: #f8f9fa; padding: 30px; border-radius: 10px; }
-    .about-info p { margin-bottom: 10px; }
-    .about-info strong { color: #2c3e50; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    /* Contact */
-    .contact { padding: 60px 0; background: #f8f9fa; }
-    .contact h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: #2c3e50; }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-    .contact-card { background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-    .contact-card .icon { font-size: 30px; margin-bottom: 10px; }
-    .contact-card h3 { margin-bottom: 8px; color: #2c3e50; font-size: 16px; }
-    .contact-card p { color: #7f8c8d; font-size: 14px; }
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+      50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 60px rgba(59, 130, 246, 0.15); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
 
-    /* Footer */
-    footer { background: #2c3e50; color: #ecf0f1; padding: 40px 0 20px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
-    .footer-col h3 { margin-bottom: 15px; font-size: 16px; }
-    .footer-col p, .footer-col a { font-size: 14px; color: #bdc3c7; display: block; margin-bottom: 8px; }
-    .footer-col a:hover { color: white; }
-    .footer-bottom { border-top: 1px solid #34495e; padding-top: 20px; text-align: center; font-size: 13px; color: #7f8c8d; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+    header.scrolled {
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 10px 0;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav { display: flex; align-items: center; gap: 8px; }
+    nav a {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      color: white;
+      background: rgba(255,255,255,0.1);
+    }
+    .nav-cta {
+      background: var(--gradient-accent) !important;
+      color: white !important;
+      font-weight: 600 !important;
+      padding: 8px 20px !important;
+    }
+    .nav-cta:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: white;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--gradient-1);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-content { animation: fadeInLeft 1s ease; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-light);
+      margin-bottom: 24px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .hero h2 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1.5px;
+    }
+    .hero h2 .highlight {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--gradient-accent);
+      color: white;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--accent-glow);
+      color: white;
+    }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.25);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.4);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Hero visual - 999 card */
+    .hero-visual {
+      animation: fadeInRight 1s ease 0.3s both;
+      display: flex;
+      justify-content: center;
+    }
+    .plan-card-hero {
+      background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 40px 36px;
+      max-width: 380px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+    .plan-card-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-accent);
+    }
+    .plan-card-hero .popular-tag {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .plan-card-hero .plan-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .plan-card-hero .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+    .plan-card-hero .currency { font-size: 24px; font-weight: 600; color: var(--accent-light); }
+    .plan-card-hero .amount {
+      font-size: 56px;
+      font-weight: 800;
+      color: white;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+    .plan-card-hero .period { font-size: 16px; color: var(--text-muted); margin-left: 4px; }
+    .plan-card-hero .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+    .plan-card-hero .features { list-style: none; margin-bottom: 28px; }
+    .plan-card-hero .features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .plan-card-hero .features li:last-child { border-bottom: none; }
+    .plan-card-hero .features .check {
+      width: 20px;
+      height: 20px;
+      background: rgba(16, 185, 129, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+    .plan-card-hero .btn-subscribe {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 14px;
+      background: var(--gradient-accent);
+      color: white;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+    .plan-card-hero .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--accent-glow);
+      color: white;
+    }
+
+    /* ===== 999 SUBSCRIPTION SECTION ===== */
+    .subscription-section {
+      padding: 100px 0;
+      background: var(--surface);
+      position: relative;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.08);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--text-dark-muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-header .section-subtitle { margin: 0 auto; }
+
+    .sub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .sub-content {}
+    .sub-price-highlight {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 32px 0;
+      padding: 28px;
+      background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+      border-radius: var(--radius);
+      border: 1px solid rgba(59, 130, 246, 0.12);
+    }
+    .sub-price-big {
+      font-size: 52px;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+    .sub-price-big small {
+      font-size: 18px;
+      font-weight: 500;
+      -webkit-text-fill-color: var(--text-dark-muted);
+      letter-spacing: 0;
+    }
+    .sub-price-detail { font-size: 14px; color: var(--text-dark-muted); line-height: 1.7; }
+    .sub-price-detail strong { color: var(--text-dark); }
+
+    .sub-features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0 36px;
+    }
+    .sub-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--surface-alt);
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+    }
+    .sub-feature:hover {
+      background: white;
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+    .sub-feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .sub-feature-icon.blue { background: rgba(59, 130, 246, 0.1); }
+    .sub-feature-icon.green { background: rgba(16, 185, 129, 0.1); }
+    .sub-feature-icon.purple { background: rgba(139, 92, 246, 0.1); }
+    .sub-feature-icon.orange { background: rgba(245, 158, 11, 0.1); }
+    .sub-feature h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 2px; }
+    .sub-feature p { font-size: 12px; color: var(--text-dark-muted); }
+
+    /* Visual side: How it works */
+    .sub-visual {}
+    .how-it-works {
+      position: relative;
+      padding-left: 32px;
+    }
+    .how-it-works::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 30px;
+      bottom: 30px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), rgba(139, 92, 246, 0.3));
+      border-radius: 2px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      left: -32px;
+      margin-right: -32px;
+      z-index: 2;
+    }
+    .step-content {
+      background: white;
+      padding: 24px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      flex: 1;
+    }
+    .step-content h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+    .step-content p { font-size: 14px; color: var(--text-dark-muted); }
+
+    /* Pricing cards */
+    .pricing-extras {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .pricing-extra {
+      text-align: center;
+      padding: 20px 12px;
+      background: var(--surface-alt);
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+    }
+    .pricing-extra:hover { background: white; box-shadow: var(--shadow); transform: translateY(-3px); }
+    .pricing-extra .pe-icon { font-size: 28px; margin-bottom: 8px; }
+    .pricing-extra .pe-label { font-size: 12px; color: var(--text-dark-muted); margin-bottom: 4px; }
+    .pricing-extra .pe-price { font-size: 18px; font-weight: 700; color: var(--text-dark); }
+    .pricing-extra .pe-unit { font-size: 11px; color: var(--text-dark-muted); }
+
+    /* ===== SERVICES ===== */
+    .services {
+      padding: 100px 0;
+      background: var(--surface-alt);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: white;
+      padding: 36px 28px;
+      border-radius: var(--radius);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-accent);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      transform-origin: left;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+      background: rgba(59, 130, 246, 0.08);
+    }
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-dark-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== STATS ===== */
+    .stats-bar {
+      padding: 60px 0;
+      background: var(--primary);
+      color: white;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+    .stat-item {}
+    .stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding: 100px 0;
+      background: var(--surface);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card {
+      background: var(--primary);
+      color: white;
+      padding: 40px;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .about-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .about-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .about-info-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .about-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .about-info-item .info-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(59, 130, 246, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .about-info-item .info-text { font-size: 13px; color: rgba(255,255,255,0.8); }
+    .about-info-item .info-text strong { color: white; display: block; font-size: 12px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Additional services tags */
+    .other-services {
+      margin-top: 32px;
+    }
+    .other-services h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .service-tag {
+      padding: 6px 14px;
+      background: var(--surface-alt);
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-dark-muted);
+      transition: all 0.3s ease;
+    }
+    .service-tag:hover { background: rgba(59, 130, 246, 0.08); color: var(--accent); }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      padding: 100px 0;
+      background: var(--surface-alt);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .contact-card {
+      background: white;
+      padding: 32px 24px;
+      border-radius: var(--radius);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(59, 130, 246, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 16px;
+    }
+    .contact-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .contact-card p {
+      font-size: 13px;
+      color: var(--text-dark-muted);
+      line-height: 1.7;
+    }
+    .contact-card a {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--primary);
+      color: var(--text-muted);
+      padding: 60px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .logo { margin-bottom: 16px; display: block; }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 300px; }
+    .footer-col h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+    .footer-col a:hover { color: white; transform: translateX(4px); }
+    .footer-col p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .footer-bottom a { color: var(--text-muted); }
+    .footer-bottom a:hover { color: white; }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero .container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+      .hero-subtitle { margin: 0 auto 36px; }
+      .hero-buttons { justify-content: center; }
+      .hero-visual { order: -1; }
+      .plan-card-hero { max-width: 340px; }
+      .sub-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
 
     @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .hero h2 { font-size: 28px; }
       nav { display: none; }
+      nav.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 16px 24px;
+        gap: 4px;
+      }
+      nav.open a { padding: 12px 16px; }
+      .menu-toggle { display: block; }
+
+      .hero { min-height: auto; padding: 120px 0 60px; }
+      .hero h2 { font-size: 36px; }
+      .hero-subtitle { font-size: 16px; }
+      .section-title { font-size: 30px; }
+      .subscription-section { padding: 60px 0; }
+      .services { padding: 60px 0; }
+      .about { padding: 60px 0; }
+      .contact { padding: 60px 0; }
+
+      .sub-features-grid { grid-template-columns: 1fr; }
+      .pricing-extras { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 { font-size: 30px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn { width: 100%; justify-content: center; }
+      .sub-price-highlight { flex-direction: column; text-align: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .pricing-extras { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- Header -->
+  <header id="header">
     <div class="container">
-      <h1>Easy<span>Wash</span></h1>
-      <nav>
+      <div class="logo">Easy<span>Wash</span></div>
+      <nav id="nav">
+        <a href="#subscription">999 Plan</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
+        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20999%20Subscription" class="nav-cta">Subscribe Now</a>
       </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h2>Laundry Made Easy!</h2>
-      <p>Professional laundry, dry cleaning, and garment care services by LG Enterprises in Imphal, Manipur.</p>
-      <div class="hero-badge">Trusted by hundreds of families in Imphal</div>
+      <div class="hero-content">
+        <div class="hero-badge">Now serving Imphal &amp; surrounding areas</div>
+        <h2>Laundry <span class="highlight">Made Easy</span> For Your Family</h2>
+        <p class="hero-subtitle">
+          Professional laundry and garment care by LG Enterprises. Subscribe to our
+          <strong>999 Monthly Plan</strong> and never worry about laundry again.
+        </p>
+        <div class="hero-buttons">
+          <a href="#subscription" class="btn btn-primary">Explore 999 Plan</a>
+          <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20services" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.684-6.406-1.86l-.447-.286-2.86.96.96-2.86-.287-.447A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="plan-card-hero">
+          <div class="popular-tag">Most Popular</div>
+          <div class="plan-name">Monthly Subscription</div>
+          <div class="plan-price">
+            <span class="currency">&#8377;</span>
+            <span class="amount">999</span>
+            <span class="period">/month</span>
+          </div>
+          <p class="plan-desc">Everything you need for hassle-free laundry</p>
+          <ul class="features">
+            <li><span class="check">&#10003;</span> 40 kg free wash included</li>
+            <li><span class="check">&#10003;</span> Doorstep pickup &amp; delivery</li>
+            <li><span class="check">&#10003;</span> Scheduled pickup days</li>
+            <li><span class="check">&#10003;</span> Wash, dry &amp; fold</li>
+            <li><span class="check">&#10003;</span> Eco-friendly detergents</li>
+          </ul>
+          <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Monthly%20Plan" class="btn-subscribe">Subscribe via WhatsApp</a>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- 999 Subscription Detail -->
+  <section class="subscription-section" id="subscription">
+    <div class="container">
+      <div class="sub-grid">
+        <div class="sub-content reveal-left">
+          <div class="section-label">Our Signature Plan</div>
+          <h2 class="section-title">The 999<br>Monthly Plan</h2>
+          <p class="section-subtitle">
+            One subscription. Unlimited convenience. Get your laundry picked up from your doorstep,
+            professionally washed, and delivered back fresh and clean.
+          </p>
+
+          <div class="sub-price-highlight">
+            <div>
+              <div class="sub-price-big">&#8377;999<small>/mo</small></div>
+            </div>
+            <div class="sub-price-detail">
+              Includes <strong>40 kg of free wash</strong> every month.
+              Additional weight at just <strong>&#8377;40/kg</strong>. Blankets, ironing, and shoes available as add-ons.
+            </div>
+          </div>
+
+          <div class="sub-features-grid">
+            <div class="sub-feature">
+              <div class="sub-feature-icon blue">&#128166;</div>
+              <div>
+                <h4>40 kg Free Wash</h4>
+                <p>Generous monthly allowance</p>
+              </div>
+            </div>
+            <div class="sub-feature">
+              <div class="sub-feature-icon green">&#128666;</div>
+              <div>
+                <h4>Doorstep Service</h4>
+                <p>Pickup &amp; delivery at home</p>
+              </div>
+            </div>
+            <div class="sub-feature">
+              <div class="sub-feature-icon purple">&#128197;</div>
+              <div>
+                <h4>Flexible Schedule</h4>
+                <p>Choose your pickup days</p>
+              </div>
+            </div>
+            <div class="sub-feature">
+              <div class="sub-feature-icon orange">&#127807;</div>
+              <div>
+                <h4>Eco-Friendly</h4>
+                <p>Safe, gentle detergents</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20EasyWash%20999%20Plan" class="btn btn-primary">
+            Get Started Today
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="sub-visual reveal-right">
+          <div class="how-it-works">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Subscribe</h4>
+                <p>Message us on WhatsApp or call to activate your 999 plan. Choose your preferred pickup days.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>We Pick Up</h4>
+                <p>Our team collects your laundry from your doorstep on your chosen days. No effort needed.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Professional Wash</h4>
+                <p>Your clothes are washed, dried, and folded with care using eco-friendly detergents.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Delivered Fresh</h4>
+                <p>Clean, fresh laundry delivered right back to your door. Ready to wear!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add-on pricing -->
+      <div class="pricing-extras reveal">
+        <div class="pricing-extra">
+          <div class="pe-icon">&#9878;&#65039;</div>
+          <div class="pe-label">Extra Weight</div>
+          <div class="pe-price">&#8377;40</div>
+          <div class="pe-unit">per kg (above 40 kg)</div>
+        </div>
+        <div class="pricing-extra">
+          <div class="pe-icon">&#128716;</div>
+          <div class="pe-label">Blankets</div>
+          <div class="pe-price">&#8377;200</div>
+          <div class="pe-unit">per piece</div>
+        </div>
+        <div class="pricing-extra">
+          <div class="pe-icon">&#128085;</div>
+          <div class="pe-label">Ironing</div>
+          <div class="pe-price">&#8377;15</div>
+          <div class="pe-unit">per item</div>
+        </div>
+        <div class="pricing-extra">
+          <div class="pe-icon">&#128094;</div>
+          <div class="pe-label">Shoes</div>
+          <div class="pe-price">&#8377;150</div>
+          <div class="pe-unit">per pair</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Happy Families</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Years of Service</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number">10K+</div>
+          <div class="stat-label">Loads Washed</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number">4.8</div>
+          <div class="stat-label">Customer Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
   <section class="services" id="services">
     <div class="container">
-      <h2>Our Services</h2>
+      <div class="section-header">
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">
+          From everyday laundry to specialized garment care, we handle it all with professional quality and care.
+        </p>
+      </div>
       <div class="services-grid">
-        <div class="service-card">
-          <div class="icon">&#128085;</div>
+        <div class="service-card reveal">
+          <div class="service-icon">&#128085;</div>
           <h3>Regular Laundry</h3>
-          <p>Wash, dry, and fold service for your everyday clothes. Fresh and clean, ready to wear.</p>
+          <p>Wash, dry, and fold service for your everyday clothes. Fresh, clean, and ready to wear.</p>
         </div>
-        <div class="service-card">
-          <div class="icon">&#10024;</div>
+        <div class="service-card reveal">
+          <div class="service-icon" style="background: rgba(139,92,246,0.08);">&#10024;</div>
           <h3>Dry Cleaning</h3>
           <p>Professional dry cleaning for delicate fabrics, suits, sarees, and formal wear.</p>
         </div>
-        <div class="service-card">
-          <div class="icon">&#128716;</div>
+        <div class="service-card reveal">
+          <div class="service-icon" style="background: rgba(16,185,129,0.08);">&#128716;</div>
           <h3>Blanket Wash</h3>
-          <p>Deep cleaning for blankets, comforters, and heavy bedding items.</p>
+          <p>Deep cleaning for blankets, comforters, quilts, and heavy bedding items.</p>
         </div>
-        <div class="service-card">
-          <div class="icon">&#9889;</div>
+        <div class="service-card reveal">
+          <div class="service-icon" style="background: rgba(245,158,11,0.08);">&#9889;</div>
           <h3>Bulk Wash</h3>
           <p>Cost-effective bulk washing service for large volumes of laundry.</p>
         </div>
-        <div class="service-card">
-          <div class="icon">&#128094;</div>
-          <h3>Ironing & Pressing</h3>
-          <p>Crisp ironing and professional pressing for a polished look.</p>
+        <div class="service-card reveal">
+          <div class="service-icon" style="background: rgba(236,72,153,0.08);">&#128094;</div>
+          <h3>Ironing &amp; Pressing</h3>
+          <p>Crisp ironing and professional pressing for a polished, wrinkle-free look.</p>
         </div>
-        <div class="service-card">
-          <div class="icon">&#128666;</div>
-          <h3>Pickup & Delivery</h3>
-          <p>Convenient doorstep pickup and delivery across Imphal city.</p>
+        <div class="service-card reveal">
+          <div class="service-icon" style="background: rgba(34,197,94,0.08);">&#128666;</div>
+          <h3>Pickup &amp; Delivery</h3>
+          <p>Convenient doorstep pickup and delivery service across Imphal city.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- About -->
   <section class="about" id="about">
     <div class="container">
-      <h2>About Us</h2>
       <div class="about-grid">
-        <div>
-          <p style="font-size:16px; margin-bottom:15px;">
-            <strong>EasyWash</strong> is a professional laundry and garment care brand operated by <strong>LG Enterprises</strong>,
-            based in Khongman Zone III, Imphal East, Manipur. We provide high-quality laundry services including regular wash,
-            dry cleaning, blanket wash, bulk wash, ironing, and doorstep pickup and delivery.
+        <div class="reveal-left">
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-title">About EasyWash</h2>
+          <p style="font-size:16px; color: var(--text-dark-muted); line-height: 1.8; margin-bottom: 16px;">
+            <strong style="color: var(--text-dark);">EasyWash</strong> is a professional laundry and garment care brand operated by
+            <strong style="color: var(--text-dark);">LG Enterprises</strong>, based in Khongman Zone III, Imphal East, Manipur.
           </p>
-          <p style="font-size:16px; margin-bottom:15px;">
+          <p style="font-size:16px; color: var(--text-dark-muted); line-height: 1.8; margin-bottom: 16px;">
             Our mission is to make laundry hassle-free for families and businesses in Imphal. With careful handling,
             eco-friendly detergents, and timely service, we ensure your garments are returned fresh, clean, and well-cared for.
           </p>
-          <p style="font-size:16px;">
-            We also offer additional services including driving licence assistance, vehicle insurance, and other public services
-            through LG Enterprises to serve our community better.
-          </p>
+          <div class="other-services">
+            <h4>Also by LG Enterprises</h4>
+            <div class="service-tags">
+              <span class="service-tag">Driving Licence Assistance</span>
+              <span class="service-tag">Vehicle Insurance</span>
+              <span class="service-tag">Vehicle Services</span>
+              <span class="service-tag">Public Services</span>
+            </div>
+          </div>
         </div>
-        <div class="about-info">
-          <p><strong>Business Name:</strong> LG Enterprises</p>
-          <p><strong>Brand Name:</strong> EasyWash</p>
-          <p><strong>UDYAM Registration:</strong> UDYAM-MN-04-0017485</p>
-          <p><strong>Address:</strong> Khongman Zone III, Lisham Leirak, Imphal East, Manipur 795008, India</p>
-          <p><strong>Phone:</strong> +91 6009451743</p>
-          <p><strong>WhatsApp:</strong> +91 87876 62431</p>
-          <p><strong>Email:</strong> support@easywashs.com</p>
-          <p><strong>Website:</strong> easywashs.com</p>
+        <div class="about-visual reveal-right">
+          <div class="about-card">
+            <h3>Business Details</h3>
+            <div class="about-info-grid">
+              <div class="about-info-item">
+                <div class="info-icon">&#127970;</div>
+                <div class="info-text">
+                  <strong>Business</strong>
+                  LG Enterprises (EasyWash)
+                </div>
+              </div>
+              <div class="about-info-item">
+                <div class="info-icon">&#128203;</div>
+                <div class="info-text">
+                  <strong>UDYAM Registration</strong>
+                  UDYAM-MN-04-0017485
+                </div>
+              </div>
+              <div class="about-info-item">
+                <div class="info-icon">&#128205;</div>
+                <div class="info-text">
+                  <strong>Address</strong>
+                  Khongman Zone III, Lisham Leirak, Imphal East, Manipur 795008
+                </div>
+              </div>
+              <div class="about-info-item">
+                <div class="info-icon">&#128222;</div>
+                <div class="info-text">
+                  <strong>Phone</strong>
+                  +91 6009451743
+                </div>
+              </div>
+              <div class="about-info-item">
+                <div class="info-icon">&#128172;</div>
+                <div class="info-text">
+                  <strong>WhatsApp</strong>
+                  +91 87876 62431
+                </div>
+              </div>
+              <div class="about-info-item">
+                <div class="info-icon">&#128231;</div>
+                <div class="info-text">
+                  <strong>Email</strong>
+                  support@easywashs.com
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section class="contact" id="contact">
     <div class="container">
-      <h2>Contact Us</h2>
+      <div class="section-header">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">
+          Have questions? Reach out to us anytime. We'd love to help you get started.
+        </p>
+      </div>
       <div class="contact-grid">
-        <div class="contact-card">
-          <div class="icon">&#128205;</div>
+        <div class="contact-card reveal">
+          <div class="contact-icon">&#128205;</div>
           <h3>Visit Us</h3>
           <p>Khongman Zone III, Lisham Leirak<br>Imphal East, Manipur 795008<br>India</p>
         </div>
-        <div class="contact-card">
-          <div class="icon">&#128222;</div>
+        <div class="contact-card reveal">
+          <div class="contact-icon">&#128222;</div>
           <h3>Call Us</h3>
-          <p>Phone: +91 6009451743<br>WhatsApp: +91 87876 62431</p>
+          <p><a href="tel:+916009451743">+91 6009451743</a></p>
+          <p style="margin-top:4px;"><a href="https://wa.me/918787662431">WhatsApp: +91 87876 62431</a></p>
         </div>
-        <div class="contact-card">
-          <div class="icon">&#128231;</div>
+        <div class="contact-card reveal">
+          <div class="contact-icon">&#128231;</div>
           <h3>Email Us</h3>
-          <p>support@easywashs.com</p>
+          <p><a href="mailto:support@easywashs.com">support@easywashs.com</a></p>
         </div>
-        <div class="contact-card">
-          <div class="icon">&#128336;</div>
+        <div class="contact-card reveal">
+          <div class="contact-icon">&#128336;</div>
           <h3>Working Hours</h3>
-          <p>Monday - Saturday<br>8:00 AM - 7:00 PM</p>
+          <p>Monday &ndash; Saturday<br>8:00 AM &ndash; 7:00 PM</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-col">
-          <h3>EasyWash</h3>
-          <p>Professional laundry and garment care services by LG Enterprises, Imphal, Manipur.</p>
+        <div class="footer-brand">
+          <div class="logo">Easy<span>Wash</span></div>
+          <p>Professional laundry and garment care services by LG Enterprises. Serving Imphal, Manipur with quality and care.</p>
         </div>
         <div class="footer-col">
           <h3>Quick Links</h3>
+          <a href="#subscription">999 Plan</a>
           <a href="#services">Our Services</a>
           <a href="#about">About Us</a>
           <a href="#contact">Contact</a>
@@ -216,10 +1337,66 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2024-2026 LG Enterprises (EasyWash). All rights reserved. | UDYAM-MN-04-0017485
+        <span>&copy; 2024&ndash;2026 LG Enterprises (EasyWash). All rights reserved.</span>
+        <span>UDYAM-MN-04-0017485</span>
       </div>
     </div>
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20services" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.684-6.406-1.86l-.447-.286-2.86.96.96-2.86-.287-.447A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+  </a>
+
+  <script>
+    // Sticky header effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      nav.classList.toggle('open');
+    });
+    // Close menu on link click
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('open');
+      });
+    });
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Stagger animations
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
