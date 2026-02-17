@@ -8,6 +8,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --accent-glow: rgba(59, 130, 246, 0.3);
+      --gradient-1: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      --gradient-accent: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dark: #1e293b;
+      --text-dark-muted: #64748b;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --gold: #f59e0b;
+      --green: #10b981;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', 'Segoe UI', sans-serif; color: #e2e8f0; line-height: 1.6; background: #0f172a; }
     a { color: #60a5fa; text-decoration: none; }
@@ -202,6 +227,9 @@
         <a href="terms.html">Terms</a>
         <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Plan" class="nav-cta">Subscribe Now</a>
       </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -517,7 +545,7 @@
         <div class="contact-card">
           <span class="icon">🕐</span>
           <h3>Working Hours</h3>
-          <p>Monday - Saturday<br>8:00 AM - 7:00 PM</p>
+          <p>Monday &ndash; Saturday<br>8:00 AM &ndash; 7:00 PM</p>
         </div>
       </div>
     </div>
@@ -551,7 +579,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2024-2026 LG Enterprises (EasyWash). All rights reserved. | UDYAM-MN-04-0017485
+        <span>&copy; 2024&ndash;2026 LG Enterprises (EasyWash). All rights reserved.</span>
+        <span>UDYAM-MN-04-0017485</span>
       </div>
     </div>
   </footer>
