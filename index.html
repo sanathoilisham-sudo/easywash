@@ -129,7 +129,10 @@
     .cal-day { font-size: 13px; padding: 8px 4px; border-radius: 8px; color: #64748b; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
     .cal-day.current-month { color: #94a3b8; }
     .cal-day.pickup-day { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; font-weight: 700; transform: scale(1.1); box-shadow: 0 4px 12px rgba(124,58,237,0.4); }
-    .cal-note { text-align: center; margin-top: 20px; font-size: 14px; color: #94a3b8; transition: all 0.3s; }
+    .cal-continue { display: none; text-align: center; margin-top: 20px; }
+    .cal-continue a { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.3s; animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .cal-continue a:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); text-decoration: none; }
+    .cal-note { text-align: center; margin-top: 12px; font-size: 14px; color: #94a3b8; transition: all 0.3s; }
     .cal-note strong { color: #a78bfa; }
     .cal-note .emoji-burst { display: inline-block; animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
     @keyframes pop-in { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
@@ -148,6 +151,14 @@
     .sub-form input { width: 100%; padding: 14px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: white; font-size: 15px; font-family: inherit; margin-bottom: 16px; outline: none; transition: border-color 0.3s; }
     .sub-form input:focus { border-color: #7c3aed; }
     .sub-form input::placeholder { color: #64748b; }
+    .chosen-day-display { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1px solid rgba(124,58,237,0.3); background: rgba(124,58,237,0.1); margin-bottom: 16px; font-size: 15px; color: #c4b5fd; font-weight: 600; }
+    .chosen-day-display span { font-size: 18px; }
+    .choose-day-notice { display: none; text-align: center; padding: 32px 20px; }
+    .choose-day-notice .notice-icon { font-size: 40px; margin-bottom: 12px; display: block; }
+    .choose-day-notice h3 { font-size: 20px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .choose-day-notice p { font-size: 14px; color: #94a3b8; margin-bottom: 16px; }
+    .choose-day-notice a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+    .choose-day-notice a:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); text-decoration: none; }
     .form-btn { display: block; width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border: none; border-radius: 12px; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: inherit; }
     .form-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); }
     .form-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
@@ -466,6 +477,9 @@
             <div class="cal-day"></div>
           </div>
           <p class="cal-note" id="calNote">Your laundry day is waiting. Pick one above!</p>
+          <div class="cal-continue" id="calContinue">
+            <a href="#subscribe" id="calContinueBtn">Continue with Monday →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -485,9 +499,21 @@
           </div>
         </div>
         <div class="sub-form" id="subForm">
+          <!-- Notice: shown when no day is picked yet -->
+          <div class="choose-day-notice" id="chooseDayNotice">
+            <span class="notice-icon">📅</span>
+            <h3>First, Pick Your Day!</h3>
+            <p>Choose your preferred pickup day from the calendar above, then come back here to sign up.</p>
+            <a href="#how" id="goPickDay" onclick="document.querySelector('.calendar-section').scrollIntoView({behavior:'smooth',block:'start'});return false;">Pick My Day ↑</a>
+          </div>
+          <!-- Form: shown when day is already picked -->
+          <div id="formWrapper">
           <h3>Join 500+ Imphal families</h3>
           <p class="form-sub">Takes 30 seconds. We'll call you to confirm.</p>
           <form id="subscriptionForm">
+            <div class="chosen-day-display" id="chosenDayDisplay" style="display:none;">
+              <span>📅</span> Your pickup day: <strong id="chosenDayText">Monday</strong>
+            </div>
             <label for="formName">Your Name</label>
             <input type="text" id="formName" placeholder="Enter your full name" required>
             <label for="formPhone">Phone / WhatsApp Number</label>
@@ -500,6 +526,7 @@
             <h3>You're in! Welcome to EasyWash.</h3>
             <p>Scroll down to see the full plan details. We'll contact you soon to set up your first pickup day.</p>
           </div>
+          </div><!-- /formWrapper -->
         </div>
       </div>
     </div>
@@ -782,6 +809,8 @@
       { emoji: '🌟', msg: 'Even Sundays. We\'ve got you covered.' }
     ];
 
+    var selectedDay = null; // Track the chosen day
+
     var buttons = document.querySelectorAll('.day-picker-btn');
     var calDays = document.querySelectorAll('.cal-day[data-dow]');
     var calLabels = document.querySelectorAll('.cal-day-label');
@@ -791,11 +820,19 @@
     var calHighlight = document.getElementById('cal-highlight-text');
     var calHighlightSub = document.getElementById('cal-highlight-sub');
     var pickerHint = document.getElementById('picker-hint');
+    var calContinue = document.getElementById('calContinue');
+    var calContinueBtn = document.getElementById('calContinueBtn');
+    var chooseDayNotice = document.getElementById('chooseDayNotice');
+    var formWrapper = document.getElementById('formWrapper');
+    var chosenDayDisplay = document.getElementById('chosenDayDisplay');
+    var chosenDayText = document.getElementById('chosenDayText');
 
     buttons.forEach(function(btn) {
       btn.addEventListener('click', function() {
         var dayIndex = parseInt(btn.dataset.day);
         var reaction = reactions[dayIndex];
+        selectedDay = dayNames[dayIndex];
+
         buttons.forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
         pickerHint.style.display = 'none';
@@ -822,6 +859,43 @@
         calHighlight.textContent = count + ' pickups. ' + count + ' deliveries.';
         calHighlightSub.textContent = '₹999 for the whole month.';
         calNote.innerHTML = '<span class="emoji-burst">' + reaction.emoji + '</span> You chose <strong>' + dayNames[dayIndex] + '</strong> — ' + reaction.msg;
+
+        // Show "Continue" button
+        calContinueBtn.textContent = 'Continue with ' + dayNames[dayIndex] + ' →';
+        calContinue.style.display = 'block';
+
+        // Update form state
+        chosenDayText.textContent = dayNames[dayIndex];
+        chosenDayDisplay.style.display = 'flex';
+        chooseDayNotice.style.display = 'none';
+        formWrapper.style.display = 'block';
+      });
+    });
+
+    // Handle form section visibility on scroll/load
+    function updateFormVisibility() {
+      if (selectedDay) {
+        chooseDayNotice.style.display = 'none';
+        formWrapper.style.display = 'block';
+      } else {
+        chooseDayNotice.style.display = 'block';
+        formWrapper.style.display = 'none';
+      }
+    }
+
+    // Check when user scrolls to subscribe section without picking a day
+    var formSection = document.getElementById('subscribe');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { updateFormVisibility(); }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(formSection);
+
+    // Also handle anchor clicks to #subscribe
+    document.querySelectorAll('a[href="#subscribe"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        setTimeout(updateFormVisibility, 100);
       });
     });
 
@@ -843,7 +917,7 @@
       formBtn.disabled = true;
       formBtn.textContent = 'Submitting...';
 
-      var data = { timestamp: new Date().toISOString(), name: name, phone: phone, address: address };
+      var data = { timestamp: new Date().toISOString(), name: name, phone: phone, address: address, preferredDay: selectedDay || 'Not selected' };
 
       // Try to submit to Google Sheets (won't block unlock if URL not set)
       if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
