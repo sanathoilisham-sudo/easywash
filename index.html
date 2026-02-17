@@ -362,6 +362,7 @@
             <button class="day-picker-btn" data-day="3">Thu</button>
             <button class="day-picker-btn" data-day="4">Fri</button>
             <button class="day-picker-btn" data-day="5">Sat</button>
+            <button class="day-picker-btn" data-day="6">Sun</button>
           </div>
           <div class="cal-grid" id="calGrid">
             <div class="cal-day-label">Mon</div>
@@ -612,15 +613,16 @@
   <!-- Interactive Calendar Script -->
   <script>
   (function() {
-    const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const dayShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const dayShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const reactions = [
       { emoji: '🎉', msg: 'That\'s it. Your laundry life is sorted.' },
       { emoji: '✨', msg: 'Done. Your month just planned itself.' },
       { emoji: '🙌', msg: 'Great pick! We\'ll be there every single week.' },
       { emoji: '💜', msg: 'Perfect. Now forget laundry exists.' },
       { emoji: '🚀', msg: 'Locked in. We handle the rest.' },
-      { emoji: '☕', msg: 'Now go enjoy your free time.' }
+      { emoji: '☕', msg: 'Now go enjoy your free time.' },
+      { emoji: '🌟', msg: 'Even Sundays. We\'ve got you covered.' }
     ];
 
     const buttons = document.querySelectorAll('.day-picker-btn');
