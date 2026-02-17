@@ -134,6 +134,52 @@
     .cal-note .emoji-burst { display: inline-block; animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
     @keyframes pop-in { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
 
+    /* Subscription Form Gateway */
+    .form-gateway { padding: 80px 0; background: linear-gradient(180deg, rgba(124,58,237,0.08) 0%, rgba(30,41,59,0.3) 100%); }
+    .form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .form-left h2 { font-size: 36px; font-weight: 800; color: white; margin-bottom: 16px; line-height: 1.2; }
+    .form-left p { font-size: 17px; color: #94a3b8; line-height: 1.7; margin-bottom: 16px; }
+    .form-left .form-trust { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #64748b; }
+    .form-left .form-trust span { font-size: 16px; }
+    .sub-form { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 36px; backdrop-filter: blur(10px); }
+    .sub-form h3 { font-size: 20px; font-weight: 700; color: white; margin-bottom: 6px; }
+    .sub-form .form-sub { font-size: 14px; color: #94a3b8; margin-bottom: 24px; }
+    .sub-form label { display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 6px; }
+    .sub-form input { width: 100%; padding: 14px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: white; font-size: 15px; font-family: inherit; margin-bottom: 16px; outline: none; transition: border-color 0.3s; }
+    .sub-form input:focus { border-color: #7c3aed; }
+    .sub-form input::placeholder { color: #64748b; }
+    .form-btn { display: block; width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border: none; border-radius: 12px; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+    .form-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); }
+    .form-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-success { display: none; text-align: center; padding: 20px; }
+    .form-success h3 { font-size: 22px; color: #4ade80; margin-bottom: 8px; }
+    .form-success p { font-size: 15px; color: #94a3b8; }
+
+    /* Locked / Blurred Section */
+    .locked-section { position: relative; overflow: hidden; padding: 80px 0; }
+    .locked-section.is-locked .locked-content { filter: blur(6px); pointer-events: none; user-select: none; }
+    .locked-section.is-locked .locked-overlay { display: flex; }
+    .locked-overlay { display: none; position: absolute; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(4px); z-index: 10; align-items: center; justify-content: center; text-align: center; flex-direction: column; gap: 16px; }
+    .locked-overlay .lock-icon { font-size: 48px; margin-bottom: 8px; }
+    .locked-overlay h3 { font-size: 24px; font-weight: 800; color: white; }
+    .locked-overlay p { font-size: 16px; color: #94a3b8; max-width: 400px; }
+    .locked-overlay a { padding: 14px 28px; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s; }
+    .locked-overlay a:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); text-decoration: none; }
+
+    .plan-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+    .plan-detail-card { padding: 28px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); background: rgba(30, 41, 59, 0.6); }
+    .plan-detail-card .detail-emoji { font-size: 32px; margin-bottom: 12px; display: block; }
+    .plan-detail-card h3 { font-size: 18px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .plan-detail-card p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+    .plan-detail-card .price-tag { display: inline-block; margin-top: 10px; padding: 4px 12px; background: rgba(124,58,237,0.2); border-radius: 8px; font-size: 14px; font-weight: 700; color: #c4b5fd; }
+    .addon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .addon-card { text-align: center; padding: 24px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.06); background: rgba(30, 41, 59, 0.6); transition: all 0.3s; }
+    .addon-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-3px); }
+    .addon-card .addon-emoji { font-size: 28px; margin-bottom: 8px; display: block; }
+    .addon-card h4 { font-size: 15px; font-weight: 700; color: white; margin-bottom: 4px; }
+    .addon-card .addon-price { font-size: 20px; font-weight: 800; color: #a78bfa; }
+    .addon-card p { font-size: 12px; color: #64748b; margin-top: 4px; }
+
     /* Feeling Section */
     .feeling-section { padding: 80px 0; background: rgba(30, 41, 59, 0.3); }
     .feeling-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
@@ -200,6 +246,9 @@
       .hero h1 { font-size: 36px; }
       .steps-grid { grid-template-columns: repeat(2, 1fr); }
       .calendar-layout { grid-template-columns: 1fr; }
+      .form-layout { grid-template-columns: 1fr; gap: 32px; }
+      .plan-details-grid { grid-template-columns: 1fr; }
+      .addon-grid { grid-template-columns: repeat(2, 1fr); }
       .feeling-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: repeat(2, 1fr); }
@@ -210,12 +259,15 @@
       .hero h1 { font-size: 30px; }
       .section-title { font-size: 28px; }
       .steps-grid { grid-template-columns: 1fr; }
+      .addon-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       nav { display: none; }
       .hero-buttons { flex-direction: column; }
       .final-cta h2 { font-size: 28px; }
       .final-cta-buttons { flex-direction: column; align-items: center; }
+      .form-left h2 { font-size: 28px; }
+      .locked-overlay h3 { font-size: 20px; }
     }
   </style>
 </head>
@@ -290,11 +342,11 @@
           </div>
 
           <ul class="benefits-list">
-            <li><span class="check-icon">✓</span> Enough for your whole family — no one runs out of clean clothes</li>
-            <li><span class="check-icon">✓</span> You don't even leave your couch</li>
-            <li><span class="check-icon">✓</span> Same day, every week — like magic, without thinking</li>
-            <li><span class="check-icon">✓</span> Opens fresh, folded, ready to put straight in the closet</li>
-            <li><span class="check-icon">✓</span> Gentle enough for your baby's clothes</li>
+            <li><span class="check-icon">✓</span> 40 kg every month — enough for your whole family</li>
+            <li><span class="check-icon">✓</span> We pick up from your door and deliver back</li>
+            <li><span class="check-icon">✓</span> Same day, every week — no reminders needed</li>
+            <li><span class="check-icon">✓</span> Clothes, bedsheets, curtains — everything comes back fresh</li>
+            <li><span class="check-icon">✓</span> Safe for everyone — from baby clothes to grandpa's kurta</li>
           </ul>
 
           <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Plan" class="btn-subscribe">Start Living, Stop Washing — ₹999/month</a>
@@ -419,32 +471,137 @@
     </div>
   </section>
 
+  <!-- Subscription Form Gateway -->
+  <section class="form-gateway" id="subscribe">
+    <div class="container">
+      <div class="form-layout">
+        <div class="form-left">
+          <div class="section-label">Get Started</div>
+          <h2>Want to See Everything<br>That's Included?</h2>
+          <p>Fill in your details and unlock the full 999 Plan breakdown — what's covered, add-on prices, and how we take care of your entire home.</p>
+          <p>We'll also reach out to set up your first pickup.</p>
+          <div class="form-trust">
+            <span>🔒</span> Your information stays with us. No spam, ever.
+          </div>
+        </div>
+        <div class="sub-form" id="subForm">
+          <h3>Join 500+ Imphal families</h3>
+          <p class="form-sub">Takes 30 seconds. We'll call you to confirm.</p>
+          <form id="subscriptionForm">
+            <label for="formName">Your Name</label>
+            <input type="text" id="formName" placeholder="Enter your full name" required>
+            <label for="formPhone">Phone / WhatsApp Number</label>
+            <input type="tel" id="formPhone" placeholder="Enter your 10-digit number" required>
+            <label for="formAddress">Your Address (for pickup)</label>
+            <input type="text" id="formAddress" placeholder="Area / locality in Imphal" required>
+            <button type="submit" class="form-btn" id="formBtn">Unlock Full Plan Details</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <h3>You're in! Welcome to EasyWash.</h3>
+            <p>Scroll down to see the full plan details. We'll contact you soon to set up your first pickup day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locked: Full 999 Plan Details -->
+  <section class="locked-section is-locked" id="planDetails">
+    <div class="locked-overlay">
+      <span class="lock-icon">🔒</span>
+      <h3>Full Plan Details Are Locked</h3>
+      <p>Fill the form above to see everything included in the 999 Plan — add-ons, pricing, and more.</p>
+      <a href="#subscribe">Fill Form to Unlock</a>
+    </div>
+    <div class="locked-content">
+      <div class="container">
+        <div class="section-label">The Full Picture</div>
+        <h2 class="section-title">Everything in ₹999/month</h2>
+        <p class="section-subtitle">More than just clothes. We take care of your entire home.</p>
+
+        <div class="plan-details-grid">
+          <div class="plan-detail-card">
+            <span class="detail-emoji">👕</span>
+            <h3>40 kg Clothes Every Month</h3>
+            <p>All your family's daily wear — shirts, pants, kurtas, salwars, innerwear, socks. Put it all in. We handle it.</p>
+          </div>
+          <div class="plan-detail-card">
+            <span class="detail-emoji">🛏️</span>
+            <h3>Bedsheets, Curtains & More</h3>
+            <p>Pillow covers, table cloths, curtains, bedsheets — included in your 40 kg. Your whole home stays fresh.</p>
+          </div>
+          <div class="plan-detail-card">
+            <span class="detail-emoji">🚪</span>
+            <h3>Doorstep Pickup & Delivery</h3>
+            <p>We come to your door every week. You hand us the bag. Next day, it comes back clean, folded, ready.</p>
+          </div>
+          <div class="plan-detail-card">
+            <span class="detail-emoji">⚡</span>
+            <h3>Next-Day Return</h3>
+            <p>Give us your clothes today, get them back tomorrow. No waiting around for days.</p>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:40px;">Need More?</div>
+        <h2 class="section-title" style="font-size:28px;">Add-On Services at Family-Friendly Prices</h2>
+        <p class="section-subtitle">Extra weight? Blankets? Shoes? We've got you covered.</p>
+
+        <div class="addon-grid">
+          <div class="addon-card">
+            <span class="addon-emoji">⚖️</span>
+            <h4>Extra Weight</h4>
+            <div class="addon-price">₹40/kg</div>
+            <p>Beyond 40 kg</p>
+          </div>
+          <div class="addon-card">
+            <span class="addon-emoji">🛏️</span>
+            <h4>Blanket Wash</h4>
+            <div class="addon-price">₹200</div>
+            <p>Per piece, delivery included</p>
+          </div>
+          <div class="addon-card">
+            <span class="addon-emoji">👟</span>
+            <h4>Shoe Cleaning</h4>
+            <div class="addon-price">₹150</div>
+            <p>Per pair</p>
+          </div>
+          <div class="addon-card">
+            <span class="addon-emoji">👔</span>
+            <h4>Ironing</h4>
+            <div class="addon-price">₹15</div>
+            <p>Per piece</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Feeling / Emotion Section -->
   <section class="feeling-section">
     <div class="container">
       <div class="section-label">The Real Difference</div>
-      <h2 class="section-title">What Changes When You Subscribe</h2>
-      <p class="section-subtitle">It's not about laundry. It's about getting your time and peace of mind back.</p>
+      <h2 class="section-title">It's Not About Laundry. It's About Your Family.</h2>
+      <p class="section-subtitle">Think about the people you love. Now think about what changes when laundry is no longer their problem.</p>
       <div class="feeling-grid">
         <div class="feeling-card">
-          <div class="old-way">Before EasyWash</div>
-          <h3>"I'll do laundry this weekend..."</h3>
-          <p>Weekends spent sorting, washing, drying, folding. The pile never ends. By Sunday night, you're exhausted and it's still not done.</p>
+          <div class="old-way">Without EasyWash</div>
+          <h3>"Amma washes clothes every single day..."</h3>
+          <p>Your mother or wife — standing, scrubbing, hanging, folding. Day after day. It's not just laundry. It's exhaustion nobody talks about.</p>
         </div>
         <div class="feeling-card">
-          <div class="new-way">After EasyWash</div>
-          <h3>"Wait, when did I last think about laundry?"</h3>
-          <p>You didn't. Because every week, clean clothes just... appear. Folded. Fresh. Ready. You spent Sunday with your family instead.</p>
+          <div class="new-way">With EasyWash</div>
+          <h3>"She's resting. The clothes are already done."</h3>
+          <p>You gave her the gift of free time. Clean clothes appear every week. She didn't lift a finger. That's what ₹999 really buys.</p>
         </div>
         <div class="feeling-card">
-          <div class="old-way">Before EasyWash</div>
-          <h3>"We need clean uniforms for tomorrow!"</h3>
-          <p>Last-minute panic. School uniforms, office clothes — the stress of realizing nothing is clean when you need it most.</p>
+          <div class="old-way">Without EasyWash</div>
+          <h3>"Baba's bedsheet hasn't been changed in weeks..."</h3>
+          <p>Your parents deserve a clean bed every week. But who has the time? Curtains dusty, pillow covers stale — the guilt builds up quietly.</p>
         </div>
         <div class="feeling-card">
-          <div class="new-way">After EasyWash</div>
-          <h3>"Everything's already in the closet."</h3>
-          <p>Your Monday pickup means Tuesday morning is calm. Kids' uniforms ready. Your office clothes pressed. No rushing. No panic.</p>
+          <div class="new-way">With EasyWash</div>
+          <h3>"Fresh bedsheets, clean curtains — every week."</h3>
+          <p>Bedsheets, pillow covers, curtains, table cloths — all included. Your parents sleep in a clean, fresh bed. You made that happen.</p>
         </div>
       </div>
     </div>
@@ -610,12 +767,12 @@
     </div>
   </footer>
 
-  <!-- Interactive Calendar Script -->
+  <!-- Scripts -->
   <script>
   (function() {
-    const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const dayShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    const reactions = [
+    /* ---- Interactive Calendar ---- */
+    var dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    var reactions = [
       { emoji: '🎉', msg: 'That\'s it. Your laundry life is sorted.' },
       { emoji: '✨', msg: 'Done. Your month just planned itself.' },
       { emoji: '🙌', msg: 'Great pick! We\'ll be there every single week.' },
@@ -625,35 +782,26 @@
       { emoji: '🌟', msg: 'Even Sundays. We\'ve got you covered.' }
     ];
 
-    const buttons = document.querySelectorAll('.day-picker-btn');
-    const calDays = document.querySelectorAll('.cal-day[data-dow]');
-    const calLabels = document.querySelectorAll('.cal-day-label');
-    const calNote = document.getElementById('calNote');
-    const calHeading = document.getElementById('cal-heading');
-    const calDesc = document.getElementById('cal-description');
-    const calHighlight = document.getElementById('cal-highlight-text');
-    const calHighlightSub = document.getElementById('cal-highlight-sub');
-    const pickerHint = document.getElementById('picker-hint');
+    var buttons = document.querySelectorAll('.day-picker-btn');
+    var calDays = document.querySelectorAll('.cal-day[data-dow]');
+    var calLabels = document.querySelectorAll('.cal-day-label');
+    var calNote = document.getElementById('calNote');
+    var calHeading = document.getElementById('cal-heading');
+    var calDesc = document.getElementById('cal-description');
+    var calHighlight = document.getElementById('cal-highlight-text');
+    var calHighlightSub = document.getElementById('cal-highlight-sub');
+    var pickerHint = document.getElementById('picker-hint');
 
     buttons.forEach(function(btn) {
       btn.addEventListener('click', function() {
         var dayIndex = parseInt(btn.dataset.day);
         var reaction = reactions[dayIndex];
-
-        // Update active button
         buttons.forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
-
-        // Hide hint
         pickerHint.style.display = 'none';
 
-        // Highlight matching days in calendar with staggered animation
         var delay = 0;
-        calDays.forEach(function(day) {
-          day.classList.remove('pickup-day');
-          day.style.transitionDelay = '0ms';
-        });
-
+        calDays.forEach(function(day) { day.classList.remove('pickup-day'); day.style.transitionDelay = '0ms'; });
         setTimeout(function() {
           calDays.forEach(function(day) {
             if (parseInt(day.dataset.dow) === dayIndex) {
@@ -664,24 +812,54 @@
           });
         }, 50);
 
-        // Highlight the day label
-        calLabels.forEach(function(label, i) {
-          label.classList.toggle('active-day', i === dayIndex);
-        });
-
-        // Update heading
+        calLabels.forEach(function(label, i) { label.classList.toggle('active-day', i === dayIndex); });
         calHeading.innerHTML = 'You Choose ' + dayNames[dayIndex] + '. We Handle <em>Every</em> ' + dayNames[dayIndex] + '.';
-
-        // Update description
         calDesc.innerHTML = 'No remembering. No scheduling. No "I\'ll do it next week." You picked <strong>' + dayNames[dayIndex] + '</strong> — we show up every single ' + dayNames[dayIndex] + '. That\'s <strong>4 pickups, 4 deliveries, zero effort.</strong>';
-
-        // Update highlight box
         calHighlight.textContent = '4 pickups. 4 deliveries.';
         calHighlightSub.textContent = '₹999 for the whole month.';
-
-        // Update note with emoji burst
         calNote.innerHTML = '<span class="emoji-burst">' + reaction.emoji + '</span> You chose <strong>' + dayNames[dayIndex] + '</strong> — ' + reaction.msg;
       });
+    });
+
+    /* ---- Subscription Form + Unlock ---- */
+    var form = document.getElementById('subscriptionForm');
+    var formBtn = document.getElementById('formBtn');
+    var formSuccess = document.getElementById('formSuccess');
+    var lockedSection = document.getElementById('planDetails');
+    var GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('formName').value.trim();
+      var phone = document.getElementById('formPhone').value.trim();
+      var address = document.getElementById('formAddress').value.trim();
+
+      if (!name || !phone || !address) return;
+
+      formBtn.disabled = true;
+      formBtn.textContent = 'Submitting...';
+
+      var data = { timestamp: new Date().toISOString(), name: name, phone: phone, address: address };
+
+      // Try to submit to Google Sheets (won't block unlock if URL not set)
+      if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).catch(function() {});
+      }
+
+      // Unlock immediately
+      setTimeout(function() {
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+        lockedSection.classList.remove('is-locked');
+        // Scroll to unlocked content
+        setTimeout(function() {
+          lockedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }, 600);
     });
   })();
   </script>
