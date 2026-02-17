@@ -812,10 +812,14 @@
           });
         }, 50);
 
+        // Count how many times this day appears in the month
+        var count = 0;
+        calDays.forEach(function(day) { if (parseInt(day.dataset.dow) === dayIndex) count++; });
+
         calLabels.forEach(function(label, i) { label.classList.toggle('active-day', i === dayIndex); });
         calHeading.innerHTML = 'You Choose ' + dayNames[dayIndex] + '. We Handle <em>Every</em> ' + dayNames[dayIndex] + '.';
-        calDesc.innerHTML = 'No remembering. No scheduling. No "I\'ll do it next week." You picked <strong>' + dayNames[dayIndex] + '</strong> — we show up every single ' + dayNames[dayIndex] + '. That\'s <strong>4 pickups, 4 deliveries, zero effort.</strong>';
-        calHighlight.textContent = '4 pickups. 4 deliveries.';
+        calDesc.innerHTML = 'No remembering. No scheduling. No "I\'ll do it next week." You picked <strong>' + dayNames[dayIndex] + '</strong> — we show up every single ' + dayNames[dayIndex] + '. That\'s <strong>' + count + ' pickups, ' + count + ' deliveries, zero effort.</strong>';
+        calHighlight.textContent = count + ' pickups. ' + count + ' deliveries.';
         calHighlightSub.textContent = '₹999 for the whole month.';
         calNote.innerHTML = '<span class="emoji-burst">' + reaction.emoji + '</span> You chose <strong>' + dayNames[dayIndex] + '</strong> — ' + reaction.msg;
       });
