@@ -3,186 +3,519 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EasyWash - Professional Laundry & Garment Care Services | LG Enterprises</title>
-  <meta name="description" content="EasyWash by LG Enterprises provides professional laundry, dry cleaning, blanket wash, and garment care services in Imphal, Manipur.">
+  <title>EasyWash - Pick a Day. Forget About Laundry Forever. | LG Enterprises, Imphal</title>
+  <meta name="description" content="EasyWash 999 Monthly Plan — pick your day, we show up every week. Professional laundry with doorstep pickup & delivery in Imphal, Manipur. ₹999/month.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; }
-    a { color: #2980b9; text-decoration: none; }
+    body { font-family: 'Inter', 'Segoe UI', sans-serif; color: #e2e8f0; line-height: 1.6; background: #0f172a; }
+    a { color: #60a5fa; text-decoration: none; }
     a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
     /* Header */
-    header { background: #2c3e50; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    header { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 15px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.06); }
     header .container { display: flex; justify-content: space-between; align-items: center; }
-    header h1 { font-size: 22px; font-weight: 700; }
-    header h1 span { color: #3498db; }
-    nav a { color: #ecf0f1; margin-left: 20px; font-size: 14px; }
-    nav a:hover { color: #3498db; text-decoration: none; }
+    .logo { font-size: 24px; font-weight: 800; color: white; }
+    .logo span { color: #818cf8; }
+    nav { display: flex; align-items: center; gap: 8px; }
+    nav a { color: #94a3b8; font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 8px; transition: all 0.2s; }
+    nav a:hover { color: white; background: rgba(255,255,255,0.06); text-decoration: none; }
+    .nav-cta { background: #7c3aed !important; color: white !important; font-weight: 600; }
+    .nav-cta:hover { background: #6d28d9 !important; }
 
     /* Hero */
-    .hero { background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 80px 0; text-align: center; }
-    .hero h2 { font-size: 42px; margin-bottom: 15px; }
-    .hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
-    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 8px 20px; border-radius: 20px; font-size: 14px; }
+    .hero { padding: 80px 0 60px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(124,58,237,0.12) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(59,130,246,0.08) 0%, transparent 50%); pointer-events: none; }
+    .hero-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; position: relative; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3); padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 500; color: #c4b5fd; margin-bottom: 24px; }
+    .hero-badge-dot { width: 8px; height: 8px; background: #a78bfa; border-radius: 50%; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .hero h1 { font-size: 50px; font-weight: 900; line-height: 1.1; color: white; margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 .highlight { background: linear-gradient(135deg, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 18px; color: #94a3b8; margin-bottom: 32px; line-height: 1.7; max-width: 500px; }
+    .hero-sub strong { color: #e2e8f0; }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); text-decoration: none; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: white; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); text-decoration: none; }
+
+    /* Hero Pricing Card */
+    .hero-card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 36px; backdrop-filter: blur(10px); }
+    .hero-card-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+    .hero-card-price .rupee { font-size: 28px; color: #a78bfa; font-weight: 700; }
+    .hero-card-price .amount { font-size: 64px; font-weight: 900; color: white; line-height: 1; }
+    .hero-card-price .period { font-size: 18px; color: #94a3b8; font-weight: 500; }
+    .hero-card-tagline { font-size: 15px; color: #94a3b8; margin-bottom: 24px; }
+
+    .urgency-banner { background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px; }
+    .urgency-label { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #fecaca; margin-bottom: 6px; }
+    .urgency-label-dot { width: 8px; height: 8px; background: #fca5a5; border-radius: 50%; animation: pulse-dot 1.5s infinite; }
+    .urgency-number { font-size: 28px; font-weight: 900; color: white; margin-bottom: 4px; }
+    .urgency-sub { font-size: 13px; color: #fecaca; }
+    .urgency-bar { height: 4px; background: rgba(255,255,255,0.2); border-radius: 4px; margin-top: 10px; }
+    .urgency-bar-fill { height: 100%; width: 70%; background: #fbbf24; border-radius: 4px; }
+
+    .one-day-badge { display: flex; align-items: center; gap: 12px; background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.25); border-radius: 12px; padding: 14px 18px; margin-bottom: 24px; }
+    .one-day-icon { font-size: 24px; }
+    .one-day-text h4 { font-size: 14px; font-weight: 700; color: #a78bfa; letter-spacing: 0.3px; }
+    .one-day-text p { font-size: 13px; color: #94a3b8; }
+
+    .benefits-list { list-style: none; margin-bottom: 28px; }
+    .benefits-list li { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 15px; color: #cbd5e1; }
+    .check-icon { width: 22px; height: 22px; background: rgba(34,197,94,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; color: #4ade80; }
+    .btn-subscribe { display: block; width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border: none; border-radius: 12px; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-align: center; text-decoration: none; }
+    .btn-subscribe:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); text-decoration: none; }
+
+    /* How It Works */
+    .how-it-works { padding: 80px 0; background: rgba(30, 41, 59, 0.3); }
+    .section-label { text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818cf8; margin-bottom: 12px; }
+    .section-title { text-align: center; font-size: 38px; font-weight: 800; color: white; margin-bottom: 16px; }
+    .section-subtitle { text-align: center; font-size: 17px; color: #94a3b8; margin-bottom: 50px; max-width: 550px; margin-left: auto; margin-right: auto; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .step-card { text-align: center; padding: 32px 20px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; position: relative; transition: all 0.3s; }
+    .step-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-3px); }
+    .step-number { width: 48px; height: 48px; background: linear-gradient(135deg, #7c3aed, #6d28d9); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: white; margin: 0 auto 16px; }
+    .step-card h3 { font-size: 17px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .step-card p { font-size: 14px; color: #94a3b8; line-height: 1.5; }
+    .step-emoji { font-size: 36px; margin-bottom: 12px; display: block; }
+
+    /* Calendar Section */
+    .calendar-section { padding: 80px 0; }
+    .calendar-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .calendar-text h2 { font-size: 36px; font-weight: 800; color: white; margin-bottom: 16px; line-height: 1.2; }
+    .calendar-text p { font-size: 17px; color: #94a3b8; margin-bottom: 24px; line-height: 1.7; }
+    .calendar-highlight { background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.2); border-radius: 12px; padding: 20px; font-size: 20px; font-weight: 700; color: #c4b5fd; text-align: center; }
+    .calendar-highlight .big-num { font-size: 40px; color: white; display: block; margin-bottom: 4px; }
+
+    .mini-calendar { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; }
+    .cal-header { text-align: center; font-size: 18px; font-weight: 700; color: white; margin-bottom: 20px; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
+    .cal-day-label { font-size: 12px; font-weight: 600; color: #64748b; padding: 6px 0; }
+    .cal-day-label.active-day { color: #a78bfa; }
+    .cal-day { font-size: 13px; padding: 8px 4px; border-radius: 8px; color: #64748b; }
+    .cal-day.current-month { color: #94a3b8; }
+    .cal-day.pickup-day { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; font-weight: 700; position: relative; }
+    .cal-day.pickup-day::after { content: 'Pickup'; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); font-size: 8px; color: #a78bfa; white-space: nowrap; font-weight: 600; }
+    .cal-note { text-align: center; margin-top: 24px; font-size: 14px; color: #94a3b8; }
+    .cal-note strong { color: #a78bfa; }
+
+    /* Feeling Section */
+    .feeling-section { padding: 80px 0; background: rgba(30, 41, 59, 0.3); }
+    .feeling-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .feeling-card { padding: 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); background: rgba(30, 41, 59, 0.6); transition: all 0.3s; }
+    .feeling-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-3px); }
+    .feeling-card .old-way { font-size: 14px; color: #ef4444; font-weight: 600; margin-bottom: 6px; }
+    .feeling-card .new-way { font-size: 14px; color: #4ade80; font-weight: 600; margin-bottom: 6px; }
+    .feeling-card h3 { font-size: 18px; color: white; font-weight: 700; margin-bottom: 8px; }
+    .feeling-card p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
 
     /* Services */
-    .services { padding: 60px 0; background: #f8f9fa; }
-    .services h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: #2c3e50; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-    .service-card { background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.2s; }
-    .service-card:hover { transform: translateY(-3px); }
-    .service-card .icon { font-size: 40px; margin-bottom: 15px; }
-    .service-card h3 { margin-bottom: 10px; color: #2c3e50; }
-    .service-card p { font-size: 14px; color: #7f8c8d; }
+    .services { padding: 80px 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { padding: 28px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; transition: all 0.3s; }
+    .service-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-3px); }
+    .service-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+    .service-card h3 { font-size: 17px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+
+    /* Testimonial */
+    .testimonial { padding: 80px 0; background: rgba(30, 41, 59, 0.3); text-align: center; }
+    .testimonial-quote { font-size: 24px; font-weight: 600; color: white; max-width: 700px; margin: 0 auto 20px; font-style: italic; line-height: 1.5; }
+    .testimonial-author { font-size: 15px; color: #94a3b8; }
+
+    /* Final CTA */
+    .final-cta { padding: 80px 0; text-align: center; }
+    .final-cta h2 { font-size: 40px; font-weight: 900; color: white; margin-bottom: 16px; }
+    .final-cta p { font-size: 18px; color: #94a3b8; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .final-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     /* About */
-    .about { padding: 60px 0; }
-    .about h2 { font-size: 32px; margin-bottom: 20px; color: #2c3e50; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-    .about-info { background: #f8f9fa; padding: 30px; border-radius: 10px; }
-    .about-info p { margin-bottom: 10px; }
-    .about-info strong { color: #2c3e50; }
+    .about { padding: 60px 0; background: rgba(30, 41, 59, 0.3); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .about-text p { font-size: 16px; color: #94a3b8; margin-bottom: 14px; line-height: 1.7; }
+    .about-text strong { color: #e2e8f0; }
+    .about-info { background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.08); padding: 28px; border-radius: 16px; }
+    .about-info p { margin-bottom: 10px; font-size: 14px; color: #94a3b8; }
+    .about-info strong { color: #cbd5e1; }
 
     /* Contact */
-    .contact { padding: 60px 0; background: #f8f9fa; }
-    .contact h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: #2c3e50; }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-    .contact-card { background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-    .contact-card .icon { font-size: 30px; margin-bottom: 10px; }
-    .contact-card h3 { margin-bottom: 8px; color: #2c3e50; font-size: 16px; }
-    .contact-card p { color: #7f8c8d; font-size: 14px; }
+    .contact { padding: 60px 0; }
+    .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .contact-card { background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.06); padding: 28px; border-radius: 16px; text-align: center; }
+    .contact-card .icon { font-size: 28px; margin-bottom: 10px; display: block; }
+    .contact-card h3 { font-size: 15px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .contact-card p { color: #94a3b8; font-size: 13px; }
 
     /* Footer */
-    footer { background: #2c3e50; color: #ecf0f1; padding: 40px 0 20px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
-    .footer-col h3 { margin-bottom: 15px; font-size: 16px; }
-    .footer-col p, .footer-col a { font-size: 14px; color: #bdc3c7; display: block; margin-bottom: 8px; }
-    .footer-col a:hover { color: white; }
-    .footer-bottom { border-top: 1px solid #34495e; padding-top: 20px; text-align: center; font-size: 13px; color: #7f8c8d; }
+    footer { background: rgba(15, 23, 42, 0.9); border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 0 20px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 30px; }
+    .footer-col h3 { margin-bottom: 15px; font-size: 15px; color: white; font-weight: 700; }
+    .footer-col p, .footer-col a { font-size: 13px; color: #64748b; display: block; margin-bottom: 8px; }
+    .footer-col a:hover { color: #a78bfa; text-decoration: none; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; text-align: center; font-size: 12px; color: #475569; }
 
-    @media (max-width: 768px) {
+    /* WhatsApp Float */
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 999; transition: all 0.3s; text-decoration: none; }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
+    .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 36px; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .calendar-layout { grid-template-columns: 1fr; }
+      .feeling-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; }
-      .hero h2 { font-size: 28px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 30px; }
+      .section-title { font-size: 28px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
       nav { display: none; }
+      .hero-buttons { flex-direction: column; }
+      .final-cta h2 { font-size: 28px; }
+      .final-cta-buttons { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div class="container">
-      <h1>Easy<span>Wash</span></h1>
+      <div class="logo">Easy<span>Wash</span></div>
       <nav>
+        <a href="#plan">999 Plan</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
+        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Plan" class="nav-cta">Subscribe Now</a>
       </nav>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h2>Laundry Made Easy!</h2>
-      <p>Professional laundry, dry cleaning, and garment care services by LG Enterprises in Imphal, Manipur.</p>
-      <div class="hero-badge">Trusted by hundreds of families in Imphal</div>
-    </div>
-  </section>
+      <div class="hero-layout">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Now serving Imphal &amp; surrounding areas
+          </div>
+          <h1>Pick a Day.<br><span class="highlight">Forget About Laundry</span><br>Forever.</h1>
+          <p class="hero-sub">
+            Choose your day — <strong>every week we're at your door</strong>. Picking up, washing, folding, and delivering back. <strong>₹999/month.</strong> That's it. No thinking. No tracking. Just clean clothes, every single week.
+          </p>
+          <div class="hero-buttons">
+            <a href="#plan" class="btn-primary">Start Living, Stop Washing</a>
+            <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20more%20about%20EasyWash%20999%20Plan" class="btn-secondary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.348 0-4.518-.816-6.222-2.18l-.435-.355-3.26 1.093 1.093-3.26-.355-.435A9.948 9.948 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
 
-  <section class="services" id="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="icon">&#128085;</div>
-          <h3>Regular Laundry</h3>
-          <p>Wash, dry, and fold service for your everyday clothes. Fresh and clean, ready to wear.</p>
-        </div>
-        <div class="service-card">
-          <div class="icon">&#10024;</div>
-          <h3>Dry Cleaning</h3>
-          <p>Professional dry cleaning for delicate fabrics, suits, sarees, and formal wear.</p>
-        </div>
-        <div class="service-card">
-          <div class="icon">&#128716;</div>
-          <h3>Blanket Wash</h3>
-          <p>Deep cleaning for blankets, comforters, and heavy bedding items.</p>
-        </div>
-        <div class="service-card">
-          <div class="icon">&#9889;</div>
-          <h3>Bulk Wash</h3>
-          <p>Cost-effective bulk washing service for large volumes of laundry.</p>
-        </div>
-        <div class="service-card">
-          <div class="icon">&#128094;</div>
-          <h3>Ironing & Pressing</h3>
-          <p>Crisp ironing and professional pressing for a polished look.</p>
-        </div>
-        <div class="service-card">
-          <div class="icon">&#128666;</div>
-          <h3>Pickup & Delivery</h3>
-          <p>Convenient doorstep pickup and delivery across Imphal city.</p>
+        <!-- Pricing Card -->
+        <div class="hero-card" id="plan">
+          <div class="hero-card-price">
+            <span class="rupee">₹</span>
+            <span class="amount">999</span>
+            <span class="period">/month</span>
+          </div>
+          <p class="hero-card-tagline">Everything your family needs for hassle-free laundry</p>
+
+          <div class="one-day-badge">
+            <span class="one-day-icon">⚡</span>
+            <div class="one-day-text">
+              <h4>ONE DAY DELIVERY SERVICE</h4>
+              <p>Get your laundry back within 24 hours</p>
+            </div>
+          </div>
+
+          <div class="urgency-banner">
+            <div class="urgency-label">
+              <span class="urgency-label-dot"></span>
+              LIMITED SEATS THIS MONTH
+            </div>
+            <div class="urgency-number">Only 7 spots remaining</div>
+            <div class="urgency-sub">Filling up fast — don't miss out!</div>
+            <div class="urgency-bar"><div class="urgency-bar-fill"></div></div>
+          </div>
+
+          <ul class="benefits-list">
+            <li><span class="check-icon">✓</span> Enough for your whole family — no one runs out of clean clothes</li>
+            <li><span class="check-icon">✓</span> You don't even leave your couch</li>
+            <li><span class="check-icon">✓</span> Same day, every week — like magic, without thinking</li>
+            <li><span class="check-icon">✓</span> Opens fresh, folded, ready to put straight in the closet</li>
+            <li><span class="check-icon">✓</span> Gentle enough for your baby's clothes</li>
+          </ul>
+
+          <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Plan" class="btn-subscribe">Start Living, Stop Washing — ₹999/month</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- How It Works -->
+  <section class="how-it-works" id="how">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Your Laundry-Free Life in 4 Steps</h2>
+      <p class="section-subtitle">No app to download. No complicated process. Just clean clothes every week.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-emoji">📅</span>
+          <div class="step-number">1</div>
+          <h3>Pick Your Day</h3>
+          <p>Monday? Wednesday? Saturday? Choose the day that works for your family.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-emoji">🚪</span>
+          <div class="step-number">2</div>
+          <h3>We Show Up. Every Week.</h3>
+          <p>Rain or shine, we're at your door on your chosen day. No reminders needed.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-emoji">👕</span>
+          <div class="step-number">3</div>
+          <h3>Next Day, It's Back</h3>
+          <p>Washed, dried, folded, and delivered to your doorstep within 24 hours.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-emoji">☕</span>
+          <div class="step-number">4</div>
+          <h3>You Do... Nothing</h3>
+          <p>That's the whole point. Spend your time on what actually matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar Visual -->
+  <section class="calendar-section">
+    <div class="container">
+      <div class="calendar-layout">
+        <div class="calendar-text">
+          <h2>You Choose Monday. We Handle <em>Every</em> Monday.</h2>
+          <p>
+            No remembering. No scheduling. No "I'll do it next week." You pick your day once, and we show up every single week of the month. That's <strong>4 pickups, 4 deliveries, one flat price.</strong>
+          </p>
+          <div class="calendar-highlight">
+            <span class="big-num">4 pickups. 4 deliveries.</span>
+            ₹999 for the whole month.
+          </div>
+        </div>
+        <div class="mini-calendar">
+          <div class="cal-header">February 2026</div>
+          <div class="cal-grid">
+            <div class="cal-day-label active-day">Mon</div>
+            <div class="cal-day-label">Tue</div>
+            <div class="cal-day-label">Wed</div>
+            <div class="cal-day-label">Thu</div>
+            <div class="cal-day-label">Fri</div>
+            <div class="cal-day-label">Sat</div>
+            <div class="cal-day-label">Sun</div>
+            <!-- Week 1 -->
+            <div class="cal-day current-month pickup-day">2</div>
+            <div class="cal-day current-month">3</div>
+            <div class="cal-day current-month">4</div>
+            <div class="cal-day current-month">5</div>
+            <div class="cal-day current-month">6</div>
+            <div class="cal-day current-month">7</div>
+            <div class="cal-day current-month">8</div>
+            <!-- Week 2 -->
+            <div class="cal-day current-month pickup-day">9</div>
+            <div class="cal-day current-month">10</div>
+            <div class="cal-day current-month">11</div>
+            <div class="cal-day current-month">12</div>
+            <div class="cal-day current-month">13</div>
+            <div class="cal-day current-month">14</div>
+            <div class="cal-day current-month">15</div>
+            <!-- Week 3 -->
+            <div class="cal-day current-month pickup-day">16</div>
+            <div class="cal-day current-month">17</div>
+            <div class="cal-day current-month">18</div>
+            <div class="cal-day current-month">19</div>
+            <div class="cal-day current-month">20</div>
+            <div class="cal-day current-month">21</div>
+            <div class="cal-day current-month">22</div>
+            <!-- Week 4 -->
+            <div class="cal-day current-month pickup-day">23</div>
+            <div class="cal-day current-month">24</div>
+            <div class="cal-day current-month">25</div>
+            <div class="cal-day current-month">26</div>
+            <div class="cal-day current-month">27</div>
+            <div class="cal-day current-month">28</div>
+            <div class="cal-day"></div>
+          </div>
+          <p class="cal-note">You chose <strong>Monday</strong> — we handle every Monday. Simple.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feeling / Emotion Section -->
+  <section class="feeling-section">
+    <div class="container">
+      <div class="section-label">The Real Difference</div>
+      <h2 class="section-title">What Changes When You Subscribe</h2>
+      <p class="section-subtitle">It's not about laundry. It's about getting your time and peace of mind back.</p>
+      <div class="feeling-grid">
+        <div class="feeling-card">
+          <div class="old-way">Before EasyWash</div>
+          <h3>"I'll do laundry this weekend..."</h3>
+          <p>Weekends spent sorting, washing, drying, folding. The pile never ends. By Sunday night, you're exhausted and it's still not done.</p>
+        </div>
+        <div class="feeling-card">
+          <div class="new-way">After EasyWash</div>
+          <h3>"Wait, when did I last think about laundry?"</h3>
+          <p>You didn't. Because every week, clean clothes just... appear. Folded. Fresh. Ready. You spent Sunday with your family instead.</p>
+        </div>
+        <div class="feeling-card">
+          <div class="old-way">Before EasyWash</div>
+          <h3>"We need clean uniforms for tomorrow!"</h3>
+          <p>Last-minute panic. School uniforms, office clothes — the stress of realizing nothing is clean when you need it most.</p>
+        </div>
+        <div class="feeling-card">
+          <div class="new-way">After EasyWash</div>
+          <h3>"Everything's already in the closet."</h3>
+          <p>Your Monday pickup means Tuesday morning is calm. Kids' uniforms ready. Your office clothes pressed. No rushing. No panic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label">All Services</div>
+      <h2 class="section-title">More Than Just the 999 Plan</h2>
+      <p class="section-subtitle">Need something specific? We handle that too.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">👔</span>
+          <h3>Dry Cleaning</h3>
+          <p>Professional care for delicate fabrics, suits, sarees, and formal wear that need special attention.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🛏️</span>
+          <h3>Blanket Wash</h3>
+          <p>Deep cleaning for blankets, comforters, and heavy bedding. Fresh and fluffy, ready for cozy nights.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">⚡</span>
+          <h3>Bulk Wash</h3>
+          <p>Large volumes? Hostels, PGs, or big families — we handle bulk at cost-effective rates.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">👗</span>
+          <h3>Ironing &amp; Pressing</h3>
+          <p>Crisp, professional pressing for that polished, ready-to-wear look every day.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🚗</span>
+          <h3>Doorstep Pickup</h3>
+          <p>We come to you. Across Imphal city — no need to step out of your home.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🌿</span>
+          <h3>Eco-Friendly Care</h3>
+          <p>Gentle, eco-friendly detergents that are safe for your family's clothes and skin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="testimonial">
+    <div class="container">
+      <div class="section-label">From Our Subscribers</div>
+      <p class="testimonial-quote">"I used to spend my Sundays washing and ironing. Now I spend them with my kids. Best ₹999 I've ever spent."</p>
+      <p class="testimonial-author">— Happy EasyWash subscriber, Imphal</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready to Never Think About<br>Laundry Again?</h2>
+      <p>Pick your day. We'll handle the rest. Every week. ₹999/month.</p>
+      <div class="final-cta-buttons">
+        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Plan" class="btn-primary">Start Living, Stop Washing — ₹999/mo</a>
+        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20have%20a%20question%20about%20EasyWash" class="btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.348 0-4.518-.816-6.222-2.18l-.435-.355-3.26 1.093 1.093-3.26-.355-.435A9.948 9.948 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Ask a Question
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
   <section class="about" id="about">
     <div class="container">
-      <h2>About Us</h2>
+      <div class="section-label">About Us</div>
+      <h2 class="section-title" style="text-align:left;">Who We Are</h2>
       <div class="about-grid">
-        <div>
-          <p style="font-size:16px; margin-bottom:15px;">
-            <strong>EasyWash</strong> is a professional laundry and garment care brand operated by <strong>LG Enterprises</strong>,
-            based in Khongman Zone III, Imphal East, Manipur. We provide high-quality laundry services including regular wash,
-            dry cleaning, blanket wash, bulk wash, ironing, and doorstep pickup and delivery.
+        <div class="about-text">
+          <p>
+            <strong>EasyWash</strong> is a professional laundry and garment care brand by <strong>LG Enterprises</strong>,
+            based in Khongman Zone III, Imphal East, Manipur. We started with one simple belief: families deserve their time back.
           </p>
-          <p style="font-size:16px; margin-bottom:15px;">
-            Our mission is to make laundry hassle-free for families and businesses in Imphal. With careful handling,
-            eco-friendly detergents, and timely service, we ensure your garments are returned fresh, clean, and well-cared for.
+          <p>
+            Every week, we handle laundry for families across Imphal — picking up, washing with care, folding neatly, and delivering back to your doorstep. No hassle. No stress. Just clean clothes and more time for what matters.
           </p>
-          <p style="font-size:16px;">
-            We also offer additional services including driving licence assistance, vehicle insurance, and other public services
-            through LG Enterprises to serve our community better.
+          <p>
+            We use eco-friendly detergents, handle every garment with care, and pride ourselves on being the most reliable laundry service in Imphal.
           </p>
         </div>
         <div class="about-info">
           <p><strong>Business Name:</strong> LG Enterprises</p>
           <p><strong>Brand Name:</strong> EasyWash</p>
           <p><strong>UDYAM Registration:</strong> UDYAM-MN-04-0017485</p>
-          <p><strong>Address:</strong> Khongman Zone III, Lisham Leirak, Imphal East, Manipur 795008, India</p>
+          <p><strong>Address:</strong> Khongman Zone III, Lisham Leirak, Imphal East, Manipur 795008</p>
           <p><strong>Phone:</strong> +91 6009451743</p>
           <p><strong>WhatsApp:</strong> +91 87876 62431</p>
           <p><strong>Email:</strong> support@easywashs.com</p>
-          <p><strong>Website:</strong> easywashs.com</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section class="contact" id="contact">
     <div class="container">
-      <h2>Contact Us</h2>
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Contact Us</h2>
       <div class="contact-grid">
         <div class="contact-card">
-          <div class="icon">&#128205;</div>
+          <span class="icon">📍</span>
           <h3>Visit Us</h3>
-          <p>Khongman Zone III, Lisham Leirak<br>Imphal East, Manipur 795008<br>India</p>
+          <p>Khongman Zone III, Lisham Leirak<br>Imphal East, Manipur 795008</p>
         </div>
         <div class="contact-card">
-          <div class="icon">&#128222;</div>
+          <span class="icon">📞</span>
           <h3>Call Us</h3>
-          <p>Phone: +91 6009451743<br>WhatsApp: +91 87876 62431</p>
+          <p>+91 6009451743</p>
         </div>
         <div class="contact-card">
-          <div class="icon">&#128231;</div>
-          <h3>Email Us</h3>
-          <p>support@easywashs.com</p>
+          <span class="icon">💬</span>
+          <h3>WhatsApp</h3>
+          <p>+91 87876 62431</p>
         </div>
         <div class="contact-card">
-          <div class="icon">&#128336;</div>
+          <span class="icon">🕐</span>
           <h3>Working Hours</h3>
           <p>Monday - Saturday<br>8:00 AM - 7:00 PM</p>
         </div>
@@ -190,16 +523,18 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
           <h3>EasyWash</h3>
-          <p>Professional laundry and garment care services by LG Enterprises, Imphal, Manipur.</p>
+          <p>Pick a day. Forget about laundry forever. Professional laundry by LG Enterprises, Imphal.</p>
         </div>
         <div class="footer-col">
           <h3>Quick Links</h3>
-          <a href="#services">Our Services</a>
+          <a href="#plan">999 Plan</a>
+          <a href="#services">Services</a>
           <a href="#about">About Us</a>
           <a href="#contact">Contact</a>
         </div>
@@ -220,6 +555,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20services" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.348 0-4.518-.816-6.222-2.18l-.435-.355-3.26 1.093 1.093-3.26-.355-.435A9.948 9.948 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
 
 </body>
 </html>
