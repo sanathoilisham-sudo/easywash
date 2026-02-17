@@ -116,16 +116,23 @@
     .calendar-highlight .big-num { font-size: 40px; color: white; display: block; margin-bottom: 4px; }
 
     .mini-calendar { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; }
-    .cal-header { text-align: center; font-size: 18px; font-weight: 700; color: white; margin-bottom: 20px; }
+    .cal-header { text-align: center; font-size: 18px; font-weight: 700; color: white; margin-bottom: 16px; }
+    .day-picker { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+    .day-picker-btn { padding: 8px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: #94a3b8; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+    .day-picker-btn:hover { border-color: rgba(124,58,237,0.4); color: #c4b5fd; background: rgba(124,58,237,0.1); transform: translateY(-1px); }
+    .day-picker-btn.active { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border-color: #7c3aed; box-shadow: 0 4px 15px rgba(124,58,237,0.4); transform: translateY(-1px); }
+    .day-picker-hint { text-align: center; font-size: 12px; color: #64748b; margin-bottom: 16px; animation: pulse-hint 2s infinite; }
+    @keyframes pulse-hint { 0%,100% { opacity: 0.6; } 50% { opacity: 1; } }
     .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
-    .cal-day-label { font-size: 12px; font-weight: 600; color: #64748b; padding: 6px 0; }
+    .cal-day-label { font-size: 12px; font-weight: 600; color: #64748b; padding: 6px 0; transition: color 0.3s; }
     .cal-day-label.active-day { color: #a78bfa; }
-    .cal-day { font-size: 13px; padding: 8px 4px; border-radius: 8px; color: #64748b; }
+    .cal-day { font-size: 13px; padding: 8px 4px; border-radius: 8px; color: #64748b; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
     .cal-day.current-month { color: #94a3b8; }
-    .cal-day.pickup-day { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; font-weight: 700; position: relative; }
-    .cal-day.pickup-day::after { content: 'Pickup'; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); font-size: 8px; color: #a78bfa; white-space: nowrap; font-weight: 600; }
-    .cal-note { text-align: center; margin-top: 24px; font-size: 14px; color: #94a3b8; }
+    .cal-day.pickup-day { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; font-weight: 700; transform: scale(1.1); box-shadow: 0 4px 12px rgba(124,58,237,0.4); }
+    .cal-note { text-align: center; margin-top: 20px; font-size: 14px; color: #94a3b8; transition: all 0.3s; }
     .cal-note strong { color: #a78bfa; }
+    .cal-note .emoji-burst { display: inline-block; animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    @keyframes pop-in { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
 
     /* Feeling Section */
     .feeling-section { padding: 80px 0; background: rgba(30, 41, 59, 0.3); }
@@ -331,64 +338,81 @@
     </div>
   </section>
 
-  <!-- Calendar Visual -->
+  <!-- Calendar Visual — Interactive -->
   <section class="calendar-section">
     <div class="container">
       <div class="calendar-layout">
         <div class="calendar-text">
-          <h2>You Choose Monday. We Handle <em>Every</em> Monday.</h2>
-          <p>
-            No remembering. No scheduling. No "I'll do it next week." You pick your day once, and we show up every single week of the month. That's <strong>4 pickups, 4 deliveries, one flat price.</strong>
+          <h2 id="cal-heading">Go ahead — pick your day. <em>Any</em> day.</h2>
+          <p id="cal-description">
+            Try it. Tap a day on the calendar. Watch how your entire month gets sorted — <strong>4 pickups, 4 deliveries, zero effort.</strong> That's what ₹999 feels like.
           </p>
           <div class="calendar-highlight">
-            <span class="big-num">4 pickups. 4 deliveries.</span>
-            ₹999 for the whole month.
+            <span class="big-num" id="cal-highlight-text">Pick a day to see the magic</span>
+            <span id="cal-highlight-sub">Your month plans itself.</span>
           </div>
         </div>
         <div class="mini-calendar">
           <div class="cal-header">February 2026</div>
-          <div class="cal-grid">
-            <div class="cal-day-label active-day">Mon</div>
+          <p class="day-picker-hint" id="picker-hint">Tap your preferred day</p>
+          <div class="day-picker" id="dayPicker">
+            <button class="day-picker-btn" data-day="0">Mon</button>
+            <button class="day-picker-btn" data-day="1">Tue</button>
+            <button class="day-picker-btn" data-day="2">Wed</button>
+            <button class="day-picker-btn" data-day="3">Thu</button>
+            <button class="day-picker-btn" data-day="4">Fri</button>
+            <button class="day-picker-btn" data-day="5">Sat</button>
+          </div>
+          <div class="cal-grid" id="calGrid">
+            <div class="cal-day-label">Mon</div>
             <div class="cal-day-label">Tue</div>
             <div class="cal-day-label">Wed</div>
             <div class="cal-day-label">Thu</div>
             <div class="cal-day-label">Fri</div>
             <div class="cal-day-label">Sat</div>
             <div class="cal-day-label">Sun</div>
+            <!-- Feb 2026: starts on Sunday, so first row has empty slots -->
+            <div class="cal-day"></div>
+            <div class="cal-day"></div>
+            <div class="cal-day"></div>
+            <div class="cal-day"></div>
+            <div class="cal-day"></div>
+            <div class="cal-day"></div>
+            <div class="cal-day current-month" data-dow="6">1</div>
             <!-- Week 1 -->
-            <div class="cal-day current-month pickup-day">2</div>
-            <div class="cal-day current-month">3</div>
-            <div class="cal-day current-month">4</div>
-            <div class="cal-day current-month">5</div>
-            <div class="cal-day current-month">6</div>
-            <div class="cal-day current-month">7</div>
-            <div class="cal-day current-month">8</div>
+            <div class="cal-day current-month" data-dow="0">2</div>
+            <div class="cal-day current-month" data-dow="1">3</div>
+            <div class="cal-day current-month" data-dow="2">4</div>
+            <div class="cal-day current-month" data-dow="3">5</div>
+            <div class="cal-day current-month" data-dow="4">6</div>
+            <div class="cal-day current-month" data-dow="5">7</div>
+            <div class="cal-day current-month" data-dow="6">8</div>
             <!-- Week 2 -->
-            <div class="cal-day current-month pickup-day">9</div>
-            <div class="cal-day current-month">10</div>
-            <div class="cal-day current-month">11</div>
-            <div class="cal-day current-month">12</div>
-            <div class="cal-day current-month">13</div>
-            <div class="cal-day current-month">14</div>
-            <div class="cal-day current-month">15</div>
+            <div class="cal-day current-month" data-dow="0">9</div>
+            <div class="cal-day current-month" data-dow="1">10</div>
+            <div class="cal-day current-month" data-dow="2">11</div>
+            <div class="cal-day current-month" data-dow="3">12</div>
+            <div class="cal-day current-month" data-dow="4">13</div>
+            <div class="cal-day current-month" data-dow="5">14</div>
+            <div class="cal-day current-month" data-dow="6">15</div>
             <!-- Week 3 -->
-            <div class="cal-day current-month pickup-day">16</div>
-            <div class="cal-day current-month">17</div>
-            <div class="cal-day current-month">18</div>
-            <div class="cal-day current-month">19</div>
-            <div class="cal-day current-month">20</div>
-            <div class="cal-day current-month">21</div>
-            <div class="cal-day current-month">22</div>
+            <div class="cal-day current-month" data-dow="0">16</div>
+            <div class="cal-day current-month" data-dow="1">17</div>
+            <div class="cal-day current-month" data-dow="2">18</div>
+            <div class="cal-day current-month" data-dow="3">19</div>
+            <div class="cal-day current-month" data-dow="4">20</div>
+            <div class="cal-day current-month" data-dow="5">21</div>
+            <div class="cal-day current-month" data-dow="6">22</div>
             <!-- Week 4 -->
-            <div class="cal-day current-month pickup-day">23</div>
-            <div class="cal-day current-month">24</div>
-            <div class="cal-day current-month">25</div>
-            <div class="cal-day current-month">26</div>
-            <div class="cal-day current-month">27</div>
-            <div class="cal-day current-month">28</div>
+            <div class="cal-day current-month" data-dow="0">23</div>
+            <div class="cal-day current-month" data-dow="1">24</div>
+            <div class="cal-day current-month" data-dow="2">25</div>
+            <div class="cal-day current-month" data-dow="3">26</div>
+            <div class="cal-day current-month" data-dow="4">27</div>
+            <div class="cal-day current-month" data-dow="5">28</div>
             <div class="cal-day"></div>
           </div>
-          <p class="cal-note">You chose <strong>Monday</strong> — we handle every Monday. Simple.</p>
+          <p class="cal-note" id="calNote">Your laundry day is waiting. Pick one above!</p>
         </div>
       </div>
     </div>
@@ -584,6 +608,81 @@
       </div>
     </div>
   </footer>
+
+  <!-- Interactive Calendar Script -->
+  <script>
+  (function() {
+    const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const reactions = [
+      { emoji: '🎉', msg: 'That\'s it. Your laundry life is sorted.' },
+      { emoji: '✨', msg: 'Done. Your month just planned itself.' },
+      { emoji: '🙌', msg: 'Great pick! We\'ll be there every single week.' },
+      { emoji: '💜', msg: 'Perfect. Now forget laundry exists.' },
+      { emoji: '🚀', msg: 'Locked in. We handle the rest.' },
+      { emoji: '☕', msg: 'Now go enjoy your free time.' }
+    ];
+
+    const buttons = document.querySelectorAll('.day-picker-btn');
+    const calDays = document.querySelectorAll('.cal-day[data-dow]');
+    const calLabels = document.querySelectorAll('.cal-day-label');
+    const calNote = document.getElementById('calNote');
+    const calHeading = document.getElementById('cal-heading');
+    const calDesc = document.getElementById('cal-description');
+    const calHighlight = document.getElementById('cal-highlight-text');
+    const calHighlightSub = document.getElementById('cal-highlight-sub');
+    const pickerHint = document.getElementById('picker-hint');
+
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var dayIndex = parseInt(btn.dataset.day);
+        var reaction = reactions[dayIndex];
+
+        // Update active button
+        buttons.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        // Hide hint
+        pickerHint.style.display = 'none';
+
+        // Highlight matching days in calendar with staggered animation
+        var delay = 0;
+        calDays.forEach(function(day) {
+          day.classList.remove('pickup-day');
+          day.style.transitionDelay = '0ms';
+        });
+
+        setTimeout(function() {
+          calDays.forEach(function(day) {
+            if (parseInt(day.dataset.dow) === dayIndex) {
+              day.style.transitionDelay = delay + 'ms';
+              day.classList.add('pickup-day');
+              delay += 120;
+            }
+          });
+        }, 50);
+
+        // Highlight the day label
+        calLabels.forEach(function(label, i) {
+          label.classList.toggle('active-day', i === dayIndex);
+        });
+
+        // Update heading
+        calHeading.innerHTML = 'You Choose ' + dayNames[dayIndex] + '. We Handle <em>Every</em> ' + dayNames[dayIndex] + '.';
+
+        // Update description
+        calDesc.innerHTML = 'No remembering. No scheduling. No "I\'ll do it next week." You picked <strong>' + dayNames[dayIndex] + '</strong> — we show up every single ' + dayNames[dayIndex] + '. That\'s <strong>4 pickups, 4 deliveries, zero effort.</strong>';
+
+        // Update highlight box
+        calHighlight.textContent = '4 pickups. 4 deliveries.';
+        calHighlightSub.textContent = '₹999 for the whole month.';
+
+        // Update note with emoji burst
+        calNote.innerHTML = '<span class="emoji-burst">' + reaction.emoji + '</span> You chose <strong>' + dayNames[dayIndex] + '</strong> — ' + reaction.msg;
+      });
+    });
+  })();
+  </script>
 
   <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20services" class="whatsapp-float" aria-label="Chat on WhatsApp">
