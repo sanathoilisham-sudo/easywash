@@ -157,6 +157,16 @@
     .plan-cta-elite:hover { box-shadow: 0 8px 25px var(--plan-elite-glow); }
     .pricing-tagline { text-align: center; font-size: 18px; font-weight: 600; color: #a78bfa; font-style: italic; margin-top: 8px; }
 
+    /* Feature Tooltips */
+    .plan-features li { cursor: pointer; border-radius: 8px; padding: 7px 10px; transition: background 0.2s; position: relative; }
+    .plan-features li:hover { background: rgba(255,255,255,0.04); }
+    .plan-features li::after { content: 'ⓘ'; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 12px; color: #475569; opacity: 0; transition: opacity 0.2s; }
+    .plan-features li:hover::after { opacity: 1; }
+    .plan-features li.tip-open::after { content: '✕'; opacity: 1; color: #94a3b8; }
+    .feat-tip { display: none; margin: 6px 0 2px 30px; padding: 10px 14px; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; font-size: 13px; color: #94a3b8; line-height: 1.5; cursor: default; animation: tipSlide 0.2s ease-out; }
+    .feat-tip.show { display: block; }
+    @keyframes tipSlide { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
     /* Mini Plan Selector (calendar section) */
     .plan-selector { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
     .plan-select-btn { flex: 1; min-width: 100px; padding: 12px 10px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #94a3b8; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: inherit; text-align: center; }
@@ -437,18 +447,18 @@
             <span class="amount">999</span>
             <span class="period">/month</span>
           </div>
-          <div class="plan-priority plan-priority-classic">
+          <div class="plan-priority plan-priority-classic" style="cursor:pointer;" data-tip="Your clothes are washed in the order we receive them. If 20 orders come in, yours waits its turn. That's why delivery is next day — but it always gets done.">
             <div>
-              <div class="priority-label">Standard Queue</div>
+              <div class="priority-label">Standard Queue <span style="font-size:11px; opacity:0.6;">ⓘ</span></div>
               <div class="priority-desc">Processed in order received. Next day delivery.</div>
             </div>
           </div>
           <ul class="plan-features">
-            <li><span class="feat-icon feat-icon-classic">✓</span> 30 kg every month</li>
-            <li><span class="feat-icon feat-icon-classic">✓</span> Next day delivery</li>
-            <li><span class="feat-icon feat-icon-classic">✓</span> Weekly doorstep pickup</li>
-            <li><span class="feat-icon feat-icon-classic">✓</span> Clothes, bedsheets, curtains</li>
-            <li><span class="feat-icon feat-icon-classic">✓</span> Overage: ₹40/kg</li>
+            <li data-tip="That's roughly 3-4 loads of laundry — shirts, pants, innerwear, socks, towels for a small family per month."><span class="feat-icon feat-icon-classic">✓</span> 30 kg every month</li>
+            <li data-tip="Hand us your clothes today, get them back clean and folded by the next day. No long waits."><span class="feat-icon feat-icon-classic">✓</span> Next day delivery</li>
+            <li data-tip="We come to your door on your chosen day every week. You don't have to step out or remind us."><span class="feat-icon feat-icon-classic">✓</span> Weekly doorstep pickup</li>
+            <li data-tip="Everything goes in — daily wear, bedsheets, pillow covers, curtains, towels. Your whole home stays fresh."><span class="feat-icon feat-icon-classic">✓</span> Clothes, bedsheets, curtains</li>
+            <li data-tip="Go beyond 30 kg? No problem. Extra weight is charged at just ₹40 per kg. No hidden fees."><span class="feat-icon feat-icon-classic">✓</span> Overage: ₹40/kg</li>
           </ul>
           <a href="#subscribe" class="plan-cta plan-cta-classic" onclick="selectPlanFromCard('classic')">Get Classic</a>
         </div>
@@ -466,18 +476,18 @@
             <span class="amount">1,299</span>
             <span class="period">/month</span>
           </div>
-          <div class="plan-priority plan-priority-pro">
+          <div class="plan-priority plan-priority-pro" style="cursor:pointer;" data-tip="Pro orders jump ahead of all Classic orders in our queue. Your clothes are processed earlier in the day, which is why you get same day delivery.">
             <div>
-              <div class="priority-label">Priority Queue</div>
+              <div class="priority-label">Priority Queue <span style="font-size:11px; opacity:0.6;">ⓘ</span></div>
               <div class="priority-desc">Jumps ahead of Classic. Same day delivery.</div>
             </div>
           </div>
           <ul class="plan-features">
-            <li><span class="feat-icon feat-icon-pro">✓</span> 45 kg every month</li>
-            <li><span class="feat-icon feat-icon-pro">✓</span> Same day delivery</li>
-            <li><span class="feat-icon feat-icon-pro">✓</span> Weekly doorstep pickup</li>
-            <li><span class="feat-icon feat-icon-pro">✓</span> Clothes, bedsheets, curtains</li>
-            <li><span class="feat-icon feat-icon-pro">✓</span> Overage: ₹38/kg</li>
+            <li data-tip="Enough for a bigger family — 5-6 loads of laundry including bedsheets and curtains every month."><span class="feat-icon feat-icon-pro">✓</span> 45 kg every month</li>
+            <li data-tip="Give us your clothes in the morning, get them back washed and folded by evening. Same day, no waiting."><span class="feat-icon feat-icon-pro">✓</span> Same day delivery</li>
+            <li data-tip="We come to your door on your chosen day every week. You don't have to step out or remind us."><span class="feat-icon feat-icon-pro">✓</span> Weekly doorstep pickup</li>
+            <li data-tip="Everything goes in — daily wear, bedsheets, pillow covers, curtains, towels. Your whole home stays fresh."><span class="feat-icon feat-icon-pro">✓</span> Clothes, bedsheets, curtains</li>
+            <li data-tip="Go beyond 45 kg? Extra weight is charged at ₹38 per kg — a better rate than Classic."><span class="feat-icon feat-icon-pro">✓</span> Overage: ₹38/kg</li>
           </ul>
           <a href="#subscribe" class="plan-cta plan-cta-pro" onclick="selectPlanFromCard('pro')">Get Pro</a>
         </div>
@@ -494,19 +504,19 @@
             <span class="amount">1,499</span>
             <span class="period">/month</span>
           </div>
-          <div class="plan-priority plan-priority-elite">
+          <div class="plan-priority plan-priority-elite" style="cursor:pointer;" data-tip="Elite orders are ALWAYS processed first — before Pro, before Classic. Clothes picked up in the morning are back at your door by afternoon. VIP treatment, guaranteed.">
             <div>
-              <div class="priority-label">First in Queue</div>
+              <div class="priority-label">First in Queue <span style="font-size:11px; opacity:0.6;">ⓘ</span></div>
               <div class="priority-desc">Always processed first. Morning pickup, afternoon delivery.</div>
             </div>
           </div>
           <ul class="plan-features">
-            <li><span class="feat-icon feat-icon-elite">✓</span> 60 kg every month</li>
-            <li><span class="feat-icon feat-icon-elite">✓</span> Same day delivery</li>
-            <li><span class="feat-icon feat-icon-elite">✓</span> Weekly doorstep pickup</li>
-            <li><span class="feat-icon feat-icon-elite">✓</span> Clothes, bedsheets, curtains</li>
-            <li><span class="feat-icon feat-icon-elite">✓</span> Overage: ₹30/kg</li>
-            <li style="background:rgba(245,158,11,0.1); padding:8px 10px; border-radius:8px; margin-top:4px;"><span class="feat-icon feat-icon-elite">⚡</span> <strong style="color:#fbbf24;">2 emergency pickups</strong> — any day you choose</li>
+            <li data-tip="Perfect for large families — 7-8 loads of laundry per month. Clothes, bedding, curtains, everything covered."><span class="feat-icon feat-icon-elite">✓</span> 60 kg every month</li>
+            <li data-tip="Your clothes are always processed first. Morning pickup, back at your door by afternoon. Guaranteed."><span class="feat-icon feat-icon-elite">✓</span> Same day delivery</li>
+            <li data-tip="We come to your door on your chosen day every week. You don't have to step out or remind us."><span class="feat-icon feat-icon-elite">✓</span> Weekly doorstep pickup</li>
+            <li data-tip="Everything goes in — daily wear, bedsheets, pillow covers, curtains, towels. Your whole home stays fresh."><span class="feat-icon feat-icon-elite">✓</span> Clothes, bedsheets, curtains</li>
+            <li data-tip="Go beyond 60 kg? Extra weight is charged at just ₹30 per kg — the lowest rate across all plans."><span class="feat-icon feat-icon-elite">✓</span> Overage: ₹30/kg</li>
+            <li data-tip="Need a wash outside your weekly schedule? Call us anytime for 2 extra pickups per month — no questions asked." style="background:rgba(245,158,11,0.1); padding:8px 10px; border-radius:8px; margin-top:4px;"><span class="feat-icon feat-icon-elite">⚡</span> <strong style="color:#fbbf24;">2 emergency pickups</strong> — any day you choose</li>
           </ul>
           <a href="#subscribe" class="plan-cta plan-cta-elite" onclick="selectPlanFromCard('elite')">Get Elite</a>
         </div>
@@ -1019,6 +1029,63 @@
   <!-- Scripts -->
   <script>
   (function() {
+    /* ---- Feature Tooltips ---- */
+    document.querySelectorAll('.plan-features li[data-tip]').forEach(function(li) {
+      li.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var existing = li.querySelector('.feat-tip');
+        // Close all other tips first
+        document.querySelectorAll('.feat-tip.show').forEach(function(tip) {
+          if (tip.parentElement !== li) {
+            tip.classList.remove('show');
+            tip.parentElement.classList.remove('tip-open');
+          }
+        });
+        if (existing) {
+          existing.classList.toggle('show');
+          li.classList.toggle('tip-open');
+        } else {
+          var tip = document.createElement('div');
+          tip.className = 'feat-tip show';
+          tip.textContent = li.dataset.tip;
+          tip.addEventListener('click', function(ev) { ev.stopPropagation(); });
+          li.appendChild(tip);
+          li.classList.add('tip-open');
+        }
+      });
+    });
+    // Priority badge tooltips
+    document.querySelectorAll('.plan-priority[data-tip]').forEach(function(badge) {
+      badge.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var existing = badge.querySelector('.feat-tip');
+        document.querySelectorAll('.feat-tip.show').forEach(function(tip) {
+          if (tip.parentElement !== badge) {
+            tip.classList.remove('show');
+            tip.parentElement.classList.remove('tip-open');
+          }
+        });
+        if (existing) {
+          existing.classList.toggle('show');
+          badge.classList.toggle('tip-open');
+        } else {
+          var tip = document.createElement('div');
+          tip.className = 'feat-tip show';
+          tip.textContent = badge.dataset.tip;
+          tip.addEventListener('click', function(ev) { ev.stopPropagation(); });
+          badge.appendChild(tip);
+          badge.classList.add('tip-open');
+        }
+      });
+    });
+    // Close tips when clicking outside
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.feat-tip.show').forEach(function(tip) {
+        tip.classList.remove('show');
+        tip.parentElement.classList.remove('tip-open');
+      });
+    });
+
     /* ---- Plan Data ---- */
     var planData = {
       classic: { name: 'Classic', price: '₹999', priceNum: 999, weight: 30, delivery: 'Next Day', priority: 'Standard Queue', overage: 40, icon: '🔵', color: 'classic' },
