@@ -506,6 +506,7 @@
             <li><span class="feat-icon feat-icon-elite">✓</span> Weekly doorstep pickup</li>
             <li><span class="feat-icon feat-icon-elite">✓</span> Clothes, bedsheets, curtains</li>
             <li><span class="feat-icon feat-icon-elite">✓</span> Overage: ₹30/kg</li>
+            <li style="background:rgba(245,158,11,0.1); padding:8px 10px; border-radius:8px; margin-top:4px;"><span class="feat-icon feat-icon-elite">⚡</span> <strong style="color:#fbbf24;">2 emergency pickups</strong> — any day you choose</li>
           </ul>
           <a href="#subscribe" class="plan-cta plan-cta-elite" onclick="selectPlanFromCard('elite')">Get Elite</a>
         </div>
@@ -774,6 +775,12 @@
                 <td style="padding:14px 20px; text-align:center; color:#4ade80; font-size:14px;">✓</td>
                 <td style="padding:14px 20px; text-align:center; color:#4ade80; font-size:14px;">✓</td>
               </tr>
+              <tr style="background:rgba(30,41,59,0.5);">
+                <td style="padding:14px 20px; color:#cbd5e1; font-size:14px;">Emergency Pickups</td>
+                <td style="padding:14px 20px; text-align:center; color:#64748b; font-size:14px;">—</td>
+                <td style="padding:14px 20px; text-align:center; color:#64748b; font-size:14px;">—</td>
+                <td style="padding:14px 20px; text-align:center; color:#fbbf24; font-size:14px; font-weight:700;">2/month ⚡</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -1016,7 +1023,7 @@
     var planData = {
       classic: { name: 'Classic', price: '₹999', priceNum: 999, weight: 30, delivery: 'Next Day', priority: 'Standard Queue', overage: 40, icon: '🔵', color: 'classic' },
       pro:     { name: 'Pro',     price: '₹1,299', priceNum: 1299, weight: 45, delivery: 'Same Day', priority: 'Priority Queue', overage: 38, icon: '🟣', color: 'pro' },
-      elite:   { name: 'Elite',   price: '₹1,499', priceNum: 1499, weight: 60, delivery: 'Same Day', priority: 'First in Queue', overage: 30, icon: '🟡', color: 'elite' }
+      elite:   { name: 'Elite',   price: '₹1,499', priceNum: 1499, weight: 60, delivery: 'Same Day', priority: 'First in Queue', overage: 30, icon: '🟡', color: 'elite', emergency: 2 }
     };
     var selectedPlan = null;
     var selectedDay = null;
@@ -1045,7 +1052,9 @@
       selectedPlanDisplay.className = 'selected-plan-display spd-' + planId;
       selectedPlanDisplay.style.display = 'flex';
       selectedPlanIcon.textContent = plan.icon;
-      selectedPlanLabel.innerHTML = '<strong>' + plan.name + ' Plan</strong> — ' + plan.price + '/month • ' + plan.weight + 'kg • ' + plan.delivery;
+      var labelText = '<strong>' + plan.name + ' Plan</strong> — ' + plan.price + '/month • ' + plan.weight + 'kg • ' + plan.delivery;
+      if (plan.emergency) labelText += ' • ' + plan.emergency + ' emergency pickups';
+      selectedPlanLabel.innerHTML = labelText;
 
       // Update calendar description text
       if (selectedDay) {
