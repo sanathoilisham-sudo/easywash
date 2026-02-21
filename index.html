@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EasyWash - Pick a Day. Forget About Laundry Forever. | LG Enterprises, Imphal</title>
-  <meta name="description" content="EasyWash 999 Monthly Plan — pick your day, we show up every week. Professional laundry with doorstep pickup & delivery in Imphal, Manipur. ₹999/month.">
+  <title>EasyWash - Pick a Plan. Forget About Laundry Forever. | LG Enterprises, Imphal</title>
+  <meta name="description" content="EasyWash Laundry Plans — Classic, Pro &amp; Elite. Pick your plan, pick your day, we show up every week. Professional laundry with doorstep pickup &amp; delivery in Imphal, Manipur. Starting at ₹999/month.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -27,6 +27,12 @@
       --surface-alt: #f1f5f9;
       --gold: #f59e0b;
       --green: #10b981;
+      --plan-classic: #3b82f6;
+      --plan-classic-glow: rgba(59, 130, 246, 0.3);
+      --plan-pro: #7c3aed;
+      --plan-pro-glow: rgba(124, 58, 237, 0.3);
+      --plan-elite: #f59e0b;
+      --plan-elite-glow: rgba(245, 158, 11, 0.3);
       --radius: 16px;
       --radius-sm: 10px;
       --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -93,6 +99,74 @@
     .check-icon { width: 22px; height: 22px; background: rgba(34,197,94,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; color: #4ade80; }
     .btn-subscribe { display: block; width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border: none; border-radius: 12px; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-align: center; text-decoration: none; }
     .btn-subscribe:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); text-decoration: none; }
+
+    /* Pricing Plans Section */
+    .pricing-section { padding: 80px 0; background: rgba(30, 41, 59, 0.3); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
+    .plan-card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px 28px; backdrop-filter: blur(10px); position: relative; transition: all 0.3s; display: flex; flex-direction: column; }
+    .plan-card:hover { transform: translateY(-4px); }
+    .plan-card-classic { border-color: rgba(59, 130, 246, 0.2); }
+    .plan-card-classic:hover { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 8px 30px var(--plan-classic-glow); }
+    .plan-card-pro { border-color: rgba(124, 58, 237, 0.3); transform: scale(1.03); }
+    .plan-card-pro:hover { border-color: rgba(124, 58, 237, 0.5); box-shadow: 0 12px 40px var(--plan-pro-glow); transform: scale(1.03) translateY(-4px); }
+    .plan-card-elite { border-color: rgba(245, 158, 11, 0.25); }
+    .plan-card-elite:hover { border-color: rgba(245, 158, 11, 0.5); box-shadow: 0 8px 30px var(--plan-elite-glow); }
+    .plan-ribbon { position: absolute; top: -1px; right: 24px; padding: 6px 16px; border-radius: 0 0 10px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: white; }
+    .plan-ribbon-pro { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+    .plan-ribbon-elite { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .plan-name { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .plan-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .plan-dot-classic { background: var(--plan-classic); }
+    .plan-dot-pro { background: var(--plan-pro); }
+    .plan-dot-elite { background: var(--plan-elite); }
+    .plan-name h3 { font-size: 22px; font-weight: 800; color: white; }
+    .plan-name .plan-star { font-size: 16px; }
+    .plan-price-row { display: flex; align-items: baseline; gap: 4px; margin-bottom: 20px; }
+    .plan-price-row .rupee { font-size: 22px; font-weight: 700; }
+    .plan-price-row .amount { font-size: 48px; font-weight: 900; color: white; line-height: 1; }
+    .plan-price-row .period { font-size: 16px; color: #94a3b8; font-weight: 500; }
+    .plan-price-classic .rupee { color: var(--plan-classic); }
+    .plan-price-pro .rupee { color: var(--plan-pro); }
+    .plan-price-elite .rupee { color: var(--plan-elite); }
+    .plan-features { list-style: none; margin-bottom: 24px; flex: 1; }
+    .plan-features li { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; font-size: 14px; color: #cbd5e1; }
+    .plan-features .feat-icon { width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+    .feat-icon-classic { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+    .feat-icon-pro { background: rgba(124, 58, 237, 0.15); color: #a78bfa; }
+    .feat-icon-elite { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+    .plan-priority { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 10px; margin-bottom: 20px; font-size: 13px; }
+    .plan-priority-classic { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); }
+    .plan-priority-pro { background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.2); }
+    .plan-priority-elite { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); }
+    .plan-priority .priority-label { font-weight: 700; font-size: 12px; letter-spacing: 0.3px; text-transform: uppercase; }
+    .plan-priority-classic .priority-label { color: #60a5fa; }
+    .plan-priority-pro .priority-label { color: #a78bfa; }
+    .plan-priority-elite .priority-label { color: #fbbf24; }
+    .plan-priority .priority-desc { color: #94a3b8; font-size: 12px; }
+    .plan-cta { display: block; width: 100%; padding: 14px; border: none; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-align: center; text-decoration: none; color: white; }
+    .plan-cta:hover { transform: translateY(-2px); text-decoration: none; }
+    .plan-cta-classic { background: var(--plan-classic); }
+    .plan-cta-classic:hover { box-shadow: 0 8px 25px var(--plan-classic-glow); }
+    .plan-cta-pro { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+    .plan-cta-pro:hover { box-shadow: 0 8px 25px var(--plan-pro-glow); }
+    .plan-cta-elite { background: linear-gradient(135deg, #f59e0b, #d97706); color: #0f172a; }
+    .plan-cta-elite:hover { box-shadow: 0 8px 25px var(--plan-elite-glow); }
+    .pricing-tagline { text-align: center; font-size: 18px; font-weight: 600; color: #a78bfa; font-style: italic; margin-top: 8px; }
+
+    /* Mini Plan Selector (calendar section) */
+    .plan-selector { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .plan-select-btn { flex: 1; min-width: 100px; padding: 12px 10px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #94a3b8; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: inherit; text-align: center; }
+    .plan-select-btn:hover { border-color: rgba(255,255,255,0.2); color: white; }
+    .plan-select-btn.active-classic { border-color: var(--plan-classic); color: white; background: rgba(59, 130, 246, 0.15); box-shadow: 0 4px 15px var(--plan-classic-glow); }
+    .plan-select-btn.active-pro { border-color: var(--plan-pro); color: white; background: rgba(124, 58, 237, 0.15); box-shadow: 0 4px 15px var(--plan-pro-glow); }
+    .plan-select-btn.active-elite { border-color: var(--plan-elite); color: white; background: rgba(245, 158, 11, 0.15); box-shadow: 0 4px 15px var(--plan-elite-glow); }
+    .plan-select-btn .ps-price { display: block; font-size: 18px; font-weight: 900; color: white; margin-top: 4px; }
+
+    /* Selected Plan Display in form */
+    .selected-plan-display { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 10px; margin-bottom: 16px; font-size: 14px; font-weight: 600; }
+    .selected-plan-display.spd-classic { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); color: #60a5fa; }
+    .selected-plan-display.spd-pro { background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.3); color: #c4b5fd; }
+    .selected-plan-display.spd-elite { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: #fbbf24; }
 
     /* How It Works */
     .how-it-works { padding: 80px 0; background: rgba(30, 41, 59, 0.3); }
@@ -255,6 +329,10 @@
     @media (max-width: 900px) {
       .hero-layout { grid-template-columns: 1fr; gap: 40px; }
       .hero h1 { font-size: 36px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+      .plan-card-pro { transform: none; }
+      .plan-card-pro:hover { transform: translateY(-4px); }
+      .plan-selector { flex-direction: column; }
       .steps-grid { grid-template-columns: repeat(2, 1fr); }
       .calendar-layout { grid-template-columns: 1fr; }
       .form-layout { grid-template-columns: 1fr; gap: 32px; }
@@ -279,6 +357,8 @@
       .final-cta-buttons { flex-direction: column; align-items: center; }
       .form-left h2 { font-size: 28px; }
       .locked-overlay h3 { font-size: 20px; }
+      .pricing-tagline { font-size: 15px; }
+      .plan-price-row .amount { font-size: 40px; }
     }
   </style>
 </head>
@@ -289,13 +369,13 @@
     <div class="container">
       <div class="logo">Easy<span>Wash</span></div>
       <nav>
-        <a href="#plan">999 Plan</a>
+        <a href="#plans">Plans</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Plan" class="nav-cta">Subscribe Now</a>
+        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20EasyWash" class="nav-cta">Subscribe Now</a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -306,63 +386,120 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="hero-layout">
-        <div class="hero-left">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            Now serving Imphal &amp; surrounding areas
-          </div>
-          <h1>Pick a Day.<br><span class="highlight">Forget About Laundry</span><br>Forever.</h1>
-          <p class="hero-sub">
-            Choose your day — <strong>every week we're at your door</strong>. Picking up, washing, folding, and delivering back. <strong>₹999/month.</strong> That's it. No thinking. No tracking. Just clean clothes, every single week.
-          </p>
-          <div class="hero-buttons">
-            <a href="#plan" class="btn-primary">Start Living, Stop Washing</a>
-            <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20more%20about%20EasyWash%20999%20Plan" class="btn-secondary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.348 0-4.518-.816-6.222-2.18l-.435-.355-3.26 1.093 1.093-3.26-.355-.435A9.948 9.948 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-              WhatsApp Us
-            </a>
-          </div>
+      <div style="text-align:center; max-width:700px; margin:0 auto;">
+        <div class="hero-badge" style="justify-content:center;">
+          <span class="hero-badge-dot"></span>
+          Now serving Imphal &amp; surrounding areas
         </div>
+        <h1 style="text-align:center;">Pick a Plan.<br><span class="highlight">Forget About Laundry</span><br>Forever.</h1>
+        <p class="hero-sub" style="text-align:center; margin-left:auto; margin-right:auto; max-width:600px;">
+          Choose your plan — <strong>every week we're at your door</strong>. Picking up, washing, folding, and delivering back. <strong>Plans starting at ₹999/month.</strong> No thinking. No tracking. Just clean clothes.
+        </p>
+        <div class="hero-buttons" style="justify-content:center;">
+          <a href="#plans" class="btn-primary">See All Plans</a>
+          <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20know%20more%20about%20EasyWash%20plans" class="btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.348 0-4.518-.816-6.222-2.18l-.435-.355-3.26 1.093 1.093-3.26-.355-.435A9.948 9.948 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Pricing Card -->
-        <div class="hero-card" id="plan">
-          <div class="hero-card-price">
+  <!-- Pricing Plans -->
+  <section class="pricing-section" id="plans">
+    <div class="container">
+      <div class="section-label">Choose Your Plan</div>
+      <h2 class="section-title">Premium Laundry, Your Way</h2>
+      <p class="section-subtitle">Every plan includes weekly doorstep pickup &amp; delivery. Pick the speed and priority that fits your life.</p>
+
+      <div class="pricing-grid">
+        <!-- Classic -->
+        <div class="plan-card plan-card-classic" data-plan="classic">
+          <div class="plan-name">
+            <span class="plan-dot plan-dot-classic"></span>
+            <h3>Classic</h3>
+          </div>
+          <div class="plan-price-row plan-price-classic">
             <span class="rupee">₹</span>
             <span class="amount">999</span>
             <span class="period">/month</span>
           </div>
-          <p class="hero-card-tagline">Everything your family needs for hassle-free laundry</p>
-
-          <div class="one-day-badge">
-            <span class="one-day-icon">⚡</span>
-            <div class="one-day-text">
-              <h4>SAME DAY DELIVERY SERVICE</h4>
-              <p>Get your laundry back the very same day</p>
+          <div class="plan-priority plan-priority-classic">
+            <div>
+              <div class="priority-label">Standard Queue</div>
+              <div class="priority-desc">Processed in order received. Next day delivery.</div>
             </div>
           </div>
-
-          <div class="urgency-banner">
-            <div class="urgency-label">
-              <span class="urgency-label-dot"></span>
-              LIMITED SEATS THIS MONTH
-            </div>
-            <div class="urgency-number">Only 7 spots remaining</div>
-            <div class="urgency-sub">Filling up fast — don't miss out!</div>
-            <div class="urgency-bar"><div class="urgency-bar-fill"></div></div>
-          </div>
-
-          <ul class="benefits-list">
-            <li><span class="check-icon">✓</span> 40 kg every month — enough for your whole family</li>
-            <li><span class="check-icon">✓</span> We pick up from your door and deliver back</li>
-            <li><span class="check-icon">✓</span> Same day, every week — no reminders needed</li>
-            <li><span class="check-icon">✓</span> Clothes, bedsheets, curtains — everything comes back fresh</li>
-            <li><span class="check-icon">✓</span> Safe for everyone — from baby clothes to grandpa's kurta</li>
+          <ul class="plan-features">
+            <li><span class="feat-icon feat-icon-classic">✓</span> 30 kg every month</li>
+            <li><span class="feat-icon feat-icon-classic">✓</span> Next day delivery</li>
+            <li><span class="feat-icon feat-icon-classic">✓</span> Weekly doorstep pickup</li>
+            <li><span class="feat-icon feat-icon-classic">✓</span> Clothes, bedsheets, curtains</li>
+            <li><span class="feat-icon feat-icon-classic">✓</span> Overage: ₹40/kg</li>
           </ul>
+          <a href="#subscribe" class="plan-cta plan-cta-classic" onclick="selectPlanFromCard('classic')">Get Classic</a>
+        </div>
 
-          <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Plan" class="btn-subscribe">Start Living, Stop Washing — ₹999/month</a>
+        <!-- Pro -->
+        <div class="plan-card plan-card-pro" data-plan="pro">
+          <div class="plan-ribbon plan-ribbon-pro">Most Popular</div>
+          <div class="plan-name">
+            <span class="plan-dot plan-dot-pro"></span>
+            <h3>Pro</h3>
+            <span class="plan-star">⭐</span>
+          </div>
+          <div class="plan-price-row plan-price-pro">
+            <span class="rupee">₹</span>
+            <span class="amount">1,299</span>
+            <span class="period">/month</span>
+          </div>
+          <div class="plan-priority plan-priority-pro">
+            <div>
+              <div class="priority-label">Priority Queue</div>
+              <div class="priority-desc">Jumps ahead of Classic. Same day delivery.</div>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li><span class="feat-icon feat-icon-pro">✓</span> 45 kg every month</li>
+            <li><span class="feat-icon feat-icon-pro">✓</span> Same day delivery</li>
+            <li><span class="feat-icon feat-icon-pro">✓</span> Weekly doorstep pickup</li>
+            <li><span class="feat-icon feat-icon-pro">✓</span> Clothes, bedsheets, curtains</li>
+            <li><span class="feat-icon feat-icon-pro">✓</span> Overage: ₹38/kg</li>
+          </ul>
+          <a href="#subscribe" class="plan-cta plan-cta-pro" onclick="selectPlanFromCard('pro')">Get Pro</a>
+        </div>
+
+        <!-- Elite -->
+        <div class="plan-card plan-card-elite" data-plan="elite">
+          <div class="plan-ribbon plan-ribbon-elite">Premium</div>
+          <div class="plan-name">
+            <span class="plan-dot plan-dot-elite"></span>
+            <h3>Elite</h3>
+          </div>
+          <div class="plan-price-row plan-price-elite">
+            <span class="rupee">₹</span>
+            <span class="amount">1,499</span>
+            <span class="period">/month</span>
+          </div>
+          <div class="plan-priority plan-priority-elite">
+            <div>
+              <div class="priority-label">First in Queue</div>
+              <div class="priority-desc">Always processed first. Morning pickup, afternoon delivery.</div>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li><span class="feat-icon feat-icon-elite">✓</span> 60 kg every month</li>
+            <li><span class="feat-icon feat-icon-elite">✓</span> Same day delivery</li>
+            <li><span class="feat-icon feat-icon-elite">✓</span> Weekly doorstep pickup</li>
+            <li><span class="feat-icon feat-icon-elite">✓</span> Clothes, bedsheets, curtains</li>
+            <li><span class="feat-icon feat-icon-elite">✓</span> Overage: ₹30/kg</li>
+          </ul>
+          <a href="#subscribe" class="plan-cta plan-cta-elite" onclick="selectPlanFromCard('elite')">Get Elite</a>
         </div>
       </div>
+
+      <p class="pricing-tagline">"Classic gets it done. Pro gets it done faster. Elite gets it done first."</p>
     </div>
   </section>
 
@@ -374,10 +511,10 @@
       <p class="section-subtitle">No app to download. No complicated process. Just clean clothes every week.</p>
       <div class="steps-grid">
         <div class="step-card">
-          <span class="step-emoji">📅</span>
+          <span class="step-emoji">📋</span>
           <div class="step-number">1</div>
-          <h3>Pick Your Day</h3>
-          <p>Monday? Wednesday? Saturday? Choose the day that works for your family.</p>
+          <h3>Pick Your Plan &amp; Day</h3>
+          <p>Classic, Pro, or Elite — choose the plan and pickup day that works for your family.</p>
         </div>
         <div class="step-card">
           <span class="step-emoji">🚪</span>
@@ -388,8 +525,8 @@
         <div class="step-card">
           <span class="step-emoji">👕</span>
           <div class="step-number">3</div>
-          <h3>Same Day, It's Back</h3>
-          <p>Washed, dried, folded, and delivered back to your doorstep — the very same day.</p>
+          <h3>Fast Turnaround</h3>
+          <p>Washed, dried, folded, and delivered back. Same day for Pro &amp; Elite, next day for Classic.</p>
         </div>
         <div class="step-card">
           <span class="step-emoji">☕</span>
@@ -406,10 +543,15 @@
     <div class="container">
       <div class="calendar-layout">
         <div class="calendar-text">
-          <h2 id="cal-heading">Go ahead — pick your day. <em>Any</em> day.</h2>
+          <h2 id="cal-heading">Go ahead — pick your plan &amp; day.</h2>
           <p id="cal-description">
-            Try it. Tap a day on the calendar. Watch how your entire month gets sorted — <strong>4 pickups, 4 deliveries, zero effort.</strong> That's what ₹999 feels like.
+            Choose your plan, then tap a day on the calendar. Watch how your entire month gets sorted — <strong>4 pickups, 4 deliveries, zero effort.</strong>
           </p>
+          <div class="plan-selector" id="planSelector">
+            <button class="plan-select-btn" data-plan="classic" onclick="selectPlan('classic')">Classic<span class="ps-price">₹999</span></button>
+            <button class="plan-select-btn" data-plan="pro" onclick="selectPlan('pro')">Pro ⭐<span class="ps-price">₹1,299</span></button>
+            <button class="plan-select-btn" data-plan="elite" onclick="selectPlan('elite')">Elite<span class="ps-price">₹1,499</span></button>
+          </div>
           <div class="calendar-highlight">
             <span class="big-num" id="cal-highlight-text">Pick a day to see the magic</span>
             <span id="cal-highlight-sub">Your month plans itself.</span>
@@ -492,7 +634,7 @@
         <div class="form-left">
           <div class="section-label">Get Started</div>
           <h2>Want to See Everything<br>That's Included?</h2>
-          <p>Fill in your details and unlock the full 999 Plan breakdown — what's covered, add-on prices, and how we take care of your entire home.</p>
+          <p>Fill in your details and unlock the full plan breakdown — what's covered, add-on prices, and how we take care of your entire home.</p>
           <p>We'll also reach out to set up your first pickup.</p>
           <div class="form-trust">
             <span>🔒</span> Your information stays with us. No spam, ever.
@@ -502,15 +644,18 @@
           <!-- Notice: shown when no day is picked yet -->
           <div class="choose-day-notice" id="chooseDayNotice">
             <span class="notice-icon">📅</span>
-            <h3>First, Pick Your Day!</h3>
-            <p>Choose your preferred pickup day from the calendar above, then come back here to sign up.</p>
-            <a href="#how" id="goPickDay" onclick="document.querySelector('.calendar-section').scrollIntoView({behavior:'smooth',block:'start'});return false;">Pick My Day ↑</a>
+            <h3>First, Pick Your Plan &amp; Day!</h3>
+            <p>Choose your plan and preferred pickup day from the calendar above, then come back here to sign up.</p>
+            <a href="#how" id="goPickDay" onclick="document.querySelector('.calendar-section').scrollIntoView({behavior:'smooth',block:'start'});return false;">Pick My Plan &amp; Day ↑</a>
           </div>
           <!-- Form: shown when day is already picked -->
           <div id="formWrapper">
           <h3>Join 500+ Imphal families</h3>
           <p class="form-sub">Takes 30 seconds. We'll call you to confirm.</p>
           <form id="subscriptionForm">
+            <div class="selected-plan-display" id="selectedPlanDisplay" style="display:none;">
+              <span id="selectedPlanIcon">📋</span> <span id="selectedPlanLabel">No plan selected</span>
+            </div>
             <div class="chosen-day-display" id="chosenDayDisplay" style="display:none;">
               <span>📅</span> Your pickup day: <strong id="chosenDayText">Monday</strong>
             </div>
@@ -537,36 +682,88 @@
     <div class="locked-overlay">
       <span class="lock-icon">🔒</span>
       <h3>Full Plan Details Are Locked</h3>
-      <p>Fill the form above to see everything included in the 999 Plan — add-ons, pricing, and more.</p>
+      <p>Fill the form above to see everything included in your plan — add-ons, pricing, and more.</p>
       <a href="#subscribe">Fill Form to Unlock</a>
     </div>
     <div class="locked-content">
       <div class="container">
         <div class="section-label">The Full Picture</div>
-        <h2 class="section-title">Everything in ₹999/month</h2>
+        <h2 class="section-title">What's Included in Every Plan</h2>
         <p class="section-subtitle">More than just clothes. We take care of your entire home.</p>
 
         <div class="plan-details-grid">
           <div class="plan-detail-card">
             <span class="detail-emoji">👕</span>
-            <h3>40 kg Clothes Every Month</h3>
-            <p>All your family's daily wear — shirts, pants, kurtas, salwars, innerwear, socks. Put it all in. We handle it.</p>
+            <h3>Clothes Every Month</h3>
+            <p>All your family's daily wear — shirts, pants, kurtas, salwars, innerwear, socks. Classic: 30kg, Pro: 45kg, Elite: 60kg.</p>
           </div>
           <div class="plan-detail-card">
             <span class="detail-emoji">🛏️</span>
             <h3>Bedsheets, Curtains & More</h3>
-            <p>Pillow covers, table cloths, curtains, bedsheets — included in your 40 kg. Your whole home stays fresh.</p>
+            <p>Pillow covers, table cloths, curtains, bedsheets — all included in your weight limit. Your whole home stays fresh.</p>
           </div>
           <div class="plan-detail-card">
             <span class="detail-emoji">🚪</span>
             <h3>Doorstep Pickup & Delivery</h3>
-            <p>We come to your door every week. You hand us the bag. Same day, it comes back clean, folded, ready.</p>
+            <p>We come to your door every week. You hand us the bag. It comes back clean, folded, ready.</p>
           </div>
           <div class="plan-detail-card">
             <span class="detail-emoji">⚡</span>
-            <h3>Same-Day Return</h3>
-            <p>Give us your clothes in the morning, get them back by evening. No waiting at all.</p>
+            <h3>Fast Turnaround</h3>
+            <p>Classic: next day delivery. Pro &amp; Elite: same day delivery. Elite gets processed first — guaranteed.</p>
           </div>
+        </div>
+
+        <!-- Plan Comparison Table -->
+        <div style="overflow-x:auto; margin: 40px 0;">
+          <table style="width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden;">
+            <thead>
+              <tr style="background:rgba(30,41,59,0.9);">
+                <th style="padding:16px 20px; text-align:left; color:#94a3b8; font-size:14px; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.08);">Feature</th>
+                <th style="padding:16px 20px; text-align:center; color:var(--plan-classic); font-size:14px; font-weight:700; border-bottom:1px solid rgba(255,255,255,0.08);">Classic</th>
+                <th style="padding:16px 20px; text-align:center; color:var(--plan-pro); font-size:14px; font-weight:700; border-bottom:1px solid rgba(255,255,255,0.08);">Pro ⭐</th>
+                <th style="padding:16px 20px; text-align:center; color:var(--plan-elite); font-size:14px; font-weight:700; border-bottom:1px solid rgba(255,255,255,0.08);">Elite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:rgba(30,41,59,0.5);">
+                <td style="padding:14px 20px; color:#cbd5e1; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">Monthly Price</td>
+                <td style="padding:14px 20px; text-align:center; color:white; font-weight:700; font-size:16px; border-bottom:1px solid rgba(255,255,255,0.05);">₹999</td>
+                <td style="padding:14px 20px; text-align:center; color:white; font-weight:700; font-size:16px; border-bottom:1px solid rgba(255,255,255,0.05);">₹1,299</td>
+                <td style="padding:14px 20px; text-align:center; color:white; font-weight:700; font-size:16px; border-bottom:1px solid rgba(255,255,255,0.05);">₹1,499</td>
+              </tr>
+              <tr style="background:rgba(30,41,59,0.3);">
+                <td style="padding:14px 20px; color:#cbd5e1; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">Weight Limit</td>
+                <td style="padding:14px 20px; text-align:center; color:#94a3b8; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">30 kg</td>
+                <td style="padding:14px 20px; text-align:center; color:#94a3b8; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">45 kg</td>
+                <td style="padding:14px 20px; text-align:center; color:#94a3b8; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">60 kg</td>
+              </tr>
+              <tr style="background:rgba(30,41,59,0.5);">
+                <td style="padding:14px 20px; color:#cbd5e1; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">Delivery Time</td>
+                <td style="padding:14px 20px; text-align:center; color:#94a3b8; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">Next Day</td>
+                <td style="padding:14px 20px; text-align:center; color:#a78bfa; font-size:14px; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.05);">Same Day</td>
+                <td style="padding:14px 20px; text-align:center; color:#fbbf24; font-size:14px; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.05);">Same Day</td>
+              </tr>
+              <tr style="background:rgba(30,41,59,0.3);">
+                <td style="padding:14px 20px; color:#cbd5e1; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">Priority</td>
+                <td style="padding:14px 20px; text-align:center; color:#94a3b8; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">Standard Queue</td>
+                <td style="padding:14px 20px; text-align:center; color:#a78bfa; font-size:14px; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.05);">Priority Queue</td>
+                <td style="padding:14px 20px; text-align:center; color:#fbbf24; font-size:14px; font-weight:700; border-bottom:1px solid rgba(255,255,255,0.05);">First in Queue</td>
+              </tr>
+              <tr style="background:rgba(30,41,59,0.5);">
+                <td style="padding:14px 20px; color:#cbd5e1; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">Overage Rate</td>
+                <td style="padding:14px 20px; text-align:center; color:#94a3b8; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">₹40/kg</td>
+                <td style="padding:14px 20px; text-align:center; color:#94a3b8; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">₹38/kg</td>
+                <td style="padding:14px 20px; text-align:center; color:#94a3b8; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.05);">₹30/kg</td>
+              </tr>
+              <tr style="background:rgba(30,41,59,0.3);">
+                <td style="padding:14px 20px; color:#cbd5e1; font-size:14px;">Weekly Pickup</td>
+                <td style="padding:14px 20px; text-align:center; color:#4ade80; font-size:14px;">✓</td>
+                <td style="padding:14px 20px; text-align:center; color:#4ade80; font-size:14px;">✓</td>
+                <td style="padding:14px 20px; text-align:center; color:#4ade80; font-size:14px;">✓</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div class="section-label" style="margin-top:40px;">Need More?</div>
@@ -577,8 +774,8 @@
           <div class="addon-card">
             <span class="addon-emoji">⚖️</span>
             <h4>Extra Weight</h4>
-            <div class="addon-price">₹40/kg</div>
-            <p>Beyond 40 kg</p>
+            <div class="addon-price" id="addonWeightPrice">₹40/kg</div>
+            <p id="addonWeightNote">Beyond your plan limit</p>
           </div>
           <div class="addon-card">
             <span class="addon-emoji">🛏️</span>
@@ -618,7 +815,7 @@
         <div class="feeling-card">
           <div class="new-way">With EasyWash</div>
           <h3>"She's resting. The clothes are already done."</h3>
-          <p>You gave her the gift of free time. Clean clothes appear every week. She didn't lift a finger. That's what ₹999 really buys.</p>
+          <p>You gave her the gift of free time. Clean clothes appear every week. She didn't lift a finger. That's what EasyWash really buys.</p>
         </div>
         <div class="feeling-card">
           <div class="old-way">Without EasyWash</div>
@@ -638,7 +835,7 @@
   <section class="services" id="services">
     <div class="container">
       <div class="section-label">All Services</div>
-      <h2 class="section-title">More Than Just the 999 Plan</h2>
+      <h2 class="section-title">More Than Just a Plan</h2>
       <p class="section-subtitle">Need something specific? We handle that too.</p>
       <div class="services-grid">
         <div class="service-card">
@@ -679,7 +876,7 @@
   <section class="testimonial">
     <div class="container">
       <div class="section-label">From Our Subscribers</div>
-      <p class="testimonial-quote">"I used to spend my Sundays washing and ironing. Now I spend them with my kids. Best ₹999 I've ever spent."</p>
+      <p class="testimonial-quote">"I used to spend my Sundays washing and ironing. Now I spend them with my kids. Best money I've ever spent on my family."</p>
       <p class="testimonial-author">— Happy EasyWash subscriber, Imphal</p>
     </div>
   </section>
@@ -688,10 +885,10 @@
   <section class="final-cta">
     <div class="container">
       <h2>Ready to Never Think About<br>Laundry Again?</h2>
-      <p>Pick your day. We'll handle the rest. Every week. ₹999/month.</p>
+      <p>Pick your plan. Pick your day. We'll handle the rest. Every week, starting at ₹999/month.</p>
       <div class="final-cta-buttons">
-        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20999%20Plan" class="btn-primary">Start Living, Stop Washing — ₹999/mo</a>
-        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20have%20a%20question%20about%20EasyWash" class="btn-secondary">
+        <a href="#plans" class="btn-primary">Choose Your Plan</a>
+        <a href="https://wa.me/918787662431?text=Hi%2C%20I%20have%20a%20question%20about%20EasyWash%20plans" class="btn-secondary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.348 0-4.518-.816-6.222-2.18l-.435-.355-3.26 1.093 1.093-3.26-.355-.435A9.948 9.948 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Ask a Question
         </a>
@@ -770,7 +967,7 @@
         </div>
         <div class="footer-col">
           <h3>Quick Links</h3>
-          <a href="#plan">999 Plan</a>
+          <a href="#plans">Plans</a>
           <a href="#services">Services</a>
           <a href="#about">About Us</a>
           <a href="#contact">Contact</a>
@@ -797,6 +994,72 @@
   <!-- Scripts -->
   <script>
   (function() {
+    /* ---- Plan Data ---- */
+    var planData = {
+      classic: { name: 'Classic', price: '₹999', priceNum: 999, weight: 30, delivery: 'Next Day', priority: 'Standard Queue', overage: 40, icon: '🔵', color: 'classic' },
+      pro:     { name: 'Pro',     price: '₹1,299', priceNum: 1299, weight: 45, delivery: 'Same Day', priority: 'Priority Queue', overage: 38, icon: '🟣', color: 'pro' },
+      elite:   { name: 'Elite',   price: '₹1,499', priceNum: 1499, weight: 60, delivery: 'Same Day', priority: 'First in Queue', overage: 30, icon: '🟡', color: 'elite' }
+    };
+    var selectedPlan = null;
+    var selectedDay = null;
+
+    /* ---- Plan Selection ---- */
+    var planSelectorBtns = document.querySelectorAll('.plan-select-btn');
+    var selectedPlanDisplay = document.getElementById('selectedPlanDisplay');
+    var selectedPlanIcon = document.getElementById('selectedPlanIcon');
+    var selectedPlanLabel = document.getElementById('selectedPlanLabel');
+    var addonWeightPrice = document.getElementById('addonWeightPrice');
+    var addonWeightNote = document.getElementById('addonWeightNote');
+
+    window.selectPlan = function(planId) {
+      selectedPlan = planId;
+      var plan = planData[planId];
+
+      // Update mini plan selector buttons
+      planSelectorBtns.forEach(function(btn) {
+        btn.className = 'plan-select-btn';
+        if (btn.dataset.plan === planId) {
+          btn.classList.add('active-' + planId);
+        }
+      });
+
+      // Update form plan display
+      selectedPlanDisplay.className = 'selected-plan-display spd-' + planId;
+      selectedPlanDisplay.style.display = 'flex';
+      selectedPlanIcon.textContent = plan.icon;
+      selectedPlanLabel.innerHTML = '<strong>' + plan.name + ' Plan</strong> — ' + plan.price + '/month • ' + plan.weight + 'kg • ' + plan.delivery;
+
+      // Update calendar description text
+      if (selectedDay) {
+        updateCalendarText();
+      }
+
+      // Update addon section
+      if (addonWeightPrice) addonWeightPrice.textContent = '₹' + plan.overage + '/kg';
+      if (addonWeightNote) addonWeightNote.textContent = 'Beyond ' + plan.weight + ' kg';
+
+      // Update WhatsApp float link
+      updateWhatsAppLinks();
+    };
+
+    window.selectPlanFromCard = function(planId) {
+      selectPlan(planId);
+      // Scroll to calendar section after a brief delay
+      setTimeout(function() {
+        document.querySelector('.calendar-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    };
+
+    function updateWhatsAppLinks() {
+      if (!selectedPlan) return;
+      var plan = planData[selectedPlan];
+      var msg = 'Hi, I want to subscribe to the EasyWash ' + plan.name + ' Plan (' + plan.price + '/month)';
+      if (selectedDay) msg += ' with ' + selectedDay + ' pickup';
+      var encoded = encodeURIComponent(msg);
+      var waFloat = document.querySelector('.whatsapp-float');
+      if (waFloat) waFloat.href = 'https://wa.me/918787662431?text=' + encoded;
+    }
+
     /* ---- Interactive Calendar ---- */
     var dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     var reactions = [
@@ -808,8 +1071,6 @@
       { emoji: '☕', msg: 'Now go enjoy your free time.' },
       { emoji: '🌟', msg: 'Even Sundays. We\'ve got you covered.' }
     ];
-
-    var selectedDay = null; // Track the chosen day
 
     var buttons = document.querySelectorAll('.day-picker-btn');
     var calDays = document.querySelectorAll('.cal-day[data-dow]');
@@ -826,6 +1087,20 @@
     var formWrapper = document.getElementById('formWrapper');
     var chosenDayDisplay = document.getElementById('chosenDayDisplay');
     var chosenDayText = document.getElementById('chosenDayText');
+
+    function updateCalendarText() {
+      if (!selectedDay) return;
+      var count = 0;
+      calDays.forEach(function(day) { if (parseInt(day.dataset.dow) === dayNames.indexOf(selectedDay)) count++; });
+      var plan = selectedPlan ? planData[selectedPlan] : null;
+      var deliveryText = plan ? plan.delivery.toLowerCase() : 'same day';
+      var priceText = plan ? plan.price : '₹999';
+
+      calHeading.innerHTML = 'You Choose ' + selectedDay + '. We Handle <em>Every</em> ' + selectedDay + '.';
+      calDesc.innerHTML = 'No remembering. No scheduling. No "I\'ll do it next week." You picked <strong>' + selectedDay + '</strong> — we show up every single ' + selectedDay + '. That\'s <strong>' + count + ' pickups, ' + count + ' ' + deliveryText + ' deliveries, zero effort.</strong>';
+      calHighlight.textContent = count + ' pickups. ' + count + ' deliveries.';
+      calHighlightSub.textContent = priceText + ' for the whole month.';
+    }
 
     buttons.forEach(function(btn) {
       btn.addEventListener('click', function() {
@@ -849,15 +1124,12 @@
           });
         }, 50);
 
-        // Count how many times this day appears in the month
         var count = 0;
         calDays.forEach(function(day) { if (parseInt(day.dataset.dow) === dayIndex) count++; });
 
         calLabels.forEach(function(label, i) { label.classList.toggle('active-day', i === dayIndex); });
-        calHeading.innerHTML = 'You Choose ' + dayNames[dayIndex] + '. We Handle <em>Every</em> ' + dayNames[dayIndex] + '.';
-        calDesc.innerHTML = 'No remembering. No scheduling. No "I\'ll do it next week." You picked <strong>' + dayNames[dayIndex] + '</strong> — we show up every single ' + dayNames[dayIndex] + '. That\'s <strong>' + count + ' pickups, ' + count + ' deliveries, zero effort.</strong>';
-        calHighlight.textContent = count + ' pickups. ' + count + ' deliveries.';
-        calHighlightSub.textContent = '₹999 for the whole month.';
+
+        updateCalendarText();
         calNote.innerHTML = '<span class="emoji-burst">' + reaction.emoji + '</span> You chose <strong>' + dayNames[dayIndex] + '</strong> — ' + reaction.msg;
 
         // Show "Continue" button
@@ -869,6 +1141,8 @@
         chosenDayDisplay.style.display = 'flex';
         chooseDayNotice.style.display = 'none';
         formWrapper.style.display = 'block';
+
+        updateWhatsAppLinks();
       });
     });
 
@@ -883,7 +1157,6 @@
       }
     }
 
-    // Check when user scrolls to subscribe section without picking a day
     var formSection = document.getElementById('subscribe');
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -892,7 +1165,6 @@
     }, { threshold: 0.3 });
     observer.observe(formSection);
 
-    // Also handle anchor clicks to #subscribe
     document.querySelectorAll('a[href="#subscribe"]').forEach(function(link) {
       link.addEventListener('click', function() {
         setTimeout(updateFormVisibility, 100);
@@ -917,9 +1189,17 @@
       formBtn.disabled = true;
       formBtn.textContent = 'Submitting...';
 
-      var data = { timestamp: new Date().toISOString(), name: name, phone: phone, address: address, preferredDay: selectedDay || 'Not selected' };
+      var plan = selectedPlan ? planData[selectedPlan] : null;
+      var data = {
+        timestamp: new Date().toISOString(),
+        name: name,
+        phone: phone,
+        address: address,
+        preferredDay: selectedDay || 'Not selected',
+        plan: plan ? plan.name : 'Not selected',
+        planPrice: plan ? plan.price : ''
+      };
 
-      // Try to submit to Google Sheets (won't block unlock if URL not set)
       if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
         fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST', mode: 'no-cors',
@@ -928,12 +1208,10 @@
         }).catch(function() {});
       }
 
-      // Unlock immediately
       setTimeout(function() {
         form.style.display = 'none';
         formSuccess.style.display = 'block';
         lockedSection.classList.remove('is-locked');
-        // Scroll to unlocked content
         setTimeout(function() {
           lockedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 300);
