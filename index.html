@@ -1206,7 +1206,6 @@
     var formBtn = document.getElementById('formBtn');
     var formSuccess = document.getElementById('formSuccess');
     var lockedSection = document.getElementById('planDetails');
-    var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrQoTcdoYNzXYKxdnrLE9zHeblOyTGKX3_EyNumg4Kw4XCipEoWzJwvwTJll6oYm4/exec';
     var MANAGEMENT_API_URL = 'https://easywash-management-production.up.railway.app';
 
     form.addEventListener('submit', function(e) {
@@ -1221,24 +1220,8 @@
       formBtn.textContent = 'Submitting...';
 
       var plan = selectedPlan ? planData[selectedPlan] : null;
-      var data = {
-        timestamp: new Date().toISOString(),
-        name: name,
-        phone: phone,
-        address: address,
-        preferredDay: selectedDay || 'Not selected',
-        plan: plan ? plan.name : 'Not selected',
-        planPrice: plan ? plan.price : ''
-      };
 
-      // Send to Google Sheets
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }).catch(function() {});
-
-      // Send to management system (auto-creates lead)
+      // Send to management system (creates lead)
       fetch(MANAGEMENT_API_URL + '/api/webhook/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1250,16 +1233,23 @@
           plan: plan ? plan.name : '',
           planPrice: plan ? plan.price : ''
         })
-      }).catch(function() {});
-
-      setTimeout(function() {
+      }).then(function(resp) {
+        if (!resp.ok) throw new Error('Failed');
         form.style.display = 'none';
         formSuccess.style.display = 'block';
         lockedSection.classList.remove('is-locked');
         setTimeout(function() {
           lockedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 300);
-      }, 600);
+      }).catch(function() {
+        // Still unlock on failure so user isn't stuck
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+        lockedSection.classList.remove('is-locked');
+        setTimeout(function() {
+          lockedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      });
     });
   })();
   </script>
