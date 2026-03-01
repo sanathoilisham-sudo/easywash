@@ -367,6 +367,13 @@
     .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
     .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
 
+    /* Mobile Quick Nav */
+    .mobile-nav { display: none; position: sticky; top: 49px; z-index: 99; background: rgba(15, 23, 42, 0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 8px 12px; gap: 8px; justify-content: center; }
+    .mobile-nav a { flex: 1; text-align: center; padding: 10px 8px; border-radius: 10px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+    .mobile-nav .mn-plans { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.25); }
+    .mobile-nav .mn-subscribe { background: rgba(124,58,237,0.15); color: #c4b5fd; border: 1px solid rgba(124,58,237,0.25); }
+    .mobile-nav .mn-request { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; border: 1px solid #7c3aed; }
+
     /* Responsive */
     @media (max-width: 900px) {
       .hero-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -395,6 +402,7 @@
       .contact-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       nav { display: none; }
+      .mobile-nav { display: flex; }
       .logo-text { font-size: 18px; }
       .logo-img { height: 36px; }
       .hero-buttons { flex-direction: column; }
@@ -439,6 +447,13 @@
       </button>
     </div>
   </header>
+
+  <!-- Mobile Quick Nav (visible only on phones) -->
+  <div class="mobile-nav">
+    <a href="#plans" class="mn-plans">Plans</a>
+    <a href="#subscribe" class="mn-subscribe">Subscribe</a>
+    <a href="#serviceRequest" class="mn-request" onclick="setTimeout(function(){showSvcForm(activeSvcForm||'blanket')},300)">Request Service</a>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
