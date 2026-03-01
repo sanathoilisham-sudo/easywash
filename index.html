@@ -312,6 +312,11 @@
     .svc-success p { font-size: 15px; color: #94a3b8; margin-bottom: 16px; }
     .svc-success .svc-reset-btn { display: inline-block; padding: 10px 24px; background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.4); color: #c4b5fd; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; }
     .svc-success .svc-reset-btn:hover { background: rgba(124,58,237,0.3); }
+    .addr-row { display: flex; gap: 8px; align-items: stretch; margin-bottom: 16px; }
+    .addr-row input { flex: 1; margin-bottom: 0; }
+    .gps-btn { width: 48px; min-width: 48px; border: 1px solid rgba(255,255,255,0.12); background: rgba(124,58,237,0.15); border-radius: 10px; font-size: 20px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+    .gps-btn:hover { background: rgba(124,58,237,0.3); border-color: #7c3aed; }
+    .gps-btn.loading { opacity: 0.5; cursor: wait; }
 
     /* Reviews */
     .reviews-section { padding: 80px 0; background: rgba(30, 41, 59, 0.3); }
@@ -413,8 +418,8 @@
       .pricing-tagline { font-size: 15px; }
       .plan-price-row .amount { font-size: 40px; }
       .svc-req { padding: 50px 0; }
-      .svc-tabs { gap: 8px; }
-      .svc-tab { padding: 10px 20px; font-size: 14px; }
+      .svc-tabs { gap: 6px; flex-wrap: wrap; justify-content: center; }
+      .svc-tab { padding: 9px 16px; font-size: 13px; }
       .svc-form { padding: 20px 16px; border-radius: 14px; }
       .svc-form input, .svc-form textarea, .svc-form select { padding: 12px 14px; font-size: 14px; }
     }
@@ -738,7 +743,10 @@
             <label for="formPhone">Phone / WhatsApp Number</label>
             <input type="tel" id="formPhone" placeholder="Enter your 10-digit number" required>
             <label for="formAddress">Your Address (for pickup)</label>
-            <input type="text" id="formAddress" placeholder="Area / locality in Imphal" required>
+            <div class="addr-row">
+              <input type="text" id="formAddress" placeholder="Area / locality in Imphal" required>
+              <button type="button" class="gps-btn" onclick="getGPS('formAddress')" title="Use my location">📍</button>
+            </div>
             <button type="submit" class="form-btn" id="formBtn">Unlock Full Plan Details</button>
           </form>
           <div class="form-success" id="formSuccess">
@@ -930,10 +938,11 @@
           <p>Deep cleaning for blankets, comforters, and heavy bedding. Fresh and fluffy, ready for cozy nights.</p>
           <span style="display:inline-block; margin-top:10px; font-size:13px; font-weight:600; color:#a78bfa;">Request Pickup &rarr;</span>
         </div>
-        <div class="service-card">
+        <div class="service-card" onclick="goToSvcForm('bulk')" style="cursor:pointer;">
           <span class="service-icon">⚡</span>
           <h3>Bulk Wash</h3>
           <p>Large volumes? Hostels, PGs, or big families — we handle bulk at cost-effective rates.</p>
+          <span style="display:inline-block; margin-top:10px; font-size:13px; font-weight:600; color:#a78bfa;">Request Pickup &rarr;</span>
         </div>
         <div class="service-card">
           <span class="service-icon">👗</span>
@@ -958,12 +967,13 @@
   <section class="svc-req" id="serviceRequest">
     <div class="container">
       <div class="section-label">Request a Service</div>
-      <h2 class="section-title">Need Blanket Wash or Dry Cleaning?</h2>
+      <h2 class="section-title">Need a One-Time Service?</h2>
       <p class="section-subtitle">Fill the form and we'll pick it up from your doorstep. No subscription needed.</p>
 
       <div class="svc-tabs">
         <button class="svc-tab active" onclick="showSvcForm('blanket')" id="tabBlanket">Blanket Wash</button>
         <button class="svc-tab" onclick="showSvcForm('dryclean')" id="tabDryclean">Dry Cleaning</button>
+        <button class="svc-tab" onclick="showSvcForm('bulk')" id="tabBulk">Bulk Wash</button>
       </div>
 
       <div class="svc-form-wrap">
@@ -976,7 +986,10 @@
           <input type="tel" id="blkPhone" placeholder="Enter your 10-digit number" required>
 
           <label for="blkAddress">Your Address (for pickup)</label>
-          <input type="text" id="blkAddress" placeholder="Area / locality in Imphal" required>
+          <div class="addr-row">
+            <input type="text" id="blkAddress" placeholder="Area / locality in Imphal" required>
+            <button type="button" class="gps-btn" onclick="getGPS('blkAddress')" title="Use my location">📍</button>
+          </div>
 
           <label for="blkCount">Number of Blankets</label>
           <select id="blkCount">
@@ -987,11 +1000,8 @@
             <option value="5">5+ blankets</option>
           </select>
 
-          <label for="blkTypes">Blanket Types / Sizes (optional)</label>
-          <input type="text" id="blkTypes" placeholder="e.g. 2 single, 1 double comforter">
-
-          <label for="blkNotes">Any special instructions? (optional)</label>
-          <textarea id="blkNotes" rows="2" placeholder="e.g. Handle with care, pet hair removal needed..."></textarea>
+          <label for="blkNotes">Special instructions (optional)</label>
+          <textarea id="blkNotes" rows="2" placeholder="e.g. No comforter, handle with care..."></textarea>
 
           <button type="submit" class="form-btn" id="blkBtn">Request Blanket Pickup</button>
         </form>
@@ -1005,15 +1015,46 @@
           <input type="tel" id="dcPhone" placeholder="Enter your 10-digit number" required>
 
           <label for="dcAddress">Your Address (for pickup)</label>
-          <input type="text" id="dcAddress" placeholder="Area / locality in Imphal" required>
+          <div class="addr-row">
+            <input type="text" id="dcAddress" placeholder="Area / locality in Imphal" required>
+            <button type="button" class="gps-btn" onclick="getGPS('dcAddress')" title="Use my location">📍</button>
+          </div>
 
           <label for="dcItems">Items to Dry Clean</label>
           <textarea id="dcItems" rows="2" required placeholder="e.g. 2 suits, 1 saree, 3 shirts"></textarea>
 
-          <label for="dcNotes">Any special instructions? (optional)</label>
+          <label for="dcNotes">Special instructions (optional)</label>
           <textarea id="dcNotes" rows="2" placeholder="e.g. Stain on collar, need by Friday..."></textarea>
 
           <button type="submit" class="form-btn" id="dcBtn">Request Dry Clean Pickup</button>
+        </form>
+
+        <!-- Bulk Wash Form -->
+        <form id="bulkForm" class="svc-form" style="display:none;">
+          <label for="bulkName">Your Name</label>
+          <input type="text" id="bulkName" placeholder="Enter your full name" required>
+
+          <label for="bulkPhone">Phone / WhatsApp Number</label>
+          <input type="tel" id="bulkPhone" placeholder="Enter your 10-digit number" required>
+
+          <label for="bulkAddress">Your Address (for pickup)</label>
+          <div class="addr-row">
+            <input type="text" id="bulkAddress" placeholder="Area / locality in Imphal" required>
+            <button type="button" class="gps-btn" onclick="getGPS('bulkAddress')" title="Use my location">📍</button>
+          </div>
+
+          <label for="bulkWeight">Estimated Weight</label>
+          <select id="bulkWeight">
+            <option value="5-10 kg">5 – 10 kg</option>
+            <option value="10-20 kg">10 – 20 kg</option>
+            <option value="20-30 kg">20 – 30 kg</option>
+            <option value="30+ kg">30+ kg</option>
+          </select>
+
+          <label for="bulkNotes">Special instructions (optional)</label>
+          <textarea id="bulkNotes" rows="2" placeholder="e.g. Mostly bedsheets and towels..."></textarea>
+
+          <button type="submit" class="form-btn" id="bulkBtn">Request Bulk Wash Pickup</button>
         </form>
 
         <!-- Success Message -->
@@ -1416,15 +1457,55 @@
     activeSvcForm = type;
     document.getElementById('blanketForm').style.display = type === 'blanket' ? 'block' : 'none';
     document.getElementById('dcForm').style.display = type === 'dryclean' ? 'block' : 'none';
+    document.getElementById('bulkForm').style.display = type === 'bulk' ? 'block' : 'none';
     document.getElementById('svcSuccess').style.display = 'none';
     document.getElementById('tabBlanket').classList.toggle('active', type === 'blanket');
     document.getElementById('tabDryclean').classList.toggle('active', type === 'dryclean');
+    document.getElementById('tabBulk').classList.toggle('active', type === 'bulk');
   }
 
   function resetSvcForm() {
     document.getElementById('blanketForm').reset();
     document.getElementById('dcForm').reset();
+    document.getElementById('bulkForm').reset();
     showSvcForm(activeSvcForm);
+  }
+
+  // GPS location
+  function getGPS(inputId) {
+    var input = document.getElementById(inputId);
+    var btn = input.parentElement.querySelector('.gps-btn');
+    if (!navigator.geolocation) { alert('Geolocation not supported by your browser'); return; }
+    btn.classList.add('loading');
+    btn.textContent = '...';
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      var lat = pos.coords.latitude.toFixed(6);
+      var lng = pos.coords.longitude.toFixed(6);
+      // Try reverse geocoding via free API
+      fetch('https://nominatim.openstreetmap.org/reverse?lat=' + lat + '&lon=' + lng + '&format=json&addressdetails=1')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var addr = '';
+          if (data.address) {
+            var a = data.address;
+            var parts = [a.neighbourhood, a.suburb, a.village, a.town, a.city, a.state_district].filter(Boolean);
+            addr = parts.join(', ');
+          }
+          input.value = addr || (lat + ', ' + lng);
+          btn.classList.remove('loading');
+          btn.textContent = '📍';
+        })
+        .catch(function() {
+          input.value = lat + ', ' + lng;
+          btn.classList.remove('loading');
+          btn.textContent = '📍';
+        });
+    }, function(err) {
+      btn.classList.remove('loading');
+      btn.textContent = '📍';
+      if (err.code === 1) alert('Please allow location access to use this feature');
+      else alert('Could not get your location. Please type your address manually.');
+    }, { enableHighAccuracy: true, timeout: 10000 });
   }
 
   // Blanket form submit
@@ -1448,8 +1529,7 @@
         address: address,
         service_type: 'blanket',
         service_details: {
-          blanket_count: document.getElementById('blkCount').value,
-          blanket_types: document.getElementById('blkTypes').value.trim()
+          blanket_count: document.getElementById('blkCount').value
         },
         notes: document.getElementById('blkNotes').value.trim()
       })
@@ -1502,6 +1582,44 @@
     }).finally(function() {
       btn.disabled = false;
       btn.textContent = 'Request Dry Clean Pickup';
+    });
+  });
+
+  // Bulk Wash form submit
+  document.getElementById('bulkForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('bulkBtn');
+    var name = document.getElementById('bulkName').value.trim();
+    var phone = document.getElementById('bulkPhone').value.trim();
+    var address = document.getElementById('bulkAddress').value.trim();
+    if (!name || !phone || !address) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    fetch(SVC_API_URL + '/api/webhook/order-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        address: address,
+        service_type: 'bulk',
+        service_details: {
+          estimated_weight: document.getElementById('bulkWeight').value
+        },
+        notes: document.getElementById('bulkNotes').value.trim()
+      })
+    }).then(function(r) {
+      if (!r.ok) throw new Error('Failed');
+      document.getElementById('bulkForm').style.display = 'none';
+      document.getElementById('svcSuccess').style.display = 'block';
+    }).catch(function() {
+      document.getElementById('bulkForm').style.display = 'none';
+      document.getElementById('svcSuccess').style.display = 'block';
+    }).finally(function() {
+      btn.disabled = false;
+      btn.textContent = 'Request Bulk Wash Pickup';
     });
   });
 
