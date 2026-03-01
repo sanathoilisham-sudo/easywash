@@ -382,6 +382,7 @@
       .addon-grid { grid-template-columns: repeat(2, 1fr); }
       .feeling-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
+      .svc-form { padding: 24px 20px; }
       .contact-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; }
@@ -403,6 +404,11 @@
       .locked-overlay h3 { font-size: 20px; }
       .pricing-tagline { font-size: 15px; }
       .plan-price-row .amount { font-size: 40px; }
+      .svc-req { padding: 50px 0; }
+      .svc-tabs { gap: 8px; }
+      .svc-tab { padding: 10px 20px; font-size: 14px; }
+      .svc-form { padding: 20px 16px; border-radius: 14px; }
+      .svc-form input, .svc-form textarea, .svc-form select { padding: 12px 14px; font-size: 14px; }
     }
   </style>
 </head>
@@ -897,15 +903,17 @@
       <h2 class="section-title">More Than Just a Plan</h2>
       <p class="section-subtitle">Need something specific? We handle that too.</p>
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card" onclick="goToSvcForm('dryclean')" style="cursor:pointer;">
           <span class="service-icon">👔</span>
           <h3>Dry Cleaning</h3>
           <p>Professional care for delicate fabrics, suits, sarees, and formal wear that need special attention.</p>
+          <span style="display:inline-block; margin-top:10px; font-size:13px; font-weight:600; color:#a78bfa;">Request Pickup &rarr;</span>
         </div>
-        <div class="service-card">
+        <div class="service-card" onclick="goToSvcForm('blanket')" style="cursor:pointer;">
           <span class="service-icon">🛏️</span>
           <h3>Blanket Wash</h3>
           <p>Deep cleaning for blankets, comforters, and heavy bedding. Fresh and fluffy, ready for cozy nights.</p>
+          <span style="display:inline-block; margin-top:10px; font-size:13px; font-weight:600; color:#a78bfa;">Request Pickup &rarr;</span>
         </div>
         <div class="service-card">
           <span class="service-icon">⚡</span>
@@ -1383,6 +1391,11 @@
   /* ---- Service Request Forms ---- */
   var SVC_API_URL = 'https://easywash-management-production.up.railway.app';
   var activeSvcForm = 'blanket';
+
+  function goToSvcForm(type) {
+    showSvcForm(type);
+    document.getElementById('serviceRequest').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
   function showSvcForm(type) {
     activeSvcForm = type;
