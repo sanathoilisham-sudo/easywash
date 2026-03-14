@@ -367,6 +367,52 @@
     .footer-col a:hover { color: #a78bfa; text-decoration: none; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; text-align: center; font-size: 12px; color: #475569; }
 
+    /* First Order Offer Banner */
+    .offer-banner { background: linear-gradient(135deg, #7c3aed, #3b82f6); padding: 10px 0; text-align: center; font-size: 14px; font-weight: 600; color: white; letter-spacing: 0.3px; position: relative; overflow: hidden; }
+    .offer-banner::before { content: ''; position: absolute; top: 0; left: -100%; width: 200%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); animation: shimmer 3s infinite; }
+    @keyframes shimmer { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
+    .offer-banner a { color: #fbbf24; font-weight: 700; text-decoration: underline; margin-left: 8px; }
+
+    /* Trust Stats Bar */
+    .trust-bar { padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .trust-stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .trust-stat { text-align: center; }
+    .trust-stat .stat-number { font-size: 32px; font-weight: 900; color: white; display: block; line-height: 1.2; }
+    .trust-stat .stat-label { font-size: 13px; color: #94a3b8; font-weight: 500; }
+    .trust-stat .stat-icon { font-size: 24px; display: block; margin-bottom: 6px; }
+    @media (max-width: 600px) { .trust-stats { gap: 24px; } .trust-stat .stat-number { font-size: 24px; } }
+
+    /* Wash Process Section */
+    .wash-process { padding: 80px 0; }
+    .process-flow { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .process-step { text-align: center; padding: 24px 16px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; width: 140px; transition: all 0.3s; }
+    .process-step:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-4px); }
+    .process-step .proc-icon { font-size: 32px; display: block; margin-bottom: 8px; }
+    .process-step .proc-name { font-size: 13px; font-weight: 700; color: white; display: block; }
+    .process-step .proc-desc { font-size: 11px; color: #94a3b8; margin-top: 4px; }
+    .process-arrow { font-size: 20px; color: #7c3aed; font-weight: bold; }
+    @media (max-width: 900px) { .process-flow { gap: 12px; } .process-step { width: 120px; padding: 16px 10px; } .process-arrow { display: none; } }
+
+    /* Quality Badges */
+    .quality-badges { padding: 50px 0; }
+    .badges-grid { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .badge-item { display: flex; align-items: center; gap: 10px; padding: 14px 24px; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; transition: all 0.3s; }
+    .badge-item:hover { border-color: rgba(124,58,237,0.3); }
+    .badge-item .badge-icon { font-size: 24px; }
+    .badge-item .badge-text { font-size: 13px; font-weight: 600; color: #cbd5e1; }
+
+    /* FAQ Section */
+    .faq-section { padding: 80px 0; background: rgba(30, 41, 59, 0.3); }
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; width: 100%; background: none; border: none; color: white; font-size: 16px; font-weight: 600; font-family: inherit; text-align: left; }
+    .faq-question:hover { color: #a78bfa; }
+    .faq-question .faq-toggle { font-size: 20px; color: #7c3aed; transition: transform 0.3s; flex-shrink: 0; margin-left: 16px; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 20px; }
+    .faq-answer p { font-size: 14px; color: #94a3b8; line-height: 1.7; }
+
     /* Floating Bubbles Background */
     .bubbles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
     .bubble { position: absolute; bottom: -80px; background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%); border-radius: 50%; animation: float-up linear infinite; }
@@ -448,6 +494,11 @@
   <!-- Floating Bubbles Background -->
   <div class="bubbles-container" id="bubblesContainer"></div>
 
+  <!-- First Order Offer Banner -->
+  <div class="offer-banner">
+    First time? Get <strong>20% OFF</strong> on your first order! <a href="#serviceRequest">Claim Now &rarr;</a>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="container">
@@ -503,6 +554,34 @@
       </div>
     </div>
   </section>
+
+  <!-- Trust Stats Bar -->
+  <div class="trust-bar reveal">
+    <div class="container">
+      <div class="trust-stats">
+        <div class="trust-stat">
+          <span class="stat-icon">👨‍👩‍👧‍👦</span>
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Happy Families</span>
+        </div>
+        <div class="trust-stat">
+          <span class="stat-icon">👕</span>
+          <span class="stat-number">10,000+</span>
+          <span class="stat-label">Kg Washed</span>
+        </div>
+        <div class="trust-stat">
+          <span class="stat-icon">🚚</span>
+          <span class="stat-number">2,000+</span>
+          <span class="stat-label">Deliveries Done</span>
+        </div>
+        <div class="trust-stat">
+          <span class="stat-icon">📍</span>
+          <span class="stat-number">All Imphal</span>
+          <span class="stat-label">Areas Covered</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Pricing Plans -->
   <section class="pricing-section reveal" id="plans">
@@ -633,6 +712,52 @@
           <div class="step-number">4</div>
           <h3>You Do... Nothing</h3>
           <p>That's the whole point. Spend your time on what actually matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Wash Process -->
+  <section class="wash-process reveal">
+    <div class="container">
+      <div class="section-label">Our Process</div>
+      <h2 class="section-title">How We Care for Your Clothes</h2>
+      <p class="section-subtitle">Every garment goes through our 6-stage professional process.</p>
+      <div class="process-flow">
+        <div class="process-step">
+          <span class="proc-icon">🚪</span>
+          <span class="proc-name">Pickup</span>
+          <span class="proc-desc">From your doorstep</span>
+        </div>
+        <span class="process-arrow">&rarr;</span>
+        <div class="process-step">
+          <span class="proc-icon">🏷️</span>
+          <span class="proc-name">Tag &amp; Sort</span>
+          <span class="proc-desc">Each item tagged</span>
+        </div>
+        <span class="process-arrow">&rarr;</span>
+        <div class="process-step">
+          <span class="proc-icon">🫧</span>
+          <span class="proc-name">Wash</span>
+          <span class="proc-desc">Gentle detergents</span>
+        </div>
+        <span class="process-arrow">&rarr;</span>
+        <div class="process-step">
+          <span class="proc-icon">☀️</span>
+          <span class="proc-name">Dry</span>
+          <span class="proc-desc">Proper drying</span>
+        </div>
+        <span class="process-arrow">&rarr;</span>
+        <div class="process-step">
+          <span class="proc-icon">👕</span>
+          <span class="proc-name">Fold &amp; Pack</span>
+          <span class="proc-desc">Neatly packed</span>
+        </div>
+        <span class="process-arrow">&rarr;</span>
+        <div class="process-step">
+          <span class="proc-icon">🚚</span>
+          <span class="proc-name">Deliver</span>
+          <span class="proc-desc">Back to your door</span>
         </div>
       </div>
     </div>
@@ -984,6 +1109,34 @@
     </div>
   </section>
 
+  <!-- Quality Badges -->
+  <div class="quality-badges reveal">
+    <div class="container">
+      <div class="badges-grid">
+        <div class="badge-item">
+          <span class="badge-icon">🌿</span>
+          <span class="badge-text">Eco-Friendly Detergents</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-icon">🎨</span>
+          <span class="badge-text">Color-Safe Wash</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-icon">🧼</span>
+          <span class="badge-text">Sanitized &amp; Hygienic</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-icon">📦</span>
+          <span class="badge-text">Neatly Packed</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-icon">🔒</span>
+          <span class="badge-text">Garment Safety Guaranteed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Service Request Forms -->
   <section class="svc-req reveal" id="serviceRequest">
     <div class="container">
@@ -1111,6 +1264,66 @@
         <textarea id="reviewMessage" placeholder="Tell us about your experience..."></textarea>
         <button onclick="submitReview()" style="display:block; width:100%; padding:14px; background:linear-gradient(135deg,#7c3aed,#6d28d9); color:white; border:none; border-radius:12px; font-size:16px; font-weight:700; cursor:pointer; font-family:inherit;">Submit Review</button>
         <div id="reviewFormStatus" style="margin-top:10px; text-align:center; font-size:14px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section reveal" id="faq">
+    <div class="container">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know before getting started.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Which areas in Imphal do you cover?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>We cover all areas of Imphal — Imphal East, Imphal West, Khongman, Singjamei, Thangmeiband, Uripok, Kwakeithel, Sagolband, Keishampat, Lamphel, and more. If you're in Imphal, we'll reach you.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Will my clothes shrink or colors bleed?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>No. We sort every load by color and fabric type, use cold water for delicates, and use color-safe eco-friendly detergents. Your clothes are in safe hands.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What's included in the monthly subscription?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Every plan includes weekly doorstep pickup and delivery. Classic gives you 30 kg/month with next-day delivery. Pro gives 45 kg with same-day delivery. Elite gives 60 kg with priority same-day service plus 2 extra on-demand pickups.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I use the service without a subscription?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Yes! We offer one-time services for blanket wash, dry cleaning, and bulk wash. Just fill out the service request form and we'll schedule a pickup.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I pay?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>We accept UPI (Google Pay, PhonePe, Paytm), cash, and bank transfer. Payment is collected at the time of delivery or monthly for subscribers.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What if my clothes are damaged?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Every garment is tagged and inspected before washing. In the rare case of damage, we take full responsibility and compensate you. We treat your clothes like our own.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I book a pickup?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><p>Just WhatsApp us at +91 87876 62431 or fill out the service request form on this page. For subscribers, pickups happen automatically on your chosen day every week.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -1735,6 +1948,16 @@
       container.appendChild(bubble);
     }
   })();
+
+  // FAQ Toggle
+  function toggleFaq(btn) {
+    var item = btn.parentElement;
+    var wasOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+    // Open clicked one if it wasn't open
+    if (!wasOpen) item.classList.add('open');
+  }
 
   // Scroll Reveal
   (function() {
