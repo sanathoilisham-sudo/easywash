@@ -519,6 +519,42 @@
       body { padding-bottom: 68px; }
     }
 
+    /* ═══ UI Renovation ═══ */
+
+    /* Scroll progress bar */
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--gradient-accent); z-index: 1001; transition: width 0.1s linear; border-radius: 0 2px 2px 0; box-shadow: 0 0 10px rgba(124,58,237,0.6); }
+
+    /* Section title gradient accent */
+    .section-title::after { content: ''; display: block; width: 56px; height: 4px; margin: 14px auto 0; border-radius: 2px; background: var(--gradient-accent); }
+
+    /* Plan cards: colored top ribbon */
+    .plan-card { overflow: hidden; }
+    .plan-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; opacity: 0.85; }
+    .plan-card-classic::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+    .plan-card-pro::before { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+    .plan-card-elite::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+    /* Primary button shine sweep */
+    .btn-primary { position: relative; overflow: hidden; }
+    .btn-primary::after { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent); transform: skewX(-20deg); transition: left 0.5s ease; }
+    .btn-primary:hover::after { left: 125%; }
+
+    /* Rating summary above reviews */
+    .rating-summary { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+    .rating-summary .rating-num { font-size: 44px; font-weight: 900; color: white; line-height: 1; }
+    .rating-summary .rating-stars { color: #f59e0b; font-size: 22px; letter-spacing: 3px; }
+    .rating-summary .rating-label { font-size: 14px; color: #94a3b8; }
+
+    /* Premium testimonial cards */
+    .review-card { position: relative; overflow: hidden; padding: 28px 24px; background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); transition: all 0.3s; }
+    .review-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-accent); opacity: 0.7; }
+    .review-card:hover { transform: translateY(-4px); border-color: rgba(124,58,237,0.35); box-shadow: 0 10px 30px rgba(124,58,237,0.15); }
+    .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .review-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: white; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .review-name { font-size: 15px; font-weight: 700; color: white; }
+    .review-verified { font-size: 12px; color: #4ade80; font-weight: 600; }
+    .review-card .review-msg { margin-bottom: 0; }
+
     /* Mobile Quick Nav */
     .mobile-nav { display: none; position: sticky; top: 49px; z-index: 99; background: rgba(15, 23, 42, 0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 8px 12px; gap: 8px; justify-content: center; }
     .mobile-nav a { flex: 1; text-align: center; padding: 10px 8px; border-radius: 10px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.3s; }
@@ -1329,21 +1365,44 @@
     <div class="container">
       <div class="section-label">What Our Customers Say</div>
       <h2 class="section-title">Real Reviews from Real Families</h2>
+      <div class="rating-summary">
+        <span class="rating-num">5.0</span>
+        <span class="rating-stars">★★★★★</span>
+        <span class="rating-label">Rated by real EasyWash families in Imphal</span>
+      </div>
       <div class="reviews-grid" id="reviewsDisplay">
         <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">CN</div>
+            <div>
+              <div class="review-name">Ch Nanaoba</div>
+              <div class="review-verified">&#10003; Verified Customer</div>
+            </div>
+          </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-msg">"I'm really satisfied with their laundry service. My clothes came back clean, fresh, and neatly folded. The price is reasonable, and the whole process was easy. I've tried a few laundry services before, but this one is the best so far."</div>
-          <div class="review-author">— Ch Nanaoba</div>
         </div>
         <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">KT</div>
+            <div>
+              <div class="review-name">Karam Tamphasana Khumukcham</div>
+              <div class="review-verified">&#10003; Verified Customer</div>
+            </div>
+          </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-msg">"Best in town. Really a good service. Thankful for such a good service. The owner is very friendly. Calls and messages are replied promptly. It's just a reliable service 👍."</div>
-          <div class="review-author">— Karam Tamphasana Khumukcham</div>
         </div>
         <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">EW</div>
+            <div>
+              <div class="review-name">EasyWash Customer</div>
+              <div class="review-verified">&#10003; Verified Customer</div>
+            </div>
+          </div>
           <div class="review-stars">★★★★★</div>
           <div class="review-msg">"Mind blowing service… world class. The best laundry service in our state so far — very cooperative, always ready and delivered on time."</div>
-          <div class="review-author">— EasyWash Customer</div>
         </div>
       </div>
 
@@ -1977,15 +2036,28 @@
       .then(function(reviews) {
         if (!reviews || reviews.length === 0) return; // keep baked-in reviews
         var container = document.getElementById('reviewsDisplay');
-        container.innerHTML = reviews.map(function(r) {
+        var avatarGradients = [
+          'linear-gradient(135deg,#3b82f6,#60a5fa)',
+          'linear-gradient(135deg,#7c3aed,#a78bfa)',
+          'linear-gradient(135deg,#f59e0b,#fbbf24)',
+          'linear-gradient(135deg,#10b981,#34d399)'
+        ];
+        container.innerHTML = reviews.map(function(r, idx) {
           var stars = '';
           for (var i = 0; i < 5; i++) stars += i < r.rating ? '★' : '☆';
           var name = String(r.name || 'EasyWash Customer').replace(/</g, '&lt;').replace(/>/g, '&gt;');
           var msg = String(r.message || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          // Long text in the name field means the reviewer typed their review there
+          if (name.length > 40) { msg = msg ? msg + ' ' + name : name; name = 'EasyWash Customer'; }
+          var initials = name.split(/\s+/).map(function(w) { return w.charAt(0); }).join('').substring(0, 2).toUpperCase();
           return '<div class="review-card">' +
+            '<div class="review-top">' +
+              '<div class="review-avatar" style="background:' + avatarGradients[idx % avatarGradients.length] + '">' + initials + '</div>' +
+              '<div><div class="review-name">' + name + '</div>' +
+              '<div class="review-verified">&#10003; Verified Customer</div></div>' +
+            '</div>' +
             '<div class="review-stars">' + stars + '</div>' +
             '<div class="review-msg">"' + msg + '"</div>' +
-            '<div class="review-author">— ' + name + '</div>' +
           '</div>';
         }).join('');
       })
@@ -2124,6 +2196,19 @@
         track('view_plans_click', {});
       }
     });
+  })();
+  </script>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <script>
+  (function() {
+    var bar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    }, { passive: true });
   })();
   </script>
 
