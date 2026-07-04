@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00B4DB"/>
+      <stop offset="50%" stop-color="#0083B0"/>
+      <stop offset="100%" stop-color="#005F8A"/>
+    </linearGradient>
+    <linearGradient id="innerWave" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E0F7FA"/>
+      <stop offset="100%" stop-color="#80DEEA"/>
+    </linearGradient>
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B2838"/>
+      <stop offset="100%" stop-color="#0D1B2A"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#005F8A" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Outer circle / water body -->
+  <circle cx="100" cy="105" r="82" fill="url(#waveGrad)"/>
+
+  <!-- Inner white area -->
+  <ellipse cx="100" cy="98" rx="62" ry="60" fill="white"/>
+
+  <!-- Inner wave decoration -->
+  <path d="M38 110 Q55 95, 75 108 T112 100 T150 108 T162 105 L162 140 Q162 170, 130 178 L70 178 Q38 170, 38 140 Z" fill="url(#waveGrad)" opacity="0.85"/>
+
+  <!-- Wave highlight -->
+  <path d="M45 120 Q65 108, 85 118 T125 112 T155 118 L155 135 Q145 125, 125 132 T85 128 T45 135 Z" fill="url(#innerWave)" opacity="0.5"/>
+
+  <!-- Foam / wave curl -->
+  <path d="M55 130 Q70 120, 90 128 T130 124 T148 128" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+
+  <!-- T-shirt -->
+  <g filter="url(#shadow)">
+    <!-- Shirt body -->
+    <path d="M72 62 L72 52 Q72 48, 76 46 L88 42 Q95 52, 100 52 Q105 52, 112 42 L124 46 Q128 48, 128 52 L128 62 L138 58 L142 72 L128 76 L128 110 Q128 114, 124 114 L76 114 Q72 114, 72 110 L72 76 L58 72 L62 58 Z" fill="url(#shirtGrad)"/>
+    <!-- Collar -->
+    <path d="M88 42 Q95 52, 100 52 Q105 52, 112 42" fill="none" stroke="#2C3E50" stroke-width="1.5"/>
+  </g>
+
+  <!-- Water splash top-right -->
+  <path d="M148 55 Q155 42, 152 30 Q158 38, 160 50 Q165 42, 158 32 Q166 44, 160 56" fill="url(#waveGrad)" opacity="0.9"/>
+
+  <!-- Bubbles -->
+  <circle cx="155" cy="28" r="5" fill="url(#waveGrad)" opacity="0.7"/>
+  <circle cx="148" cy="18" r="3" fill="#00B4DB" opacity="0.5"/>
+  <circle cx="162" cy="40" r="3.5" fill="#00B4DB" opacity="0.6"/>
+  <circle cx="50" cy="135" r="4" fill="white" opacity="0.4"/>
+  <circle cx="140" cy="142" r="3" fill="white" opacity="0.35"/>
+  <circle cx="60" cy="148" r="2.5" fill="white" opacity="0.3"/>
+</svg>

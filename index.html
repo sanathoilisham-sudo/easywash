@@ -5,6 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EasyWash - Pick a Plan. Stop Doing Laundry. Forever. | LG Enterprises, Imphal</title>
   <meta name="description" content="EasyWash Laundry Plans — Classic, Pro &amp; Elite. Pick your plan, pick your day, we show up every week. Professional laundry with doorstep pickup &amp; delivery in Imphal, Manipur. Starting at ₹999/month.">
+  <link rel="canonical" href="https://www.easywashs.com/">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+
+  <!-- Open Graph (WhatsApp / Facebook share preview) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EasyWash Laundry">
+  <meta property="og:title" content="EasyWash — Imphal's Own Laundry Service, At Your Door">
+  <meta property="og:description" content="Weekly doorstep pickup &amp; delivery in Imphal. Plans from ₹999/month. No thinking. No tracking. Just clean clothes.">
+  <meta property="og:url" content="https://www.easywashs.com/">
+  <meta property="og:image" content="https://www.easywashs.com/logo.jpg">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="EasyWash — Imphal's Own Laundry Service, At Your Door">
+  <meta name="twitter:description" content="Weekly doorstep pickup &amp; delivery in Imphal. Plans from ₹999/month.">
+  <meta name="twitter:image" content="https://www.easywashs.com/logo.jpg">
+
+  <!-- LocalBusiness structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LaundryOrDryCleaner",
+    "name": "EasyWash Laundry",
+    "alternateName": "EasyWash by LG Enterprises",
+    "url": "https://www.easywashs.com/",
+    "image": "https://www.easywashs.com/logo.jpg",
+    "logo": "https://www.easywashs.com/logo.jpg",
+    "telephone": "+916009451743",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Khongman Zone III",
+      "addressLocality": "Imphal East",
+      "addressRegion": "Manipur",
+      "addressCountry": "IN"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 24.789, "longitude": 93.964 },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    "areaServed": { "@type": "City", "name": "Imphal" },
+    "sameAs": ["https://wa.me/916009451743"],
+    "makesOffer": [
+      { "@type": "Offer", "name": "Classic Plan", "price": "999", "priceCurrency": "INR", "description": "30 kg/month, weekly doorstep pickup, next-day delivery" },
+      { "@type": "Offer", "name": "Pro Plan", "price": "1299", "priceCurrency": "INR", "description": "45 kg/month, weekly doorstep pickup, same-day delivery" },
+      { "@type": "Offer", "name": "Elite Plan", "price": "1499", "priceCurrency": "INR", "description": "60 kg/month, priority same-day delivery, 2 extra pickups" }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -435,6 +496,28 @@
     .whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 999; transition: all 0.3s; text-decoration: none; }
     .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
     .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+
+    /* Sticky mobile CTA bar */
+    .mobile-cta-bar { display: none; }
+    @media (max-width: 768px) {
+      .mobile-cta-bar {
+        display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 998;
+        background: rgba(15, 23, 42, 0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid var(--glass-border); padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        gap: 8px;
+      }
+      .mobile-cta-bar a {
+        flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+        padding: 12px 8px; border-radius: 12px; font-size: 14px; font-weight: 700;
+        text-decoration: none; color: #fff; white-space: nowrap;
+      }
+      .mobile-cta-bar .cta-call { background: rgba(59, 130, 246, 0.18); border: 1px solid rgba(59, 130, 246, 0.4); color: var(--accent-light); }
+      .mobile-cta-bar .cta-wa { background: #1faa53; }
+      .mobile-cta-bar .cta-plans { background: var(--gradient-accent); }
+      /* Bar replaces the floating WhatsApp button on mobile */
+      .whatsapp-float { display: none; }
+      body { padding-bottom: 68px; }
+    }
 
     /* Mobile Quick Nav */
     .mobile-nav { display: none; position: sticky; top: 49px; z-index: 99; background: rgba(15, 23, 42, 0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 8px 12px; gap: 8px; justify-content: center; }
@@ -1247,7 +1330,21 @@
       <div class="section-label">What Our Customers Say</div>
       <h2 class="section-title">Real Reviews from Real Families</h2>
       <div class="reviews-grid" id="reviewsDisplay">
-        <div style="text-align:center; color:#64748b; grid-column:1/-1; padding:20px;">Loading reviews...</div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-msg">"I'm really satisfied with their laundry service. My clothes came back clean, fresh, and neatly folded. The price is reasonable, and the whole process was easy. I've tried a few laundry services before, but this one is the best so far."</div>
+          <div class="review-author">— Ch Nanaoba</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-msg">"Best in town. Really a good service. Thankful for such a good service. The owner is very friendly. Calls and messages are replied promptly. It's just a reliable service 👍."</div>
+          <div class="review-author">— Karam Tamphasana Khumukcham</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-msg">"Mind blowing service… world class. The best laundry service in our state so far — very cooperative, always ready and delivered on time."</div>
+          <div class="review-author">— EasyWash Customer</div>
+        </div>
       </div>
 
       <div class="review-form-box" id="reviewFormBox">
@@ -1513,6 +1610,8 @@
       var encoded = encodeURIComponent(msg);
       var waFloat = document.querySelector('.whatsapp-float');
       if (waFloat) waFloat.href = 'https://wa.me/916009451743?text=' + encoded;
+      var waBar = document.querySelector('.mobile-cta-bar .cta-wa');
+      if (waBar) waBar.href = 'https://wa.me/916009451743?text=' + encoded;
     }
 
     /* ---- Interactive Calendar ---- */
@@ -1870,20 +1969,19 @@
   }
   pickStar(5); // default 5 stars
 
+  // Reviews are baked into the HTML so they show instantly.
+  // Live reviews from the API replace them only when the fetch succeeds with data.
   function loadApprovedReviews() {
     fetch(REVIEW_API + '/reviews')
       .then(function(r) { return r.json(); })
       .then(function(reviews) {
+        if (!reviews || reviews.length === 0) return; // keep baked-in reviews
         var container = document.getElementById('reviewsDisplay');
-        if (!reviews || reviews.length === 0) {
-          container.innerHTML = '<div style="text-align:center; color:#64748b; grid-column:1/-1; padding:20px;">Be the first to share your experience!</div>';
-          return;
-        }
         container.innerHTML = reviews.map(function(r) {
           var stars = '';
           for (var i = 0; i < 5; i++) stars += i < r.rating ? '★' : '☆';
-          var name = r.name.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-          var msg = r.message.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          var name = String(r.name || 'EasyWash Customer').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          var msg = String(r.message || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
           return '<div class="review-card">' +
             '<div class="review-stars">' + stars + '</div>' +
             '<div class="review-msg">"' + msg + '"</div>' +
@@ -1891,9 +1989,7 @@
           '</div>';
         }).join('');
       })
-      .catch(function() {
-        document.getElementById('reviewsDisplay').innerHTML = '<div style="text-align:center; color:#64748b; grid-column:1/-1; padding:20px;">Be the first to share your experience!</div>';
-      });
+      .catch(function() { /* keep baked-in reviews */ });
   }
   loadApprovedReviews();
 
@@ -1973,6 +2069,70 @@
     reveals.forEach(function(el) { observer.observe(el); });
   })();
   </script>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       Analytics — GA4 + Meta Pixel
+       Nothing loads until you paste your IDs below:
+       • GA4_ID: create at analytics.google.com → Admin → Data Streams (looks like "G-XXXXXXXXXX")
+       • META_PIXEL_ID: business.facebook.com → Events Manager → your Pixel (a number like "1234567890")
+       Once set, key actions (WhatsApp taps, calls, plan clicks, form submits) are tracked automatically.
+       ══════════════════════════════════════════════════════════════ -->
+  <script>
+  (function() {
+    var GA4_ID = '';        // ← paste your GA4 Measurement ID here
+    var META_PIXEL_ID = ''; // ← paste your Meta Pixel ID here
+
+    if (GA4_ID) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function() { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', GA4_ID);
+    }
+
+    if (META_PIXEL_ID) {
+      !function(f,b,e,v,n,t,x){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;x=b.getElementsByTagName(e)[0];x.parentNode.insertBefore(t,x)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', META_PIXEL_ID);
+      fbq('track', 'PageView');
+    }
+
+    // Track key actions — no-ops when analytics aren't configured
+    function track(eventName, params) {
+      if (window.gtag) gtag('event', eventName, params || {});
+      if (window.fbq) fbq('trackCustom', eventName, params || {});
+    }
+    window.ewTrack = track;
+
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest && e.target.closest('a');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('wa.me') !== -1) {
+        track('whatsapp_click', { location: a.className || 'link' });
+        if (window.fbq) fbq('track', 'Contact');
+      } else if (href.indexOf('tel:') === 0) {
+        track('call_click', {});
+        if (window.fbq) fbq('track', 'Contact');
+      } else if (href === '#plans') {
+        track('view_plans_click', {});
+      }
+    });
+  })();
+  </script>
+
+  <!-- Sticky Mobile CTA Bar -->
+  <div class="mobile-cta-bar">
+    <a href="tel:+916009451743" class="cta-call">&#128222; Call</a>
+    <a href="https://wa.me/916009451743?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20services" class="cta-wa">WhatsApp</a>
+    <a href="#plans" class="cta-plans">See Plans</a>
+  </div>
 
   <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/916009451743?text=Hi%2C%20I%20want%20to%20know%20about%20EasyWash%20services" class="whatsapp-float" aria-label="Chat on WhatsApp">
